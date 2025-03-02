@@ -1,0 +1,35 @@
+{
+  "name": "@aniojs/node-my-ts",
+  "version": "0.0.0",
+  "author": "Anio Software <info@anio.software>",
+  "description": "",
+  "license": "MIT",
+  "exports": {
+    ".": {
+      "types": "./dist/default/index.d.mts",
+      "import": "./dist/default/index.mjs"
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aniojs-org/node-my-ts.git"
+  },
+  "type": "module",
+  "devDependencies": {
+    "@fourtune/realm-js": "^1.0.1",
+    "@types/node": "^22.7.7",
+    "fourtune": "^0.30000.0"
+  },
+  "dependencies": {
+    "typescript": "^5.7.2"
+  },
+  "peerDependencies": {
+    "@types/node": ">=22.7.x"
+  },
+  "engines": {
+    "node": ">=22.7.x"
+  },
+  "files": [
+    "./dist/"
+  ]
+}
