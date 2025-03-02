@@ -1,9 +1,26 @@
 import ts from "typescript"
+import path from "node:path"
+import {realpathSync} from "node:fs"
 
 export function readTSConfigFile(
 	projectRoot: string,
 	tsconfigPath: string
 ) {
+	if (!tsconfigPath.startsWith("/")) {
+		tsconfigPath = path.join(projectRoot, tsconfigPath)
+	}
+
+	const resolvedProjectRoot = realpathSync(projectRoot)
+	const resolvedTsConfigPath = realpathSync(tsconfigPath)
+
+	// make sure 'tsconfigPath' is within 'projectRoot':
+	// this also catches non-existing paths to tsconfigPath
+	if (!resolvedTsConfigPath.startsWith(resolvedProjectRoot)) {
+		throw new Error(
+			`tsconfig file must be contained inside the project root.`
+		)
+	}
+
 	// Don't use JSON.parse to parse the config file
 	// because TypeScript configs are allowed to have
 	// comments in them.
