@@ -55,9 +55,6 @@ export function convertFunctionDeclaration(
 	}
 
 	return {
-		_myDeclarationTSNode: fnNode,
-		_myDeclarationType: "FunctionDeclaration",
-
 		name: functionName,
 		typeParameters,
 		parameters,

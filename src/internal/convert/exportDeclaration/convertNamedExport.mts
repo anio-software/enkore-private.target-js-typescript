@@ -36,9 +36,6 @@ export function convertNamedExport(
 		}
 
 		return {
-			_myDeclarationTSNode: exportNode,
-			_myDeclarationType: "ExportDeclaration",
-
 			kind: "named",
 			moduleSpecifier,
 			members,

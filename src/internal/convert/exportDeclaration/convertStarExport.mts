@@ -14,9 +14,6 @@ export function convertStarExport(
 	const moduleSpecifier = exportNode.moduleSpecifier.getText(sourceFile).slice(1, -1)
 
 	return {
-		_myDeclarationTSNode: exportNode,
-		_myDeclarationType: "ExportDeclaration",
-
 		kind: "star",
 		moduleSpecifier,
 		isTypeOnly: exportNode.isTypeOnly

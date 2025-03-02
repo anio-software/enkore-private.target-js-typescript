@@ -12,9 +12,6 @@ export type Parameter = {
 }
 
 export type MyTSFunctionDeclaration = {
-	_myDeclarationType: "FunctionDeclaration"
-	_myDeclarationTSNode: unknown
-
 	name: string|undefined
 	modifiers: string[]
 	parameters: Parameter[]

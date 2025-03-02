@@ -22,9 +22,6 @@ export function convertDefaultImport(
 	}
 
 	return {
-		_myDeclarationTSNode: importNode,
-		_myDeclarationType: "ImportDeclaration",
-
 		kind: "default",
 		moduleSpecifier,
 		identifier: importClause.name!.getText(sourceFile),

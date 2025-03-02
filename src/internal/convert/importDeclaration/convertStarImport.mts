@@ -15,9 +15,6 @@ export function convertStarImport(
 
 	if (importClause.namedBindings && ts.isNamespaceImport(importClause.namedBindings)) {
 		return {
-			_myDeclarationTSNode: importNode,
-			_myDeclarationType: "ImportDeclaration",
-
 			kind: "star",
 			moduleSpecifier,
 			identifier: importClause.namedBindings.name.getText(sourceFile),

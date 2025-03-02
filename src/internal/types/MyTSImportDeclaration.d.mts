@@ -1,9 +1,6 @@
 type Kind = "default" | "named" | "star"
 
 type Import = {
-	_myDeclarationType: "ImportDeclaration"
-	_myDeclarationTSNode: unknown
-
 	kind: Kind
 	moduleSpecifier: string
 	isTypeOnly: boolean

@@ -1,9 +1,6 @@
 type Kind = "named" | "star"
 
 type Export = {
-	_myDeclarationType: "ExportDeclaration"
-	_myDeclarationTSNode: unknown
-
 	kind: Kind
 	isTypeOnly: boolean
 }

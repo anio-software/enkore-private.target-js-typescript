@@ -37,9 +37,6 @@ export function convertNamedImport(
 		}
 
 		return {
-			_myDeclarationTSNode: importNode,
-			_myDeclarationType: "ImportDeclaration",
-
 			kind: "named",
 			moduleSpecifier,
 			isTypeOnly,
