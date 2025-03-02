@@ -7,10 +7,10 @@ export function mapNodes<T>(
 	const result : T[] = []
 
 	function visitor(node: ts.Node) {
-		const mapped_node = map(node)
+		const mappedNode = map(node)
 
-		if (mapped_node !== undefined) {
-			result.push(mapped_node)
+		if (mappedNode !== undefined) {
+			result.push(mappedNode)
 		}
 
 		return ts.visitEachChild(node, visitor, undefined)
