@@ -11,7 +11,8 @@ export function convertNamedExport(
 	if (!exportNode.exportClause) return null
 
 	const sourceFile = exportNode.getSourceFile()
-	const moduleSpecifier = exportNode.moduleSpecifier ? exportNode.moduleSpecifier.getText(sourceFile).slice(1, -1) : undefined
+	const moduleSpecifier = exportNode.moduleSpecifier?.getText(sourceFile).slice(1, -1)
+
 	const exportClause = exportNode.exportClause
 
 	if (ts.isNamedExports(exportClause)) {
