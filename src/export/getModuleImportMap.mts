@@ -11,6 +11,9 @@ export function getModuleImportMap(
 	const importDeclarations = getModuleImportDeclarations(myProgram, filePath)
 
 	for (const importDeclaration of importDeclarations) {
+		//
+		// flatten named imports into multiple single named imports
+		//
 		if (importDeclaration.kind === "named") {
 			for (const member of importDeclaration.members) {
 				map.set(
