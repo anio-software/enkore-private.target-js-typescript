@@ -32,6 +32,7 @@ export function getModuleExports(
 		const resolvedSymbol = symbol.flags & ts.SymbolFlags.Alias ? tsChecker.getAliasedSymbol(symbol) : symbol
 		const symbolType = getSymbolType(resolvedSymbol)
 
+		// todo: log error instead of throwing error
 		if (!resolvedSymbol.declarations) {
 			throw new Error(`declarations is undefined!`)
 		}
