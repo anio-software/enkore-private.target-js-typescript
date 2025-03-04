@@ -25,7 +25,7 @@ export function getModuleTopLevelTypeMap(
 		// is safe to assume every named import in this list
 		// only contains one member
 		topTypes.set(typeName, {
-			name: key,
+			name: typeName,
 			declaration,
 			source: "import",
 			dependsOnTypes: []
