@@ -49,6 +49,7 @@ export function convertMyTSFunctionDeclarationToString(
 			// jsdoc would contain something like "* @param"
 			// (i.e. we would need to add the start /* and end comment */ markers ourselves)
 
+			// indent() is in @aniojs/node-ts-utils repo
 			//if (param.jsdoc.length && options.use_jsdocs) {
 			//	signature += indent(param.jsdoc, 1) + "\n"
 			//}
