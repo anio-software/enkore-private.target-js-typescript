@@ -1,7 +1,7 @@
 import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 
 type Callback = (
-	type: MyTSTopLevelType,
+	node: MyTSTopLevelTypeNode,
 	depth: number
 ) => boolean|void // <-- return type "boolean|undefined" does not work here
 
@@ -14,6 +14,10 @@ export class MyTSTopLevelTypeNode {
 		this.#children = []
 	}
 
+	getType() {
+		return this.#type
+	}
+
 	addChild(node: MyTSTopLevelTypeNode) {
 		this.#children.push(node)
 	}
@@ -21,7 +25,7 @@ export class MyTSTopLevelTypeNode {
 	depthFirstTraversal(callback: Callback, __depth: number = -1) {
 		const currentDepth = __depth + 1
 
-		const recurse = callback(this.#type, currentDepth) !== false
+		const recurse = callback(this, currentDepth) !== false
 
 		if (!recurse) {
 			return
