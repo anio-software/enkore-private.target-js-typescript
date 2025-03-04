@@ -15,16 +15,16 @@ function getSymbolType(symbol: ts.Symbol) {
 export function getModuleExports(
 	myProgram: MyTSProgram,
 	filePath: string
-): MyTSExport[] {
+): Map<string, MyTSExport> {
+	const moduleExports: Map<string, MyTSExport> = new Map()
 	const {tsChecker} = myProgram
 
 	const sourceFile = myProgram.getSourceFile(filePath)
 
 	const moduleSymbol = tsChecker.getSymbolAtLocation(sourceFile)
 
-	if (!moduleSymbol) return []
+	if (!moduleSymbol) return moduleExports
 
-	const moduleExports: MyTSExport[] = []
 	const exportSymbols = tsChecker.getExportsOfModule(moduleSymbol)
 
 	for (const symbol of exportSymbols) {
@@ -48,25 +48,19 @@ export function getModuleExports(
 					declarations.push(declaration)
 				}
 
-				moduleExports.push({
-					kind: "function",
-					identifier,
-					declarations: declarations.map(decl => {
-						return convert(decl)
-					})
-				})
+				moduleExports.set(
+					identifier, {
+						kind: "function",
+						identifier,
+						declarations: declarations.map(convert)
+					}
+				)
 			} break
 
-			case "value": {
-				moduleExports.push({
-					kind: "value",
-					identifier
-				})
-			} break
-
+			case "value":
 			case "type": {
-				moduleExports.push({
-					kind: "type",
+				moduleExports.set(identifier, {
+					kind: symbolType,
 					identifier
 				})
 			} break
