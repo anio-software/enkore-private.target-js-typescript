@@ -1,7 +1,7 @@
 import ts from "typescript"
 
 import type {VirtualProgramFile} from "./VirtualProgramFile.d.mts"
-import type {MyTSProgram} from "./MyTSProgram.d.mts"
+import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/internal/types/MyTSProgram.d.mts"
 
 export function createProgram(
 	projectRoot: string,
@@ -59,6 +59,10 @@ export function createProgram(
 
 		const tsChecker = tsProgram.getTypeChecker()
 
+		const internal: MyTSProgramInternal = {
+			cachedModules: new Map()
+		}
+
 		return {
 			projectRoot,
 			tsProgram,
@@ -73,7 +77,8 @@ export function createProgram(
 				}
 
 				return sourceFile
-			}
+			},
+			__internal: internal
 		}
 	} finally {
 		process.chdir(savedCWD)
