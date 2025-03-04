@@ -1,6 +1,9 @@
 import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 
-type Callback = (type: MyTSTopLevelType, depth: number) => undefined
+type Callback = (
+	type: MyTSTopLevelType,
+	depth: number
+) => undefined
 
 export class MyTSTopLevelTypeNode {
 	#type: MyTSTopLevelType
