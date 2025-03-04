@@ -8,7 +8,7 @@ import {filterNodes} from "#~src/internal/utils/filterNodes.mts"
 import {convertTSTypeAliasDeclarationToString} from "#~src/internal/utils/convertTSTypeAliasDeclarationToString.mts"
 import {getTypeNamesReferencedInTSNode} from "#~src/internal/utils/getTypeNamesReferencedInTSNode.mts"
 
-export function getModuleTopLevelTypes(
+export function getModuleTopLevelTypeMap(
 	myProgram: MyTSProgram,
 	filePath: string
 ): Map<string, MyTSTopLevelType> {
