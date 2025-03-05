@@ -4,9 +4,9 @@ import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 
 import {convertMyTSImportDeclarationToString} from "#~src/export/convertMyTSImportDeclarationToString.mts"
 import {getModuleImportMap} from "./getModuleImportMap.mts"
-import {filterNodes} from "#~src/internal/utils/filterNodes.mts"
-import {convertTSTypeAliasDeclarationToString} from "#~src/internal/utils/convertTSTypeAliasDeclarationToString.mts"
-import {getTypeNamesReferencedInTSNode} from "#~src/internal/utils/getTypeNamesReferencedInTSNode.mts"
+import {filterNodes} from "./utils/filterNodes.mts"
+import {convertTSTypeAliasDeclarationToString} from "./utils/convertTSTypeAliasDeclarationToString.mts"
+import {getTypeNamesReferencedInTSNode} from "./utils/getTypeNamesReferencedInTSNode.mts"
 
 export function getModuleTopLevelTypeMap(
 	myProgram: MyTSProgram,
