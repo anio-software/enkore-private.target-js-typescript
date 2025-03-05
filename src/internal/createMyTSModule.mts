@@ -13,6 +13,7 @@ export function createMyTSModule(
 
 	return {
 		filePath,
+		program: myProgram,
 		moduleExports,
 		rootTopLevelTypeNode
 	}

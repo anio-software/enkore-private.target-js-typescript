@@ -1,9 +1,11 @@
+import type {MyTSProgram} from "./MyTSProgram.d.mts"
 import type {MyTSExport} from "./MyTSExport.d.mts"
 import type {MyTSTopLevelTypeNode} from "#~src/internal/MyTSTopLevelTypeNode.mts"
 
 export type MyTSModule = {
 	filePath: string
 
+	readonly program: MyTSProgram
 	readonly moduleExports: Map<string, MyTSExport>
 
 	//
