@@ -2,6 +2,7 @@ import ts from "typescript"
 
 import type {VirtualProgramFile} from "./VirtualProgramFile.d.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/internal/types/MyTSProgram.d.mts"
+import {createMyTSModule} from "#~src/internal/createMyTSModule.mts"
 
 export function createProgram(
 	projectRoot: string,
@@ -78,6 +79,18 @@ export function createProgram(
 				}
 
 				return sourceFile
+			},
+			getModule(filePath) {
+				// todo: normalize path
+				if (internal.cachedModules.has(filePath)) {
+					return internal.cachedModules.get(filePath)!
+				}
+
+				const mod = createMyTSModule(internal.__self, filePath)
+
+				internal.cachedModules.set(filePath, mod)
+
+				return mod
 			},
 			__internal: internal
 		}

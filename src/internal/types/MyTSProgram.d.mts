@@ -13,6 +13,7 @@ export type MyTSProgram = {
 	tsProgram: ts.Program
 	tsChecker: ts.TypeChecker
 	getSourceFile: (filePath: string) => ts.SourceFile
+	getModule: (filePath: string) => MyTSModule
 
 	__internal: unknown
 }
