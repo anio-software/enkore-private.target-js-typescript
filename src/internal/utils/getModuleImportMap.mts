@@ -1,6 +1,6 @@
-import type {MyTSProgram} from "./MyTSProgram.d.mts"
-import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.d.mts"
-import {getModuleImportDeclarations} from "./getModuleImportDeclarations.mts"
+import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
+import type {MyTSImportDeclaration} from "#~src/export/MyTSImportDeclaration.d.mts"
+import {getModuleImportDeclarations} from "#~src/export/getModuleImportDeclarations.mts"
 
 export function getModuleImportMap(
 	myProgram: MyTSProgram,
