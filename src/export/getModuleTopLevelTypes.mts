@@ -8,6 +8,11 @@ function buildTree(
 	startType: string,
 	rootNode: MyTSTopLevelTypeNode
 ) {
+	// todo: log warning
+	if (!topLevelTypes.has(startType)) {
+		return rootNode
+	}
+
 	const typeToAdd = topLevelTypes.get(startType)!
 	const currentNode = rootNode ?? new MyTSTopLevelTypeNode(typeToAdd)
 
