@@ -13,6 +13,7 @@ function transformerFactory(mapper: Mapper) {
 	return function transformer(context: ts.TransformationContext) {
 		return (rootNode: ts.Node) => {
 			const visit = (node: ts.Node) : ts.Node => {
+				// todo rename variable
 				const newNode = ts.visitEachChild(node, visit, context)
 
 				if (!ts.isImportDeclaration(newNode) &&
