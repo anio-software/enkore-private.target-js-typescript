@@ -1,5 +1,7 @@
 import type {MyTSModule} from "./MyTSModule.d.mts"
-import {getModuleImportAndExportSpecifiers as impl} from "#~src/internal/getModuleImportAndExportSpecifiers.mts"
+import {
+	getModuleImportAndExportSpecifiers as impl
+} from "#~src/internal/getModuleImportAndExportSpecifiers.mts"
 
 export function getModuleImportAndExportSpecifiers(
 	mod: MyTSModule
