@@ -22,9 +22,9 @@ function transformerFactory(mapper: Mapper) {
 
 				if (!newNode.moduleSpecifier) return newNode
 
-				if (ts.isImportDeclaration(newNode)) {
-					const newImportSpecifier = mapper(convert(newNode))
+				const newImportSpecifier = mapper(convert(newNode))
 
+				if (ts.isImportDeclaration(newNode)) {
 					return context.factory.createImportDeclaration(
 						newNode.modifiers,
 						newNode.importClause,
@@ -32,8 +32,6 @@ function transformerFactory(mapper: Mapper) {
 						newNode.attributes
 					)
 				}
-
-				const newImportSpecifier = mapper(convert(newNode))
 
 				return context.factory.createExportDeclaration(
 					newNode.modifiers,
