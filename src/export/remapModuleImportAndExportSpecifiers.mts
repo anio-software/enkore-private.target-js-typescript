@@ -7,7 +7,7 @@ import {convert} from "./convert.mts"
 
 type Mapper = (
 	declaration: MyTSImportDeclaration|MyTSExportDeclaration
-) => string
+) => string|undefined
 
 function transformerFactory(mapper: Mapper) {
 	return function transformer(context: ts.TransformationContext) {
@@ -22,7 +22,11 @@ function transformerFactory(mapper: Mapper) {
 
 				if (!newNode.moduleSpecifier) return newNode
 
-				const newImportSpecifier = mapper(convert(newNode))
+				const defaultImportSpecifier = newNode.moduleSpecifier.getText(
+					newNode.getSourceFile()
+				).slice(1, -1)
+
+				const newImportSpecifier = mapper(convert(newNode)) ?? defaultImportSpecifier
 
 				if (ts.isImportDeclaration(newNode)) {
 					return context.factory.createImportDeclaration(
