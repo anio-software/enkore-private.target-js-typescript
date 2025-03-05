@@ -15,6 +15,13 @@ function transformerFactory(mapper: Mapper) {
 			const visit = (node: ts.Node) : ts.Node => {
 				const newNode = ts.visitEachChild(node, visit, context)
 
+				if (!ts.isImportDeclaration(newNode) &&
+					!ts.isExportDeclaration(newNode)) {
+					return newNode
+				}
+
+				if (!newNode.moduleSpecifier) return newNode
+
 				if (ts.isImportDeclaration(newNode)) {
 					const newImportSpecifier = mapper(convert(newNode))
 
@@ -24,19 +31,17 @@ function transformerFactory(mapper: Mapper) {
 						ts.factory.createStringLiteral(newImportSpecifier),
 						newNode.attributes
 					)
-				} else if (ts.isExportDeclaration(newNode) && newNode.moduleSpecifier) {
-					const newImportSpecifier = mapper(convert(newNode))
-
-					return context.factory.createExportDeclaration(
-						newNode.modifiers,
-						newNode.isTypeOnly,
-						newNode.exportClause,
-						ts.factory.createStringLiteral(newImportSpecifier),
-						newNode.attributes
-					)
 				}
 
-				return newNode
+				const newImportSpecifier = mapper(convert(newNode))
+
+				return context.factory.createExportDeclaration(
+					newNode.modifiers,
+					newNode.isTypeOnly,
+					newNode.exportClause,
+					ts.factory.createStringLiteral(newImportSpecifier),
+					newNode.attributes
+				)
 			}
 
 			return ts.visitNode(rootNode, visit)
