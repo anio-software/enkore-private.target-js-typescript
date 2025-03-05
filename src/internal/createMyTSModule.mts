@@ -2,7 +2,7 @@ import type {MyTSModule} from "#~src/export/MyTSModule.d.mts"
 import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
 
 import {getModuleExports} from "#~src/export/getModuleExports.mts"
-import {getModuleTopLevelTypes} from "#~src/export/getModuleTopLevelTypes.mts"
+import {getModuleTopLevelTypes} from "./utils/getModuleTopLevelTypes.mts"
 
 export function createMyTSModule(
 	myProgram: MyTSProgram,
