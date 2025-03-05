@@ -32,7 +32,7 @@ export function getModuleTopLevelTypes(
 	// safe to use here because a type name cannot have parentheses 
 	const syntheticMainTypeName = "main()"
 
-	map.set(syntheticMainTypeName, {
+	const syntheticMainType: MyTSTopLevelType = {
 		declaration: "",
 		// main type depends on **all** defined types
 		dependsOnTypes: [
@@ -40,7 +40,9 @@ export function getModuleTopLevelTypes(
 		].map(([key]) => key),
 		name: syntheticMainTypeName,
 		source: "module"
-	})
+	}
+
+	map.set(syntheticMainTypeName, syntheticMainType)
 
 	return buildTree(
 		map,
