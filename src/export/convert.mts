@@ -11,6 +11,10 @@ function convert(node: ts.ImportDeclaration): MyTSImportDeclaration;
 function convert(node: ts.ExportDeclaration): MyTSExportDeclaration;
 function convert(node: ts.FunctionDeclaration): MyTSFunctionDeclaration;
 
+function convert(
+	node: ts.ImportDeclaration|ts.ExportDeclaration
+): MyTSImportDeclaration|MyTSExportDeclaration;
+
 function convert(node: ts.Node): unknown {
 	if (ts.isImportDeclaration(node)) {
 		return convertImportDeclaration(node)
