@@ -53,7 +53,9 @@ export function getModuleExports(
 					identifier, {
 						kind: "function",
 						identifier,
-						declarations: declarations.map(convert)
+						declarations: declarations.map(decl => {
+							return convert(decl)
+						})
 					}
 				)
 			} break
