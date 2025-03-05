@@ -1,7 +1,7 @@
 import ts from "typescript"
 
-import type {MyTSProgram} from "./MyTSProgram.d.mts"
-import type {MyTSExport} from "./MyTSExport.d.mts"
+import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
+import type {MyTSExport} from "#~src/export/MyTSExport.d.mts"
 import {convert} from "#~src/export/convert.mts"
 
 function getSymbolType(symbol: ts.Symbol) {

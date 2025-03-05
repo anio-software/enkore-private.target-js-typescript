@@ -1,7 +1,7 @@
 import type {MyTSModule} from "#~src/export/MyTSModule.d.mts"
 import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
 
-import {getModuleExports} from "#~src/export/getModuleExports.mts"
+import {getModuleExports} from "./getModuleExports.mts"
 import {getModuleTopLevelTypes} from "./getModuleTopLevelTypes.mts"
 import {getModuleImportMap} from "./getModuleImportMap.mts"
 
