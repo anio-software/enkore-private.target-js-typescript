@@ -42,5 +42,9 @@ export function getModuleTopLevelTypes(
 		source: "module"
 	})
 
-	return buildTree(map, syntheticMainTypeName, null)
+	return buildTree(
+		map,
+		syntheticMainTypeName,
+		null
+	)
 }
