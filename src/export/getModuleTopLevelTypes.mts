@@ -6,7 +6,7 @@ import {getModuleTopLevelTypeMap} from "./getModuleTopLevelTypeMap.mts"
 function buildTree(
 	topLevelTypes: Map<string, MyTSTopLevelType>,
 	startType: string,
-	rootNode: MyTSTopLevelTypeNode|null = null
+	rootNode: MyTSTopLevelTypeNode
 ) {
 	const typeToAdd = topLevelTypes.get(startType)!
 	const currentNode = rootNode ?? new MyTSTopLevelTypeNode(typeToAdd)
@@ -47,6 +47,6 @@ export function getModuleTopLevelTypes(
 	return buildTree(
 		map,
 		syntheticMainTypeName,
-		null
+		new MyTSTopLevelTypeNode(syntheticMainType)
 	)
 }
