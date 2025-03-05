@@ -4,7 +4,7 @@ import type {MyTSTopLevelTypeNode} from "#~src/internal/MyTSTopLevelTypeNode.mts
 import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.d.mts"
 
 export type MyTSModule = {
-	filePath: string
+	readonly filePath: string
 
 	readonly program: MyTSProgram
 
