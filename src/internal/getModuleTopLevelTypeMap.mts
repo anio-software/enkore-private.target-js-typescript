@@ -3,7 +3,7 @@ import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
 import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 
 import {convertMyTSImportDeclarationToString} from "#~src/export/convertMyTSImportDeclarationToString.mts"
-import {getModuleImportMap} from "#~src/internal/utils/getModuleImportMap.mts"
+import {getModuleImportMap} from "./getModuleImportMap.mts"
 import {filterNodes} from "#~src/internal/utils/filterNodes.mts"
 import {convertTSTypeAliasDeclarationToString} from "#~src/internal/utils/convertTSTypeAliasDeclarationToString.mts"
 import {getTypeNamesReferencedInTSNode} from "#~src/internal/utils/getTypeNamesReferencedInTSNode.mts"

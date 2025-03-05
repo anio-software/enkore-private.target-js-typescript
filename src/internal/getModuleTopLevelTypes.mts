@@ -1,7 +1,7 @@
 import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
 import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 import {MyTSTopLevelTypeNode} from "#~src/internal/MyTSTopLevelTypeNode.mts"
-import {getModuleTopLevelTypeMap} from "#~src/internal/utils/getModuleTopLevelTypeMap.mts"
+import {getModuleTopLevelTypeMap} from "./getModuleTopLevelTypeMap.mts"
 
 function buildTree(
 	topLevelTypes: Map<string, MyTSTopLevelType>,
