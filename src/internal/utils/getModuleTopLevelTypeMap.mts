@@ -1,8 +1,8 @@
 import ts from "typescript"
-import type {MyTSProgram} from "./MyTSProgram.d.mts"
-import type {MyTSTopLevelType} from "./MyTSTopLevelType.d.mts"
+import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
+import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 
-import {convertMyTSImportDeclarationToString} from "./convertMyTSImportDeclarationToString.mts"
+import {convertMyTSImportDeclarationToString} from "#~src/export/convertMyTSImportDeclarationToString.mts"
 import {getModuleImportMap} from "#~src/internal/utils/getModuleImportMap.mts"
 import {filterNodes} from "#~src/internal/utils/filterNodes.mts"
 import {convertTSTypeAliasDeclarationToString} from "#~src/internal/utils/convertTSTypeAliasDeclarationToString.mts"
