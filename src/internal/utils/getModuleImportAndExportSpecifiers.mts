@@ -1,7 +1,7 @@
 import ts from "typescript"
 
-import type {MyTSProgram} from "./MyTSProgram.d.mts"
-import {convert} from "./convert.mts"
+import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
+import {convert} from "#~src/export/convert.mts"
 import {filterNodes} from "#~src/internal/utils/filterNodes.mts"
 
 export function getModuleImportAndExportSpecifiers(
