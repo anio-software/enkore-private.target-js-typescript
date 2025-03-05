@@ -1,9 +1,9 @@
 import ts from "typescript"
 
-import type {MyTSProgram} from "./MyTSProgram.d.mts"
-import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.d.mts"
-import type {MyTSExportDeclaration} from "./MyTSExportDeclaration.d.mts"
-import {convert} from "./convert.mts"
+import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
+import type {MyTSImportDeclaration} from "#~src/export/MyTSImportDeclaration.d.mts"
+import type {MyTSExportDeclaration} from "#~src/export/MyTSExportDeclaration.d.mts"
+import {convert} from "#~src/export/convert.mts"
 
 type Mapper = (
 	declaration: MyTSImportDeclaration|MyTSExportDeclaration
