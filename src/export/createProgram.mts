@@ -60,10 +60,11 @@ export function createProgram(
 		const tsChecker = tsProgram.getTypeChecker()
 
 		const internal: MyTSProgramInternal = {
-			cachedModules: new Map()
+			cachedModules: new Map(),
+			__self: {} as MyTSProgram
 		}
 
-		return {
+		const myProgram: MyTSProgram = {
 			projectRoot,
 			tsProgram,
 			tsChecker,
@@ -80,6 +81,10 @@ export function createProgram(
 			},
 			__internal: internal
 		}
+
+		internal.__self = myProgram
+
+		return myProgram
 	} finally {
 		process.chdir(savedCWD)
 	}

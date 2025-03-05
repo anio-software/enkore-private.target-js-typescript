@@ -3,6 +3,7 @@ import type {MyTSModule} from "#~src/export/MyTSModule.d.mts"
 
 export type Internal = {
 	cachedModules: Map<string, MyTSModule>
+	__self: MyTSProgram
 }
 
 export type MyTSProgram = {
