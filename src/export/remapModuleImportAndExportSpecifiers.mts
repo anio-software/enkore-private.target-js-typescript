@@ -26,7 +26,9 @@ function transformerFactory(mapper: Mapper) {
 					newNode.getSourceFile()
 				).slice(1, -1)
 
-				const newImportSpecifier = mapper(convert(newNode)) ?? defaultImportSpecifier
+				const newImportSpecifier = mapper(
+					convert(newNode)
+				) ?? defaultImportSpecifier
 
 				if (ts.isImportDeclaration(newNode)) {
 					return context.factory.createImportDeclaration(
