@@ -5,7 +5,7 @@ import type {MyTSImportDeclaration} from "#~src/export/MyTSImportDeclaration.d.m
 import type {MyTSExportDeclaration} from "#~src/export/MyTSExportDeclaration.d.mts"
 import {convert} from "#~src/export/convert.mts"
 
-type Mapper = (
+export type Mapper = (
 	declaration: MyTSImportDeclaration|MyTSExportDeclaration
 ) => string|undefined
 
