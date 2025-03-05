@@ -17,7 +17,7 @@ function transformerFactory(mapper: Mapper) {
 				const newNode = ts.visitEachChild(node, visit, context)
 
 				if (!ts.isImportDeclaration(newNode) &&
-					!ts.isExportDeclaration(newNode)) {
+				    !ts.isExportDeclaration(newNode)) {
 					return newNode
 				}
 
