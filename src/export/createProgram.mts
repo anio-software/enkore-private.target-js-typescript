@@ -29,7 +29,6 @@ export function createProgram(
 		const inputFilePaths: string[] = []
 		const virtualFiles: Map<string, string> = new Map()
 
-		// todo: maybe check that every file on disk is inside the project root path?
 		for (const entry of input) {
 			if (typeof entry === "string") {
 				let entryPath = entry
