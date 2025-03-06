@@ -2,11 +2,14 @@ import ts from "typescript"
 
 import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
 import type {MyTSProgram} from "./MyTSProgram.d.mts"
+import {createProgram} from "./createProgram.mts"
+import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 
 export function emit(myProgram: MyTSProgram): {
 	emitSkipped: boolean
 	diagnosticMessages: MyTSDiagnosticMessage[]
 	emittedFiles: Map<string, string>
+	newProgram: MyTSProgram
 } {
 	const {projectRoot, tsCompilerHost, tsProgram} = myProgram
 
@@ -45,10 +48,21 @@ export function emit(myProgram: MyTSProgram): {
 			}
 		}
 
+		const newProgram = createProgram(
+			myProgram.projectRoot, [
+				...emittedFiles.entries()
+			].map(([filePath, contents]) => {
+				return defineVirtualProgramFile(
+					filePath, contents
+				)
+			}), myProgram.tsCompilerOptions
+		)
+
 		return {
 			emitSkipped: result.emitSkipped,
 			diagnosticMessages,
-			emittedFiles
+			emittedFiles,
+			newProgram
 		}
 	} finally {
 		tsCompilerHost.writeFile = savedCompilerHostWriteFile
