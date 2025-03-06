@@ -1,6 +1,6 @@
 import ts from "typescript"
 import path from "node:path"
-import {realpathSync} from "node:fs"
+import {resolvePathSync} from "@aniojs/node-fs"
 
 export function readTSConfigFile(
 	projectRoot: string,
@@ -10,8 +10,8 @@ export function readTSConfigFile(
 		tsconfigPath = path.join(projectRoot, tsconfigPath)
 	}
 
-	const resolvedProjectRoot = realpathSync(projectRoot)
-	const resolvedTsConfigPath = realpathSync(tsconfigPath)
+	const resolvedProjectRoot = resolvePathSync(projectRoot, ["regularDir"])
+	const resolvedTsConfigPath = resolvePathSync(tsconfigPath, ["regularFile"])
 
 	// make sure 'tsconfigPath' is within 'projectRoot':
 	// this also catches non-existing paths to tsconfigPath

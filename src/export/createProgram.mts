@@ -3,7 +3,7 @@ import ts from "typescript"
 import type {VirtualProgramFile} from "./VirtualProgramFile.d.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/internal/types/MyTSProgram.d.mts"
 import {createMyTSModule} from "#~src/internal/createMyTSModule.mts"
-import {realpathSync} from "node:fs"
+import {resolvePathSync} from "@aniojs/node-fs"
 import path from "node:path"
 
 export function createProgram(
@@ -11,7 +11,7 @@ export function createProgram(
 	input: (string|VirtualProgramFile)[],
 	tsCompilerOptions: ts.CompilerOptions
 ): MyTSProgram {
-	const projectRoot = realpathSync(userProjectRoot)
+	const projectRoot = resolvePathSync(userProjectRoot, ["regularDir"])
 
 	//
 	// all input paths are relative to the project root
@@ -35,8 +35,8 @@ export function createProgram(
 				let entryPath = entry
 
 				if (!entryPath.startsWith("/")) {
-					entryPath = realpathSync(
-						path.join(projectRoot, entryPath)
+					entryPath = resolvePathSync(
+						path.join(projectRoot, entryPath), ["regularFile"]
 					)
 				} else if (!entryPath.startsWith(projectRoot)) {
 					throw new Error(
