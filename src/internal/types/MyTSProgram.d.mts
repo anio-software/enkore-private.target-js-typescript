@@ -15,5 +15,8 @@ export type MyTSProgram = {
 	getSourceFile: (filePath: string) => ts.SourceFile
 	getModule: (filePath: string) => MyTSModule
 
+	getVirtualSourceFile: (virtualFilePath: string) => ts.SourceFile
+	getVirtualModule: (virtualFilePath: string) => MyTSModule
+
 	__internal: unknown
 }

@@ -4,6 +4,7 @@ import type {VirtualProgramFile} from "./VirtualProgramFile.d.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/internal/types/MyTSProgram.d.mts"
 import {createMyTSModule} from "#~src/internal/createMyTSModule.mts"
 import {resolvePathSync} from "@aniojs/node-fs"
+import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 import path from "node:path"
 
 export function createProgram(
@@ -96,6 +97,11 @@ export function createProgram(
 
 				return sourceFile
 			},
+			getVirtualSourceFile(virtualFilePath) {
+				const vFile = defineVirtualProgramFile(virtualFilePath, "")
+
+				return internal.__self.getSourceFile(vFile.path)
+			},
 			getModule(filePath) {
 				// todo: normalize path
 				if (internal.cachedModules.has(filePath)) {
@@ -107,6 +113,11 @@ export function createProgram(
 				internal.cachedModules.set(filePath, mod)
 
 				return mod
+			},
+			getVirtualModule(virtualFilePath) {
+				const vFile = defineVirtualProgramFile(virtualFilePath, "")
+
+				return internal.__self.getModule(vFile.path)
 			},
 			__internal: internal
 		}
