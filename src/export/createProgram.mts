@@ -30,8 +30,8 @@ export function createProgram(
 
 		// todo: maybe check that every file on disk is inside the project root path?
 		for (const entry of input) {
-			if (Object.prototype.toString.call(entry) === "[object String]") {
-				inputFilePaths.push(entry as string)
+			if (typeof entry === "string") {
+				inputFilePaths.push(entry)
 
 				continue
 			}
