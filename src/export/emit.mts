@@ -8,7 +8,7 @@ export function emit(myProgram: MyTSProgram): {
 	diagnosticMessages: MyTSDiagnosticMessage[]
 	emittedFiles: Map<string, string>
 } {
-	const {tsCompilerHost, tsProgram} = myProgram
+	const {projectRoot, tsCompilerHost, tsProgram} = myProgram
 
 	const emittedFiles: Map<string, string> = new Map()
 	const savedCompilerHostWriteFile = tsCompilerHost.writeFile
@@ -16,7 +16,11 @@ export function emit(myProgram: MyTSProgram): {
 
 	try {
 		tsCompilerHost.writeFile = (filePath, contents) => {
-			emittedFiles.set(filePath, contents)
+			// we know "projectRoot" ends with a slash (/) because
+			// of how @aniojs/node-fs resolvePath works.
+			if (!filePath.startsWith(projectRoot)) return
+
+			emittedFiles.set(filePath.slice(projectRoot.length), contents)
 		}
 
 		process.chdir(myProgram.projectRoot)
