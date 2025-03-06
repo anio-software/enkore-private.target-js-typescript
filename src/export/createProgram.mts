@@ -3,12 +3,15 @@ import ts from "typescript"
 import type {VirtualProgramFile} from "./VirtualProgramFile.d.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/internal/types/MyTSProgram.d.mts"
 import {createMyTSModule} from "#~src/internal/createMyTSModule.mts"
+import {realpathSync} from "node:fs"
 
 export function createProgram(
-	projectRoot: string,
+	userProjectRoot: string,
 	input: (string|VirtualProgramFile)[],
 	tsCompilerOptions: ts.CompilerOptions
 ): MyTSProgram {
+	const projectRoot = realpathSync(userProjectRoot)
+
 	//
 	// all input paths are relative to the project root
 	// in order for typescript to correctly pick them up
