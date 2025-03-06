@@ -4,6 +4,7 @@ import type {VirtualProgramFile} from "./VirtualProgramFile.d.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/internal/types/MyTSProgram.d.mts"
 import {createMyTSModule} from "#~src/internal/createMyTSModule.mts"
 import {realpathSync} from "node:fs"
+import path from "node:path"
 
 export function createProgram(
 	userProjectRoot: string,
@@ -31,7 +32,19 @@ export function createProgram(
 		// todo: maybe check that every file on disk is inside the project root path?
 		for (const entry of input) {
 			if (typeof entry === "string") {
-				inputFilePaths.push(entry)
+				let entryPath = entry
+
+				if (!entryPath.startsWith("/")) {
+					entryPath = realpathSync(
+						path.join(projectRoot, entryPath)
+					)
+				} else if (!entryPath.startsWith(projectRoot)) {
+					throw new Error(
+						`Input file must be located within the provided project root.`
+					)
+				}
+
+				inputFilePaths.push(entryPath)
 
 				continue
 			}
