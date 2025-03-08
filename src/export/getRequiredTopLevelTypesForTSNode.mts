@@ -1,7 +1,7 @@
 import ts from "typescript"
 import type {MyTSModule} from "./MyTSModule.d.mts"
 import {MyTSTopLevelTypeNode} from "#~src/internal/MyTSTopLevelTypeNode.mts"
-import {getTypeNamesReferencedInTSNode} from "#~src/internal/utils/getTypeNamesReferencedInTSNode.mts"
+import {getTypeNamesReferencedInNode} from "@aniojs/node-ts-utils"
 
 function findTopLevelTypeNodeByName(
 	rootNode: MyTSTopLevelTypeNode,
@@ -25,8 +25,8 @@ export function getRequiredTopLevelTypesForTSNode(
 	mod: MyTSModule,
 	node: ts.Node
 ): MyTSTopLevelTypeNode {
-	const typeNamesReferenced = getTypeNamesReferencedInTSNode(
-		mod.program, node
+	const typeNamesReferenced = getTypeNamesReferencedInNode(
+		mod.program.tsChecker, node
 	)
 
 	const topNode = new MyTSTopLevelTypeNode({

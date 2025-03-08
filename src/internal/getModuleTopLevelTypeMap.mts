@@ -6,7 +6,7 @@ import {convertMyTSImportDeclarationToString} from "#~src/export/convertMyTSImpo
 import {getModuleImportMap} from "./getModuleImportMap.mts"
 import {filterNodes} from "./utils/filterNodes.mts"
 import {convertTypeAliasDeclarationToString} from "@aniojs/node-ts-utils"
-import {getTypeNamesReferencedInTSNode} from "./utils/getTypeNamesReferencedInTSNode.mts"
+import {getTypeNamesReferencedInNode} from "@aniojs/node-ts-utils"
 
 export function getModuleTopLevelTypeMap(
 	myProgram: MyTSProgram,
@@ -44,8 +44,8 @@ export function getModuleTopLevelTypeMap(
 
 		const typeName = typeDeclaration.name.getText(sourceFile)
 
-		const dependsOnTypes = getTypeNamesReferencedInTSNode(
-			myProgram, typeDeclaration
+		const dependsOnTypes = getTypeNamesReferencedInNode(
+			myProgram.tsChecker, typeDeclaration
 		)
 		//
 		// handle the case where the type references itself
