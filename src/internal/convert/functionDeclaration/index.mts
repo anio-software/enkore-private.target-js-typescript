@@ -6,7 +6,7 @@ import type {
 	MyTSFunctionDeclaration
 } from "#~src/internal/types/MyTSFunctionDeclaration.d.mts"
 
-import {getJSDocAsStringFromNode} from "#~src/internal/utils/getJSDocAsStringFromNode.mts"
+import {getJSDocAsStringFromNode} from "@aniojs/node-ts-utils"
 
 export function convertFunctionDeclaration(
 	fnNode: ts.FunctionDeclaration
