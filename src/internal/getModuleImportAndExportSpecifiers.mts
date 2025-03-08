@@ -2,7 +2,7 @@ import ts from "typescript"
 
 import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
 import {convert} from "#~src/export/convert.mts"
-import {filterNodes} from "./utils/filterNodes.mts"
+import {filterNodes} from "@aniojs/node-ts-utils"
 
 export function getModuleImportAndExportSpecifiers(
 	myProgram: MyTSProgram,

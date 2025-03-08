@@ -4,7 +4,7 @@ import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 
 import {convertMyTSImportDeclarationToString} from "#~src/export/convertMyTSImportDeclarationToString.mts"
 import {getModuleImportMap} from "./getModuleImportMap.mts"
-import {filterNodes} from "./utils/filterNodes.mts"
+import {filterNodes} from "@aniojs/node-ts-utils"
 import {convertTypeAliasDeclarationToString} from "@aniojs/node-ts-utils"
 import {getTypeNamesReferencedInNode} from "@aniojs/node-ts-utils"
 

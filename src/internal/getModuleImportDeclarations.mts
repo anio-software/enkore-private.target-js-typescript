@@ -3,7 +3,7 @@ import ts from "typescript"
 import type {MyTSProgram} from "#~src/export/MyTSProgram.d.mts"
 import type {MyTSImportDeclaration} from "#~src/export/MyTSImportDeclaration.d.mts"
 
-import {filterNodes} from "#~src/internal/utils/filterNodes.mts"
+import {filterNodes} from "@aniojs/node-ts-utils"
 import {convert} from "#~src/export/convert.mts"
 
 export function getModuleImportDeclarations(
