@@ -5,7 +5,7 @@ import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.d.mts"
 import {convertMyTSImportDeclarationToString} from "#~src/export/convertMyTSImportDeclarationToString.mts"
 import {getModuleImportMap} from "./getModuleImportMap.mts"
 import {filterNodes} from "./utils/filterNodes.mts"
-import {convertTSTypeAliasDeclarationToString} from "./utils/convertTSTypeAliasDeclarationToString.mts"
+import {convertTypeAliasDeclarationToString} from "@aniojs/node-ts-utils"
 import {getTypeNamesReferencedInTSNode} from "./utils/getTypeNamesReferencedInTSNode.mts"
 
 export function getModuleTopLevelTypeMap(
@@ -54,7 +54,7 @@ export function getModuleTopLevelTypeMap(
 
 		topTypes.set(typeName, {
 			name: typeName,
-			declaration: convertTSTypeAliasDeclarationToString(
+			declaration: convertTypeAliasDeclarationToString(
 				typeDeclaration
 			),
 			source: "module",
