@@ -1,5 +1,6 @@
 export type TypeParameter = {
 	name: string
+	// todo: maybe add "expression", "constraint" and "default" fields
 	definition: string
 }
 
