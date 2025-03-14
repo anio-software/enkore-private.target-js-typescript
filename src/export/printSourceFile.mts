@@ -1,15 +1,9 @@
-import type {
-	MyTSSourceFile,
-	Internal as MyTSSourceFileInternal
-} from "#~src/types/MyTSSourceFile.d.mts"
+import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.d.mts"
+import {getTSSourceFile} from "#~src/getTSSourceFile.mts"
 import {printNode} from "@aniojs/node-ts-utils"
 
 export function printSourceFile(
 	source: MyTSSourceFile
 ): string {
-	const sourceInternal = source.__internal as MyTSSourceFileInternal
-
-	return printNode(
-		sourceInternal.sourceFile
-	)
+	return printNode(getTSSourceFile(source))
 }
