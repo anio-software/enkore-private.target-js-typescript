@@ -91,11 +91,6 @@ export function createProgram(
 
 				return sourceFile
 			},
-			getVirtualSourceFile(virtualFilePath) {
-				return internal.getSourceFile(
-					defineVirtualProgramFile(virtualFilePath, "").path
-				)
-			},
 			__self: {} as MyTSProgram
 		}
 

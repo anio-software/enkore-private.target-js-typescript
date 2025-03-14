@@ -10,7 +10,6 @@ export type Internal = {
 	tsChecker: ts.TypeChecker
 
 	getSourceFile: (filePath: string) => ts.SourceFile
-	getVirtualSourceFile: (virtualFilePath: string) => ts.SourceFile
 
 	__self: MyTSProgram
 }
