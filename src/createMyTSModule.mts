@@ -3,8 +3,8 @@ import type {MyTSModule} from "./types/MyTSModule.d.mts"
 import type {MyTSSourceFile} from "./types/MyTSSourceFile.d.mts"
 import {createMyTSSourceFile} from "./createMyTSSourceFile.mts"
 import {getMyTSProgramInternals} from "./getMyTSProgramInternals.mts"
-import {_getModuleExports} from "./_getModuleExports.mts"
-import {_getModuleImportMap} from "./_getModuleImportMap.mts"
+import {_getModuleExports} from "./moduleInit/_getModuleExports.mts"
+import {_getModuleImportMap} from "./moduleInit/_getModuleImportMap.mts"
 
 export function createMyTSModule(
 	myProgram: MyTSProgram,
