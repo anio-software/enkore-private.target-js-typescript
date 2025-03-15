@@ -1,10 +1,10 @@
 import type {Nodes} from "#~src/types/node/Map.d.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import type {MyTSTopLevelTypeDescriptor} from "./MyTSTopLevelTypeDescriptor.d.mts"
+import type {MyTSTopLevelType} from "./MyTSTopLevelType.d.mts"
 
 export function getRequiredTopLevelTypesForNode(
 	node: Nodes
-): MyTSTopLevelTypeDescriptor[] {
+): MyTSTopLevelType {
 	const {associatedModule} = getMyTSSourceFileInternals(node._myTSNode.associatedSourceFile)
 
 	if (!associatedModule) {
@@ -13,5 +13,5 @@ export function getRequiredTopLevelTypesForNode(
 		)
 	}
 
-	return []
+	return {} as MyTSTopLevelType
 }
