@@ -82,7 +82,7 @@ export function createProgram(
 			tsCompilerOptions,
 			tsProgram,
 			tsChecker,
-			getSourceFile(filePath) {
+			getTSSourceFile(filePath) {
 				const sourceFile = tsProgram.getSourceFile(filePath)
 
 				if (!sourceFile) {

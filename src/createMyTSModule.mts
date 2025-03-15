@@ -14,7 +14,7 @@ export function createMyTSModule(
 	return {
 		filePath,
 		program: myProgram,
-		source: createMyTSSourceFile(progInternal.getSourceFile(filePath)),
+		source: createMyTSSourceFile(progInternal.getTSSourceFile(filePath)),
 		moduleExports: new Map(),
 		moduleImports: new Map()
 	}

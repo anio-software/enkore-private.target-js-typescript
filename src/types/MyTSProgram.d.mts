@@ -9,7 +9,7 @@ export type Internal = {
 	tsProgram: ts.Program
 	tsChecker: ts.TypeChecker
 
-	getSourceFile: (filePath: string) => ts.SourceFile
+	getTSSourceFile: (filePath: string) => ts.SourceFile
 
 	__self: MyTSProgram
 }
