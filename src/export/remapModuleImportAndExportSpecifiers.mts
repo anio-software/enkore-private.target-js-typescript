@@ -23,10 +23,14 @@ export function remapModuleImportAndExportSpecifiers(
 	const inputSourceFile = "source" in src ? src.source : src
 	const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
+	const transformer: Parameters<typeof astTransform>[1] = []
+
+	transformer.push(transformRemap((moduleSpecifier, decl) => {
+		return mapper(moduleSpecifier, convert(decl))
+	}))
+
 	const transformed = astTransform(
-		tsSourceFile, transformRemap((moduleSpecifier, decl) => {
-			return mapper(moduleSpecifier, convert(decl))
-		})
+		tsSourceFile, transformer
 	)
 
 	return createMyTSSourceFile(transformed, undefined)
