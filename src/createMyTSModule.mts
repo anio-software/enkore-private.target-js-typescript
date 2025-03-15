@@ -10,6 +10,9 @@ export function createMyTSModule(
 	myProgram: MyTSProgram,
 	filePath: string
 ): MyTSModule {
+	const myProgramInt = getMyTSProgramInternals(myProgram)
+	const tsSourceFile = myProgramInt.getTSSourceFile(filePath)
+
 	const myModule: MyTSModule = {
 		filePath,
 		program: myProgram,
@@ -19,11 +22,11 @@ export function createMyTSModule(
 	}
 
 	;(myModule.source as any) = createMyTSSourceFile(
-		getMyTSProgramInternals(myProgram).getTSSourceFile(filePath), myModule
+		tsSourceFile, myModule
 	);
 
 	;(myModule.moduleExports as any) = _getModuleExports(
-		myProgram, filePath, myModule.source
+		tsSourceFile, myProgramInt.tsChecker, myModule.source
 	);
 
 	;(myModule.moduleImports as any) = _getModuleImportMap(

@@ -1,11 +1,9 @@
 import ts from "typescript"
 
-import type {MyTSProgram} from "../types/MyTSProgram.d.mts"
 import type {MyTSExport} from "../types/MyTSExport.d.mts"
 import type {MyTSSourceFile} from "../types/MyTSSourceFile.d.mts"
 import type {Nodes} from "../types/node/Map.d.mts"
 import {convert} from "../convert/convert.mts"
-import {getMyTSProgramInternals} from "../getMyTSProgramInternals.mts"
 
 function getSymbolType(symbol: ts.Symbol) {
 	if (symbol.flags & ts.SymbolFlags.Function) return "function"
@@ -16,14 +14,11 @@ function getSymbolType(symbol: ts.Symbol) {
 }
 
 export function _getModuleExports(
-	myProgram: MyTSProgram,
-	filePath: string,
+	sourceFile: ts.SourceFile,
+	tsChecker: ts.TypeChecker,
 	associatedSourceFile: MyTSSourceFile
 ): Map<string, MyTSExport> {
 	const moduleExports: Map<string, MyTSExport> = new Map()
-
-	const {tsChecker} = getMyTSProgramInternals(myProgram)
-	const sourceFile = getMyTSProgramInternals(myProgram).getTSSourceFile(filePath)
 
 	const moduleSymbol = tsChecker.getSymbolAtLocation(sourceFile)
 
