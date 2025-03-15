@@ -8,7 +8,7 @@ import {convert} from "#~src/convert/convert.mts"
 
 import {
 	astTransform,
-	remapModuleImportAndExportSpecifiers as remap
+	remapModuleImportAndExportSpecifiers as transformRemap
 } from "@aniojs/node-ts-utils"
 
 type Mapper = (
@@ -24,7 +24,7 @@ export function remapModuleImportAndExportSpecifiers(
 	const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
 	const transformed = astTransform(
-		tsSourceFile, remap((moduleSpecifier, decl) => {
+		tsSourceFile, transformRemap((moduleSpecifier, decl) => {
 			return mapper(moduleSpecifier, convert(decl))
 		})
 	)
