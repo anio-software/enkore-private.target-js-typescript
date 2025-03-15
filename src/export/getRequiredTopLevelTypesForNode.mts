@@ -1,10 +1,10 @@
 import type {Nodes} from "#~src/types/node/Map.d.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import type {MyTSTopLevelType} from "./MyTSTopLevelType.d.mts"
+import type {MyTSTopLevelTypeTree} from "./MyTSTopLevelTypeTree.mts"
 
 export function getRequiredTopLevelTypesForNode(
 	node: Nodes
-): MyTSTopLevelType {
+): MyTSTopLevelTypeTree {
 	const {associatedModule} = getMyTSSourceFileInternals(node._myTSNode.associatedSourceFile)
 
 	if (!associatedModule) {
@@ -13,5 +13,5 @@ export function getRequiredTopLevelTypesForNode(
 		)
 	}
 
-	return {} as MyTSTopLevelType
+	return {} as MyTSTopLevelTypeTree
 }

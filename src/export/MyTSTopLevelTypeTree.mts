@@ -1,13 +1,13 @@
 import type {MyTSTopLevelTypeDescriptor} from "#~src/export/MyTSTopLevelTypeDescriptor.d.mts"
 
 type Callback = (
-	node: MyTSTopLevelType,
+	node: MyTSTopLevelTypeTree,
 	depth: number
 ) => boolean|void // <-- return type "boolean|undefined" does not work here
 
-export class MyTSTopLevelType {
+export class MyTSTopLevelTypeTree {
 	#type: MyTSTopLevelTypeDescriptor
-	#children: MyTSTopLevelType[]
+	#children: MyTSTopLevelTypeTree[]
 
 	constructor(type: MyTSTopLevelTypeDescriptor) {
 		this.#type = type
@@ -18,7 +18,7 @@ export class MyTSTopLevelType {
 		return this.#type
 	}
 
-	addChild(node: MyTSTopLevelType) {
+	addChild(node: MyTSTopLevelTypeTree) {
 		this.#children.push(node)
 	}
 
