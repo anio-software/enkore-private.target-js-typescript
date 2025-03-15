@@ -8,7 +8,8 @@ import {convert} from "#~src/convert/convert.mts"
 
 import {
 	astTransform,
-	remapModuleImportAndExportSpecifiers as transformRemap
+	remapModuleImportAndExportSpecifiers as transformRemap,
+	expandModuleImportAndExportDeclarations as transformExpand
 } from "@aniojs/node-ts-utils"
 
 type Mapper = (
@@ -18,12 +19,17 @@ type Mapper = (
 
 export function remapModuleImportAndExportSpecifiers(
 	src: MyTSModule|MyTSSourceFile,
-	mapper: Mapper
+	mapper: Mapper,
+	expand?: boolean
 ): MyTSSourceFile {
 	const inputSourceFile = "source" in src ? src.source : src
 	const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
 	const transformer: Parameters<typeof astTransform>[1] = []
+
+	if (expand === true) {
+		transformer.push(transformExpand())
+	}
 
 	transformer.push(transformRemap((moduleSpecifier, decl) => {
 		return mapper(moduleSpecifier, convert(decl))
