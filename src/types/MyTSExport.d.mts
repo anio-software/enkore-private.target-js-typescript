@@ -1,4 +1,6 @@
+import type {MyTSVariableDeclaration} from "./node/MyTSVariableDeclaration.d.mts"
 import type {MyTSFunctionDeclaration} from "./node/MyTSFunctionDeclaration.d.mts"
+import type {MyTSTypeAliasDeclaration} from "./node/MyTSTypeAliasDeclaration.d.mts"
 
 type Kind = "value" | "function" | "type"
 
@@ -8,8 +10,7 @@ type Export = {
 
 type ValueExport = Export & {
 	kind: "value"
-	identifier: string
-	jsDoc: string
+	declaration: MyTSVariableDeclaration
 }
 
 type FunctionExport = Export & {
@@ -20,8 +21,7 @@ type FunctionExport = Export & {
 
 type TypeExport = Export & {
 	kind: "type"
-	identifier: string
-	jsDoc: string
+	declaration: MyTSTypeAliasDeclaration
 }
 
 export type MyTSExport = ValueExport | FunctionExport | TypeExport
