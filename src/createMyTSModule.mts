@@ -4,6 +4,7 @@ import type {MyTSSourceFile} from "./types/MyTSSourceFile.d.mts"
 import {createMyTSSourceFile} from "./createMyTSSourceFile.mts"
 import {getMyTSProgramInternals} from "./getMyTSProgramInternals.mts"
 import {_getModuleExports} from "./_getModuleExports.mts"
+import {_getModuleImportMap} from "./_getModuleImportMap.mts"
 
 export function createMyTSModule(
 	myProgram: MyTSProgram,
@@ -22,6 +23,10 @@ export function createMyTSModule(
 	);
 
 	;(myModule.moduleExports as any) = _getModuleExports(
+		myProgram, filePath, myModule.source
+	);
+
+	;(myModule.moduleImports as any) = _getModuleImportMap(
 		myProgram, filePath, myModule.source
 	);
 
