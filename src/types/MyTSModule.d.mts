@@ -2,7 +2,7 @@ import type {MyTSProgram} from "./MyTSProgram.d.mts"
 import type {MyTSExport} from "./MyTSExport.d.mts"
 import type {MyTSImportDeclaration} from "./node/MyTSImportDeclaration.d.mts"
 import type {MyTSSourceFile} from "./MyTSSourceFile.d.mts"
-//import type {MyTSTopLevelTypeNode} from "#~src/internal/MyTSTopLevelTypeNode.mts"
+import type {MyTSTopLevelType} from "#~src/export/MyTSTopLevelType.mts"
 
 export type MyTSModule = {
 	readonly filePath: string
@@ -16,5 +16,5 @@ export type MyTSModule = {
 	//
 	// a tree of all top level types defined in the module
 	//
-	//readonly rootTopLevelTypeNode: MyTSTopLevelTypeNode
+	readonly rootTopLevelTypeNode: MyTSTopLevelType
 }

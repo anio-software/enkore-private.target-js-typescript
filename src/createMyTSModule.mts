@@ -5,6 +5,8 @@ import {createMyTSSourceFile} from "./createMyTSSourceFile.mts"
 import {getMyTSProgramInternals} from "./getMyTSProgramInternals.mts"
 import {_getModuleExports} from "./moduleInit/_getModuleExports.mts"
 import {_getModuleImportMap} from "./moduleInit/_getModuleImportMap.mts"
+import {_getModuleTopLevelTypeMap} from "./moduleInit/_getModuleTopLevelTypeMap.mts"
+import {_getModuleTopLevelType} from "./moduleInit/_getModuleTopLevelType.mts"
 
 export function createMyTSModule(
 	myProgram: MyTSProgram,
@@ -18,6 +20,7 @@ export function createMyTSModule(
 		program: myProgram,
 		moduleExports: new Map(),
 		moduleImports: new Map(),
+		rootTopLevelTypeNode: {} as MyTSModule["rootTopLevelTypeNode"],
 		source: {} as MyTSSourceFile
 	}
 
@@ -31,6 +34,14 @@ export function createMyTSModule(
 
 	;(myModule.moduleImports as any) = _getModuleImportMap(
 		tsSourceFile, myModule.source
+	);
+
+	const typeMap = _getModuleTopLevelTypeMap(
+		tsSourceFile, myProgramInt.tsChecker, myModule.moduleImports
+	)
+
+	;(myModule.rootTopLevelTypeNode as any) = _getModuleTopLevelType(
+		typeMap
 	);
 
 	return myModule
