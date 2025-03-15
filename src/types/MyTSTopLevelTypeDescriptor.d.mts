@@ -1,4 +1,4 @@
-export type MyTSTopLevelType = {
+export type MyTSTopLevelTypeDescriptor = {
 	name: string
 	declaration: string
 	source: "module" | "import"
