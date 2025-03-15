@@ -18,6 +18,9 @@ function buildTree(
 	const currentNode = rootNode ?? new MyTSTopLevelType(typeToAdd)
 
 	for (const type of typeToAdd.dependsOnTypes) {
+		// todo: log warning
+		if (!topLevelTypes.has(type)) continue
+
 		const node = new MyTSTopLevelType(
 			topLevelTypes.get(type)!
 		)
