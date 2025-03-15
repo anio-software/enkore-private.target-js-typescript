@@ -1,17 +1,13 @@
-import type {
-	MyTSProgram,
-	Internal as MyTSProgramInternal
-} from "./types/MyTSProgram.d.mts"
+import type {MyTSProgram} from "./types/MyTSProgram.d.mts"
 import type {MyTSModule} from "./types/MyTSModule.d.mts"
 import type {MyTSSourceFile} from "./types/MyTSSourceFile.d.mts"
 import {createMyTSSourceFile} from "./createMyTSSourceFile.mts"
+import {getMyTSProgramInternals} from "./getMyTSProgramInternals.mts"
 
 export function createMyTSModule(
 	myProgram: MyTSProgram,
 	filePath: string
 ): MyTSModule {
-	const progInternal = myProgram.__internal as MyTSProgramInternal
-
 	const myModule: MyTSModule = {
 		filePath,
 		program: myProgram,
@@ -21,7 +17,7 @@ export function createMyTSModule(
 	};
 
 	(myModule.source as any) = createMyTSSourceFile(
-		progInternal.getTSSourceFile(filePath), myModule
+		getMyTSProgramInternals(myProgram).getTSSourceFile(filePath), myModule
 	)
 
 	return myModule
