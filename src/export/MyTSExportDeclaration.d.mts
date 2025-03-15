@@ -1,3 +1,3 @@
 export type {
 	MyTSExportDeclaration
-} from "#~src/types/MyTSExportDeclaration.d.mts"
+} from "#~src/types/node/MyTSExportDeclaration.d.mts"

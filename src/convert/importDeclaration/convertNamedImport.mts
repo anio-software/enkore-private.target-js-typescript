@@ -4,7 +4,7 @@ import {printNode} from "@aniojs/node-ts-utils"
 import type {
 	NamedImportMember,
 	NamedImport
-} from "#~src/types/MyTSImportDeclaration.d.mts"
+} from "#~src/types/node/MyTSImportDeclaration.d.mts"
 
 export function convertNamedImport(
 	importNode: ts.ImportDeclaration

@@ -4,7 +4,10 @@ import type {
 	MyTSFunctionDeclaration,
 	Parameter,
 	TypeParameter
-} from "#~src/types/MyTSFunctionDeclaration.d.mts"
+} from "#~src/types/node/MyTSFunctionDeclaration.d.mts"
+
+import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
+import {createMyTSNode} from "#~src/createMyTSNode.mts"
 
 import {
 	printNode,
@@ -46,12 +49,16 @@ export function convertFunctionDeclaration(
 		returnType = printNode(node.type)
 	}
 
-	return {
-		name: node.name ? printNode(node.name) : undefined,
-		modifiers,
-		parameters,
-		typeParameters,
-		jsDoc: getJSDocAsFormattedStringFromNode(node),
-		returnType
-	}
+	return createMyTSNode(
+		"FunctionDeclaration", {
+			name: node.name ? printNode(node.name) : undefined,
+			modifiers,
+			parameters,
+			typeParameters,
+			jsDoc: getJSDocAsFormattedStringFromNode(node),
+			returnType
+		}, {
+			sourceFile: createMyTSSourceFile(node.getSourceFile())
+		}
+	)
 }

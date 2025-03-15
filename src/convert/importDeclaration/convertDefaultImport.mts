@@ -3,7 +3,7 @@ import {printNode} from "@aniojs/node-ts-utils"
 
 import type {
 	DefaultImport
-} from "#~src/types/MyTSImportDeclaration.d.mts"
+} from "#~src/types/node/MyTSImportDeclaration.d.mts"
 
 export function convertDefaultImport(
 	importNode: ts.ImportDeclaration

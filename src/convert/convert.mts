@@ -1,7 +1,7 @@
 import ts from "typescript"
-import type {MyTSImportDeclaration} from "#~src/types/MyTSImportDeclaration.d.mts"
-import type {MyTSExportDeclaration} from "#~src/types/MyTSExportDeclaration.d.mts"
-import type {MyTSFunctionDeclaration} from "#~src/types/MyTSFunctionDeclaration.d.mts"
+import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.d.mts"
+import type {MyTSExportDeclaration} from "#~src/types/node/MyTSExportDeclaration.d.mts"
+import type {MyTSFunctionDeclaration} from "#~src/types/node/MyTSFunctionDeclaration.d.mts"
 
 import {convertImportDeclaration} from "./importDeclaration/index.mts"
 import {convertExportDeclaration} from "./exportDeclaration/index.mts"

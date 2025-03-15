@@ -1,4 +1,4 @@
-import type {MyTSFunctionDeclaration} from "./MyTSFunctionDeclaration.d.mts"
+import type {MyTSFunctionDeclaration} from "./node/MyTSFunctionDeclaration.d.mts"
 
 type Kind = "value" | "function" | "type"
 

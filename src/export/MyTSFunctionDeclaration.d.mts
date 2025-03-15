@@ -1,3 +1,3 @@
 export type {
 	MyTSFunctionDeclaration
-} from "#~src/types/MyTSFunctionDeclaration.d.mts"
+} from "#~src/types/node/MyTSFunctionDeclaration.d.mts"

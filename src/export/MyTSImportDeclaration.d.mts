@@ -1,3 +1,3 @@
 export type {
 	MyTSImportDeclaration
-} from "#~src/types/MyTSImportDeclaration.d.mts"
+} from "#~src/types/node/MyTSImportDeclaration.d.mts"
