@@ -7,9 +7,15 @@ import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {getVirtualFileMarker} from "#~src/getVirtualFileMarker.mts"
 
+type Options = {
+	createNewProgram?: boolean
+}
+
 export function emit(
 	myProgram: MyTSProgram,
-	createNewProgram?: boolean
+	options: Options = {
+		createNewProgram: false
+	}
 ): {
 	emitSkipped: boolean
 	diagnosticMessages: MyTSDiagnosticMessage[]
@@ -57,7 +63,7 @@ export function emit(
 			}
 		}
 
-		const newProgram = createNewProgram === true ? createProgram(
+		const newProgram = options.createNewProgram === true ? createProgram(
 			myProgram.projectRoot, [
 				...emittedFiles.entries()
 			].map(([filePath, contents]) => {
