@@ -8,4 +8,8 @@ export type TSNodeTypeMap = {
 	"TypeAliasDeclaration": ts.TypeAliasDeclaration
 }
 
-export type Kinds = keyof TSNodeTypeMap
+export type Kinds = "FunctionDeclaration" |
+                    "ImportDeclaration"   |
+                    "ExportDeclaration"   |
+                    "VariableDeclaration" |
+                    "TypeAliasDeclaration"
