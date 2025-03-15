@@ -30,7 +30,7 @@ export function createMyTSModule(
 	);
 
 	;(myModule.moduleImports as any) = _getModuleImportMap(
-		myProgram, filePath, myModule.source
+		tsSourceFile, myModule.source
 	);
 
 	return myModule

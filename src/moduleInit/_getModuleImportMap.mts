@@ -1,21 +1,16 @@
 import ts from "typescript"
 
-import type {MyTSProgram} from "../types/MyTSProgram.d.mts"
 import type {MyTSSourceFile} from "../types/MyTSSourceFile.d.mts"
 import type {MyTSImportDeclaration} from "../types/node/MyTSImportDeclaration.d.mts"
 import {convert} from "../convert/convert.mts"
 import {astFilter} from "@aniojs/node-ts-utils"
-import {getMyTSProgramInternals} from "../getMyTSProgramInternals.mts"
 import type {Nodes} from "../types/node/Map.d.mts"
 
 export function _getModuleImportMap(
-	myProgram: MyTSProgram,
-	filePath: string,
+	sourceFile: ts.SourceFile,
 	associatedSourceFile: MyTSSourceFile
 ): Map<string, MyTSImportDeclaration> {
 	const map: Map<string, MyTSImportDeclaration> = new Map()
-
-	const sourceFile = getMyTSProgramInternals(myProgram).getTSSourceFile(filePath)
 
 	const importDeclarations = astFilter(sourceFile, node => {
 		return ts.isImportDeclaration(node)
