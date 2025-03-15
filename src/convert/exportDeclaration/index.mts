@@ -10,12 +10,13 @@ export function convertExportDeclaration(
 	exportNode: ts.ExportDeclaration
 ): MyTSExportDeclaration {
 	const sourceFile = createMyTSSourceFile(exportNode.getSourceFile())
+	const meta = {tsNode: exportNode, sourceFile}
 
 	const namedExport = convertNamedExport(exportNode)
-	if (namedExport) return createMyTSNode("ExportDeclaration", namedExport, {sourceFile})
+	if (namedExport) return createMyTSNode("ExportDeclaration", namedExport, meta)
 
 	const starExport = convertStarExport(exportNode)
-	if (starExport) return createMyTSNode("ExportDeclaration", starExport, {sourceFile})
+	if (starExport) return createMyTSNode("ExportDeclaration", starExport, meta)
 
 	throw new Error(
 		`Unable to convert export declaration.`

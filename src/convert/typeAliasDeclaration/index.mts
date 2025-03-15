@@ -13,5 +13,5 @@ export function convertTypeAliasDeclaration(
 	return createMyTSNode("TypeAliasDeclaration", {
 		name: printNode(node.type),
 		jsDoc: ""
-	}, {sourceFile})
+	}, {tsNode: node, sourceFile})
 }

@@ -11,15 +11,16 @@ export function convertImportDeclaration(
 	importNode: ts.ImportDeclaration
 ): MyTSImportDeclaration {
 	const sourceFile = createMyTSSourceFile(importNode.getSourceFile())
+	const meta = {tsNode: importNode, sourceFile}
 
 	const defaultImport = convertDefaultImport(importNode)
-	if (defaultImport) return createMyTSNode("ImportDeclaration", defaultImport, {sourceFile})
+	if (defaultImport) return createMyTSNode("ImportDeclaration", defaultImport, meta)
 
 	const starImport = convertStarImport(importNode)
-	if (starImport) return createMyTSNode("ImportDeclaration", starImport, {sourceFile})
+	if (starImport) return createMyTSNode("ImportDeclaration", starImport, meta)
 
 	const namedImport = convertNamedImport(importNode)
-	if (namedImport) return createMyTSNode("ImportDeclaration", namedImport, {sourceFile})
+	if (namedImport) return createMyTSNode("ImportDeclaration", namedImport, meta)
 
 	throw new Error(
 		`Unable to convert import declaration.`

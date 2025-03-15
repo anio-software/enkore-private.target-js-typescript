@@ -58,6 +58,7 @@ export function convertFunctionDeclaration(
 			jsDoc: getJSDocAsFormattedStringFromNode(node),
 			returnType
 		}, {
+			tsNode: node,
 			sourceFile: createMyTSSourceFile(node.getSourceFile())
 		}
 	)

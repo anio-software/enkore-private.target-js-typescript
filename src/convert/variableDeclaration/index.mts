@@ -14,5 +14,5 @@ export function convertVariableDeclaration(
 		identifier: printNode(node.name),
 		initializer: node.initializer ? printNode(node.initializer) : "",
 		jsDoc: ""
-	}, {sourceFile})
+	}, {tsNode: node, sourceFile})
 }
