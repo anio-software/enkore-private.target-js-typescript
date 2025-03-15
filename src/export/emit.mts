@@ -7,7 +7,10 @@ import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {getVirtualFileMarker} from "#~src/getVirtualFileMarker.mts"
 
-export function emit(myProgram: MyTSProgram, createNewProgram?: boolean): {
+export function emit(
+	myProgram: MyTSProgram,
+	createNewProgram?: boolean
+): {
 	emitSkipped: boolean
 	diagnosticMessages: MyTSDiagnosticMessage[]
 	emittedFiles: Map<string, string>
