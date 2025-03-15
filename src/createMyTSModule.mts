@@ -14,11 +14,11 @@ export function createMyTSModule(
 		moduleExports: new Map(),
 		moduleImports: new Map(),
 		source: {} as MyTSSourceFile
-	};
+	}
 
-	(myModule.source as any) = createMyTSSourceFile(
+	;(myModule.source as any) = createMyTSSourceFile(
 		getMyTSProgramInternals(myProgram).getTSSourceFile(filePath), myModule
-	)
+	);
 
 	return myModule
 }
