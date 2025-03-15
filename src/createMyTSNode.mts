@@ -12,10 +12,10 @@ export function createMyTSNode<
 	}
 ): Map[Kind] {
 	return {
+		...data,
 		_myTSNode: {
 			kind,
 			associatedSourceFile: meta.sourceFile
-		},
-		...data
+		}
 	} as Map[Kind]
 }
