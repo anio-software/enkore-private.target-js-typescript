@@ -10,6 +10,7 @@ export type Parameter = {
 	name: string
 	type: string
 	initializer: string|undefined
+	declaration: string
 	isOptional: boolean
 }
 

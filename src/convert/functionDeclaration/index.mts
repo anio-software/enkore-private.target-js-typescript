@@ -26,11 +26,17 @@ export function convertFunctionDeclaration(
 	const typeParameters: TypeParameter[] = []
 
 	for (const param of node.parameters) {
+		const name = printNode(param.name)
+		const type = param.type ? printNode(param.type) : "any"
+		const isOptional = param.questionToken !== undefined
+		const questionMark = isOptional ? "?" : ""
+
 		parameters.push({
 			name: printNode(param.name),
 			initializer: param.initializer ? printNode(param.initializer) : "",
-			isOptional: param.questionToken !== undefined,
-			type: param.type ? printNode(param.type) : "any"
+			isOptional,
+			declaration: `${name}${questionMark}: ${type}`,
+			type
 		})
 	}
 
