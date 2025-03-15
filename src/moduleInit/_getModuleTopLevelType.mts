@@ -18,11 +18,13 @@ function buildTree(
 	const currentNode = rootNode ?? new MyTSTopLevelTypeTree(typeToAdd)
 
 	for (const type of typeToAdd.dependsOnTypes) {
-		// todo: log warning
-		if (!topLevelTypes.has(type)) continue
-
 		const node = new MyTSTopLevelTypeTree(
-			topLevelTypes.get(type)!
+			topLevelTypes.has(type) ? topLevelTypes.get(type)! : {
+				declaration: `/* unable to find type '${type}' at the top level */`,
+				dependsOnTypes: [],
+				name: type,
+				source: "module"
+			}
 		)
 
 		currentNode.addChild(node)
