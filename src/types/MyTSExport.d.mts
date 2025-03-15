@@ -15,7 +15,6 @@ type ValueExport = Export & {
 
 type FunctionExport = Export & {
 	kind: "function"
-	identifier: string
 	declarations: MyTSFunctionDeclaration[]
 }
 
