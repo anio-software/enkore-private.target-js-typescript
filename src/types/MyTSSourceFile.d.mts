@@ -3,7 +3,7 @@ import ts from "typescript"
 import type {MyTSModule} from "./MyTSModule.d.mts"
 
 export type Internal = {
-	sourceFile: ts.SourceFile
+	tsSourceFile: ts.SourceFile
 	associatedModule: MyTSModule|undefined
 }
 

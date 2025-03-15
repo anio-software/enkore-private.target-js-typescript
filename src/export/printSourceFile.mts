@@ -6,6 +6,6 @@ export function printSourceFile(
 	source: MyTSSourceFile
 ): string {
 	return printNode(
-		getMyTSSourceFileInternals(source).sourceFile
+		getMyTSSourceFileInternals(source).tsSourceFile
 	)
 }

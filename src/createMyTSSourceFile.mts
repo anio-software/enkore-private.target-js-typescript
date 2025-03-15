@@ -10,7 +10,7 @@ export function createMyTSSourceFile(
 	associatedModule: MyTSModule|undefined = undefined
 ): MyTSSourceFile {
 	const __internal: MyTSSourceFileInternal = {
-		sourceFile,
+		tsSourceFile: sourceFile,
 		associatedModule
 	}
 
