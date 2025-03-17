@@ -30,15 +30,9 @@ export function generateDeclarationsForModule(
 
 	let declarations = ""
 
-	const tsDeclarationFileName = tsSourceFile.fileName.slice(0, -4) + ".d.mts"
-
 	const emitResult = tsProgram.emit(
 		tsSourceFile,
-		(fileName, text) => {
-			if (fileName === tsDeclarationFileName) {
-				declarations = text
-			}
-		},
+		writeCallback,
 		undefined,
 		true,
 		{
@@ -66,5 +60,13 @@ export function generateDeclarationsForModule(
 		emitSkipped: emitResult.emitSkipped,
 		declarations,
 		diagnosticMessages: emitResult.diagnostics.map(convertTSDiagnostic)
+	}
+
+	function writeCallback(fileName: string, text: string) {
+		const tsDeclarationFileName = tsSourceFile.fileName.slice(0, -4) + ".d.mts"
+
+		if (fileName === tsDeclarationFileName) {
+			declarations = text
+		}
 	}
 }
