@@ -9,12 +9,12 @@ export function typeCheckProgram(program: MyTSProgram): {
 } {
 	const {tsProgram} = getMyTSProgramInternals(program)
 
-	const result = tsProgram.emit(
+	const emitResult = tsProgram.emit(
 		undefined, () => {}, undefined, true
 	)
 
 	const {emitSkipped, diagnosticMessages} = convertEmitResult(
-		tsProgram, result
+		tsProgram, emitResult
 	)
 
 	return {
