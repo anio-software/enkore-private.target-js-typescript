@@ -22,7 +22,7 @@ function convertTransform(
 }
 
 export function generateDeclarationsForModule(
-	module: MyTSModule,
+	mod: MyTSModule,
 	transformFactory?: (
 		context: MyTSTransformationContext
 	) => MyTSSourceFileTransformer|MyTSSourceFileTransformer[]
@@ -30,8 +30,8 @@ export function generateDeclarationsForModule(
 	diagnosticMessages: MyTSDiagnosticMessage[]
 	declarations: string
 } {
-	const {tsSourceFile} = getMyTSSourceFileInternals(module.source)
-	const {tsProgram} = getMyTSProgramInternals(module.program)
+	const {tsSourceFile} = getMyTSSourceFileInternals(mod.source)
+	const {tsProgram} = getMyTSProgramInternals(mod.program)
 
 	let declarations = ""
 
