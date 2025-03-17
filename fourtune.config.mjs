@@ -5,7 +5,11 @@ export default {
 
 		options: {
 			runtime: "node",
-			external_npm_packages: ["typescript"]
+			external_npm_packages: [
+				"@babel/core",
+				"@babel/preset-typescript",
+				"typescript"
+			]
 		}
 	}
 }
