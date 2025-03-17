@@ -15,6 +15,9 @@ export function createProgram(
 	const tsCompilerOptions = userCompilerOptions as ts.CompilerOptions
 	const projectRoot = resolvePathSync(userProjectRoot, ["regularDir"])
 
+	tsCompilerOptions.declaration = true;
+	tsCompilerOptions.emitDeclarationOnly = true;
+
 	//
 	// all input paths are relative to the project root
 	// in order for typescript to correctly pick them up
