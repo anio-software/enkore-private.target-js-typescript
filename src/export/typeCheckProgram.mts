@@ -1,7 +1,8 @@
+import ts from "typescript"
 import type {MyTSProgram} from "./MyTSProgram.d.mts"
 import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
-import {convertEmitResult} from "#~src/utils/convertEmitResult.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
 export function typeCheckProgram(program: MyTSProgram): {
 	hasErrors: boolean
@@ -13,12 +14,12 @@ export function typeCheckProgram(program: MyTSProgram): {
 		undefined, () => {}, undefined, true
 	)
 
-	const {emitSkipped, diagnosticMessages} = convertEmitResult(
-		tsProgram, emitResult
-	)
+	const allDiagnostics = ts.getPreEmitDiagnostics(
+		tsProgram
+	).concat(emitResult.diagnostics)
 
 	return {
-		hasErrors: emitSkipped,
-		diagnosticMessages
+		hasErrors: emitResult.emitSkipped,
+		diagnosticMessages: allDiagnostics.map(convertTSDiagnostic)
 	}
 }
