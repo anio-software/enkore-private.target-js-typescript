@@ -2,10 +2,10 @@ import ts from "typescript"
 import type {MyTSModule} from "./MyTSModule.d.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
-import {convertEmitResult} from "#~src/utils/convertEmitResult.mts"
 import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
 import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.d.mts"
 import {_transformTSSourceFile} from "#~src/utils/_transformTSSourceFile.mts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
 export function generateDeclarationsForModule(
 	module: MyTSModule,
@@ -62,14 +62,9 @@ export function generateDeclarationsForModule(
 		}
 	)
 
-	const {emitSkipped, diagnosticMessages} = convertEmitResult(
-		tsProgram,
-		emitResult
-	)
-
 	return {
-		emitSkipped,
+		emitSkipped: emitResult.emitSkipped,
 		declarations,
-		diagnosticMessages
+		diagnosticMessages: emitResult.diagnostics.map(convertTSDiagnostic)
 	}
 }
