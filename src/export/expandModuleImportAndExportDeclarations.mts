@@ -10,7 +10,7 @@ import {
 } from "@aniojs/node-ts-utils"
 
 export function expandModuleImportAndExportDeclarations(
-	transformContext?: MyTSTransformationContext|undefined
+	transformContext: MyTSTransformationContext|undefined
 ): MyTSSourceFileTransformer {
 	const context = transformContext ? getMyTSTransformationContextInternals(
 		transformContext

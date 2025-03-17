@@ -18,8 +18,8 @@ type Mapper = (
 ) => string|undefined
 
 export function remapModuleImportAndExportSpecifiers(
-	mapper: Mapper,
-	transformContext?: MyTSTransformationContext|undefined
+	transformContext: MyTSTransformationContext|undefined,
+	mapper: Mapper
 ): MyTSSourceFileTransformer {
 	const context = transformContext ? getMyTSTransformationContextInternals(
 		transformContext
