@@ -69,7 +69,9 @@ export function generateDeclarationsForModule(
 
 	return {
 		declarations,
-		diagnosticMessages: emitResult.diagnostics.map(convertTSDiagnostic)
+		diagnosticMessages: emitResult.diagnostics.map(diagnostic => {
+			return convertTSDiagnostic(diagnostic, true)
+		})
 	}
 
 	function writeCallback(fileName: string, text: string) {

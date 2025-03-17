@@ -1,8 +1,10 @@
 import ts from "typescript"
 import type {MyTSDiagnosticMessage} from "../types/MyTSDiagnosticMessage.d.mts"
+import path from "node:path"
 
 export function convertTSDiagnostic(
-	diagnostic: ts.Diagnostic
+	diagnostic: ts.Diagnostic,
+	shortFileName?: boolean
 ): MyTSDiagnosticMessage {
 	const {code, messageText} = diagnostic
 	const message = ts.flattenDiagnosticMessageText(messageText, "\n")
@@ -12,9 +14,11 @@ export function convertTSDiagnostic(
 			diagnostic.start
 		)
 
+		const fileName = shortFileName === true ? path.basename(diagnostic.file.fileName) : diagnostic.file.fileName
+
 		return {
 			code,
-			message: `${diagnostic.file.fileName} (${line + 1},${character + 1}): ${message}`
+			message: `${fileName} (${line + 1},${character + 1}): ${message}`
 		}
 	}
 

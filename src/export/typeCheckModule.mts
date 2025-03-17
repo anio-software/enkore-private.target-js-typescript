@@ -11,5 +11,7 @@ export function typeCheckModule(mod: MyTSModule): MyTSDiagnosticMessage[] {
 
 	const diagnostics = ts.getPreEmitDiagnostics(tsProgram, tsSourceFile)
 
-	return diagnostics.map(convertTSDiagnostic)
+	return diagnostics.map(diagnostic => {
+		return convertTSDiagnostic(diagnostic, true)
+	})
 }

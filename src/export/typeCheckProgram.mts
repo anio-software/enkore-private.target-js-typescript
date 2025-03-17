@@ -20,6 +20,8 @@ export function typeCheckProgram(program: MyTSProgram): {
 
 	return {
 		hasErrors: emitResult.emitSkipped,
-		diagnosticMessages: allDiagnostics.map(convertTSDiagnostic)
+		diagnosticMessages: allDiagnostics.map(diagnostic => {
+			return convertTSDiagnostic(diagnostic)
+		})
 	}
 }
