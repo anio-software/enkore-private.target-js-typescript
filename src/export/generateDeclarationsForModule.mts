@@ -26,9 +26,7 @@ export function generateDeclarationsForModule(
 	})()
 
 	const {tsSourceFile} = getMyTSSourceFileInternals(module.source)
-	const {
-		tsProgram
-	} = getMyTSProgramInternals(module.program)
+	const {tsProgram} = getMyTSProgramInternals(module.program)
 
 	let declarations = ""
 
