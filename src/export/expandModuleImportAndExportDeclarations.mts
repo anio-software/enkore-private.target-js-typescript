@@ -1,5 +1,4 @@
-import type {MyTSModule} from "./MyTSModule.d.mts"
-import type {MyTSSourceFile} from "./MyTSSourceFile.d.mts"
+import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.d.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
 
@@ -8,13 +7,12 @@ import {
 	expandModuleImportAndExportDeclarations as expand
 } from "@aniojs/node-ts-utils"
 
-export function expandModuleImportAndExportDeclarations(
-	src: MyTSModule|MyTSSourceFile
-): MyTSSourceFile {
-	const inputSourceFile = "source" in src ? src.source : src
-	const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
+export function expandModuleImportAndExportDeclarations(): MyTSSourceFileTransformer {
+	return (inputSourceFile) => {
+		const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
-	const transformed = astTransform(tsSourceFile, expand())
+		const transformed = astTransform(tsSourceFile, expand())
 
-	return createMyTSSourceFile(transformed, undefined)
+		return createMyTSSourceFile(transformed, undefined)
+	}
 }

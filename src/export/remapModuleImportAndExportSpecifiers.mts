@@ -1,5 +1,4 @@
-import type {MyTSModule} from "./MyTSModule.d.mts"
-import type {MyTSSourceFile} from "./MyTSSourceFile.d.mts"
+import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.d.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
 import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.d.mts"
@@ -8,8 +7,7 @@ import {convert} from "#~src/convert/convert.mts"
 
 import {
 	astTransform,
-	remapModuleImportAndExportSpecifiers as transformRemap,
-	expandModuleImportAndExportDeclarations as transformExpand
+	remapModuleImportAndExportSpecifiers as remap
 } from "@aniojs/node-ts-utils"
 
 type Mapper = (
@@ -18,26 +16,15 @@ type Mapper = (
 ) => string|undefined
 
 export function remapModuleImportAndExportSpecifiers(
-	src: MyTSModule|MyTSSourceFile,
-	mapper: Mapper,
-	expand?: boolean
-): MyTSSourceFile {
-	const inputSourceFile = "source" in src ? src.source : src
-	const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
+	mapper: Mapper
+): MyTSSourceFileTransformer {
+	return (inputSourceFile) => {
+		const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
-	const transformer: Parameters<typeof astTransform>[1] = []
+		const transformed = astTransform(tsSourceFile, remap((moduleSpecifier, decl) => {
+			return mapper(moduleSpecifier, convert(decl))
+		}))
 
-	if (expand === true) {
-		transformer.push(transformExpand())
+		return createMyTSSourceFile(transformed, undefined)
 	}
-
-	transformer.push(transformRemap((moduleSpecifier, decl) => {
-		return mapper(moduleSpecifier, convert(decl))
-	}))
-
-	const transformed = astTransform(
-		tsSourceFile, transformer
-	)
-
-	return createMyTSSourceFile(transformed, undefined)
 }
