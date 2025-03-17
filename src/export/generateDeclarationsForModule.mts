@@ -4,8 +4,10 @@ import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
 import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.d.mts"
+import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.d.mts"
 import {_transformTSSourceFile} from "#~src/utils/_transformTSSourceFile.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
+import {createMyTSTransformationContext} from "#~src/createMyTSTransformationContext.mts"
 
 function convertTransform(
 	transform: MyTSSourceFileTransformer|MyTSSourceFileTransformer[]|undefined
@@ -21,14 +23,14 @@ function convertTransform(
 
 export function generateDeclarationsForModule(
 	module: MyTSModule,
-	transform?: MyTSSourceFileTransformer|MyTSSourceFileTransformer[]
+	transformFactory?: (
+		context: MyTSTransformationContext
+	) => MyTSSourceFileTransformer|MyTSSourceFileTransformer[]
 ): {
 	emitSkipped: boolean
 	diagnosticMessages: MyTSDiagnosticMessage[]
 	declarations: string
 } {
-	const transformer = convertTransform(transform)
-
 	const {tsSourceFile} = getMyTSSourceFileInternals(module.source)
 	const {tsProgram} = getMyTSProgramInternals(module.program)
 
@@ -41,7 +43,13 @@ export function generateDeclarationsForModule(
 		true,
 		{
 			afterDeclarations: [
-				() => {
+				(transformContext) => {
+					const transformer = convertTransform(
+						typeof transformFactory === "function" ? transformFactory(
+							createMyTSTransformationContext(transformContext)
+						) : []
+					)
+
 					return function transform(src) {
 						if (ts.isBundle(src)) {
 							throw new Error(
