@@ -50,8 +50,16 @@ export function createProgram(
 				continue
 			}
 
-			virtualFiles.set(entry.path, entry.content)
-			inputFilePaths.push(entry.path)
+			if (entry.path.startsWith("/")) {
+				throw new Error(
+					`Absolute virtual files are not supported.`
+				)
+			}
+
+			const absoluteVirtualFilePath = path.join(projectRoot, entry.path)
+
+			virtualFiles.set(absoluteVirtualFilePath, entry.content)
+			inputFilePaths.push(absoluteVirtualFilePath)
 		}
 
 		const tsCompilerHost = ts.createCompilerHost(tsCompilerOptions, true)

@@ -5,7 +5,6 @@ import type {MyTSProgram} from "./MyTSProgram.d.mts"
 import {createProgram} from "./createProgram.mts"
 import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
-import {getVirtualFileMarker} from "#~src/getVirtualFileMarker.mts"
 
 type Options = {
 	createNewProgram?: boolean
@@ -34,10 +33,6 @@ export function emit(
 			// of how @aniojs/node-fs resolvePath works.
 			if (filePath.startsWith(myProgram.projectRoot)) {
 				emittedFiles.set(filePath.slice(myProgram.projectRoot.length), contents)
-			}
-			// virtual files are always relative
-			else if (filePath.includes(getVirtualFileMarker())) {
-				emittedFiles.set(filePath, contents)
 			}
 		}
 
