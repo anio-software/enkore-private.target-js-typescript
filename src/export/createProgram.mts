@@ -15,6 +15,7 @@ export function createProgram(
 	const tsCompilerOptions = userCompilerOptions as ts.CompilerOptions
 	const projectRoot = resolvePathSync(userProjectRoot, ["regularDir"])
 
+	tsCompilerOptions.skipLibCheck = false;
 	tsCompilerOptions.declaration = true;
 	tsCompilerOptions.emitDeclarationOnly = true;
 
