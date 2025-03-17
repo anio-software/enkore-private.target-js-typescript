@@ -31,6 +31,20 @@ export function _getModuleTopLevelTypeMap(
 		})
 	}
 
+	//
+	// get all other top level types like "Promise", "Awaited" etc.
+	//
+	for (const symbol of tsChecker.getSymbolsInScope(sourceFile, ts.SymbolFlags.Type)) {
+		if (topTypes.has(symbol.name)) continue
+
+		topTypes.set(symbol.name, {
+			name: symbol.name,
+			declaration: `/* type '${symbol.name}' is in global scope */`,
+			source: "module",
+			dependsOnTypes: []
+		})
+	}
+
 	const moduleTypeDeclarations = astFilter(
 		sourceFile, (node) => {
 			return ts.isTypeAliasDeclaration(node)
