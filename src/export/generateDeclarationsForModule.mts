@@ -34,37 +34,39 @@ export function generateDeclarationsForModule(
 
 	const tsDeclarationFileName = tsSourceFile.fileName.slice(0, -4) + ".d.mts"
 
+	const emitResult = tsProgram.emit(
+		tsSourceFile,
+		(fileName, text) => {
+			if (fileName === tsDeclarationFileName) {
+				declarations = text
+			}
+		},
+		undefined,
+		true,
+		{
+			afterDeclarations: [
+				() => {
+					return function transform(src) {
+						if (ts.isBundle(src)) {
+							throw new Error(
+								`Unexpected ts.Bundle: bundles are not supported.`
+							)
+						}
+
+						if (!transform.length) {
+							return src
+						}
+
+						return _transformTSSourceFile(src, transformer)
+					}
+				}
+			]
+		}
+	)
+
 	const {emitSkipped, diagnosticMessages} = convertEmitResult(
 		tsProgram,
-		tsProgram.emit(
-			tsSourceFile,
-			(fileName, text) => {
-				if (fileName === tsDeclarationFileName) {
-					declarations = text
-				}
-			},
-			undefined,
-			true,
-			{
-				afterDeclarations: [
-					() => {
-						return function transform(src) {
-							if (ts.isBundle(src)) {
-								throw new Error(
-									`Unexpected ts.Bundle: bundles are not supported.`
-								)
-							}
-
-							if (!transform.length) {
-								return src
-							}
-
-							return _transformTSSourceFile(src, transformer)
-						}
-					}
-				]
-			}
-		)
+		emitResult
 	)
 
 	return {
