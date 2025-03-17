@@ -27,7 +27,6 @@ export function generateDeclarationsForModule(
 		context: MyTSTransformationContext
 	) => MyTSSourceFileTransformer|MyTSSourceFileTransformer[]
 ): {
-	emitSkipped: boolean
 	diagnosticMessages: MyTSDiagnosticMessage[]
 	declarations: string
 } {
@@ -69,7 +68,6 @@ export function generateDeclarationsForModule(
 	)
 
 	return {
-		emitSkipped: emitResult.emitSkipped,
 		declarations,
 		diagnosticMessages: emitResult.diagnostics.map(convertTSDiagnostic)
 	}
