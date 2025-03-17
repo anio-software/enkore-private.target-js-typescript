@@ -7,6 +7,18 @@ import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.d.mts"
 import {_transformTSSourceFile} from "#~src/utils/_transformTSSourceFile.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
+function convertTransform(
+	transform: MyTSSourceFileTransformer|MyTSSourceFileTransformer[]|undefined
+): MyTSSourceFileTransformer[] {
+	if (transform && Array.isArray(transform)) {
+		return transform
+	} else if (transform) {
+		return [transform]
+	}
+
+	return []
+}
+
 export function generateDeclarationsForModule(
 	module: MyTSModule,
 	transform?: MyTSSourceFileTransformer|MyTSSourceFileTransformer[]
@@ -15,15 +27,7 @@ export function generateDeclarationsForModule(
 	diagnosticMessages: MyTSDiagnosticMessage[]
 	declarations: string
 } {
-	const transformer: MyTSSourceFileTransformer[] = (() => {
-		if (transform && Array.isArray(transform)) {
-			return transform
-		} else if (transform) {
-			return [transform]
-		}
-
-		return []
-	})()
+	const transformer = convertTransform(transform)
 
 	const {tsSourceFile} = getMyTSSourceFileInternals(module.source)
 	const {tsProgram} = getMyTSProgramInternals(module.program)
