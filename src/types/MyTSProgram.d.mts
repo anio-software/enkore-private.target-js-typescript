@@ -15,6 +15,8 @@ export type Internal = {
 }
 
 export type MyTSProgram = {
+	_myTSProgramBrand: any
+
 	projectRoot: string
 
 	getModule: (filePath: string) => MyTSModule
