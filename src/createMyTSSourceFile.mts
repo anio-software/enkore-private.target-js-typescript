@@ -15,6 +15,7 @@ export function createMyTSSourceFile(
 	}
 
 	return {
+		_myTSSourceFileBrand: undefined,
 		__internal
 	}
 }

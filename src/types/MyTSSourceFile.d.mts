@@ -9,5 +9,7 @@ export type Internal = {
 
 // opaque representation of a typescript source file
 export type MyTSSourceFile = {
+	_myTSSourceFileBrand: any
+
 	readonly __internal: unknown
 }
