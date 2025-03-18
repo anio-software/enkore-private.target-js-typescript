@@ -111,6 +111,7 @@ export function createProgram(
 		const myProgram: MyTSProgram = {
 			_myTSProgramBrand: undefined,
 			projectRoot,
+			compilerOptions: myCompilerOptions,
 			getModule(filePath) {
 				// todo: normalize path
 				if (internal.cachedModules.has(filePath)) {

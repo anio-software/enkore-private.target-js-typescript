@@ -1,5 +1,6 @@
 import ts from "typescript"
 import type {MyTSModule} from "./MyTSModule.d.mts"
+import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.d.mts"
 
 export type Internal = {
 	cachedModules: Map<string, MyTSModule>
@@ -18,6 +19,7 @@ export type MyTSProgram = {
 	_myTSProgramBrand: any
 
 	projectRoot: string
+	readonly compilerOptions: MyTSCompilerOptions
 
 	getModule: (filePath: string) => MyTSModule
 	getVirtualModule: (virtualFilePath: string) => MyTSModule
