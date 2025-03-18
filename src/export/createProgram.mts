@@ -8,12 +8,17 @@ import {resolvePathSync} from "@aniojs/node-fs"
 import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 import path from "node:path"
 import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.mts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
 export function createProgram(
 	userProjectRoot: string,
 	input: (string|MyTSVirtualProgramFile)[],
 	myCompilerOptions: MyTSCompilerOptions
-): MyTSProgram {
+): {
+	diagnosticMessages: MyTSDiagnosticMessage[]
+	program: MyTSProgram
+} {
 	const {tsCompilerOptions} = getMyTSCompilerOptionsInternals(myCompilerOptions)
 	const projectRoot = resolvePathSync(userProjectRoot, ["regularDir"])
 
@@ -108,6 +113,12 @@ export function createProgram(
 			__self: {} as MyTSProgram
 		}
 
+		const diagnostics = [
+			...tsProgram.getGlobalDiagnostics(),
+			...tsProgram.getConfigFileParsingDiagnostics(),
+			...tsProgram.getOptionsDiagnostics()
+		]
+
 		const myProgram: MyTSProgram = {
 			_myTSProgramBrand: undefined,
 			projectRoot,
@@ -134,7 +145,12 @@ export function createProgram(
 
 		internal.__self = myProgram
 
-		return myProgram
+		return {
+			diagnosticMessages: diagnostics.map(diag => {
+				return convertTSDiagnostic(diag)
+			}),
+			program: myProgram
+		}
 	} finally {
 		process.chdir(savedCWD)
 	}
