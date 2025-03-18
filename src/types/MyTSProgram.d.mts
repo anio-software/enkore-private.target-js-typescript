@@ -18,11 +18,11 @@ export type Internal = {
 export type MyTSProgram = {
 	_myTSProgramBrand: any
 
-	projectRoot: string
+	readonly projectRoot: string
 	readonly compilerOptions: MyTSCompilerOptions
 
 	getModule: (filePath: string) => MyTSModule
 	getVirtualModule: (virtualFilePath: string) => MyTSModule
 
-	__internal: unknown
+	readonly __internal: unknown
 }
