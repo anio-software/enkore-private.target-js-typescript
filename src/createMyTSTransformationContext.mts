@@ -12,6 +12,7 @@ export function createMyTSTransformationContext(
 	}
 
 	return {
+		_myTSTransformationContextBrand: undefined,
 		__internal
 	}
 }
