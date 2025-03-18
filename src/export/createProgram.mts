@@ -1,18 +1,20 @@
 import ts from "typescript"
 
 import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.d.mts"
+import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.d.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/types/MyTSProgram.d.mts"
 import {createMyTSModule} from "#~src/createMyTSModule.mts"
 import {resolvePathSync} from "@aniojs/node-fs"
 import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 import path from "node:path"
+import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.mts"
 
 export function createProgram(
 	userProjectRoot: string,
 	input: (string|MyTSVirtualProgramFile)[],
-	userCompilerOptions: unknown
+	myCompilerOptions: MyTSCompilerOptions
 ): MyTSProgram {
-	const tsCompilerOptions = userCompilerOptions as ts.CompilerOptions
+	const {tsCompilerOptions} = getMyTSCompilerOptionsInternals(myCompilerOptions)
 	const projectRoot = resolvePathSync(userProjectRoot, ["regularDir"])
 
 	tsCompilerOptions.skipLibCheck = false;
