@@ -13,6 +13,8 @@ export type MyTSModule = {
 	readonly moduleImports: Map<string, MyTSImportDeclaration>
 	readonly moduleExports: Map<string, MyTSExport>
 
+	readonly getModuleExportNames: () => string[]
+
 	readonly getModuleExportByName: (
 		exportName: string,
 		considerTypesOnly?: boolean
