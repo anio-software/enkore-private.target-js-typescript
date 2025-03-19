@@ -9,6 +9,8 @@ export function typeCheckModule(mod: MyTSModule): MyTSDiagnosticMessage[] {
 	const {tsProgram} = getMyTSProgramInternals(mod.program)
 	const {tsSourceFile} = getMyTSSourceFileInternals(mod.source)
 
+	// todo: do not use getPreEmitDiagnostics since we are doing
+	// this in createProgram() already.
 	const diagnostics = ts.getPreEmitDiagnostics(tsProgram, tsSourceFile)
 
 	return diagnostics.map(diagnostic => {
