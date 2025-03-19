@@ -8,6 +8,10 @@ import {_getModuleImportMap} from "./moduleInit/_getModuleImportMap.mts"
 import {_getModuleTopLevelTypeMap} from "./moduleInit/_getModuleTopLevelTypeMap.mts"
 import {_getModuleTopLevelType} from "./moduleInit/_getModuleTopLevelType.mts"
 
+type Writeable<T> = {
+	-readonly [P in keyof T]: T[P]
+}
+
 export function createMyTSModule(
 	myProgram: MyTSProgram,
 	filePath: string
@@ -15,7 +19,7 @@ export function createMyTSModule(
 	const myProgramInt = getMyTSProgramInternals(myProgram)
 	const tsSourceFile = myProgramInt.getTSSourceFile(filePath)
 
-	const myModule: MyTSModule = {
+	const myModule: Writeable<MyTSModule> = {
 		filePath,
 		program: myProgram,
 		moduleExports: new Map(),
@@ -24,25 +28,25 @@ export function createMyTSModule(
 		source: {} as MyTSSourceFile
 	}
 
-	;(myModule.source as any) = createMyTSSourceFile(
-		tsSourceFile, myModule
-	);
+	myModule.source = createMyTSSourceFile(tsSourceFile, myModule)
 
-	;(myModule.moduleExports as any) = _getModuleExports(
-		tsSourceFile, myProgramInt.tsChecker, myModule.source
-	);
+	myModule.moduleExports = _getModuleExports(
+		tsSourceFile,
+		myProgramInt.tsChecker,
+		myModule.source
+	)
 
-	;(myModule.moduleImports as any) = _getModuleImportMap(
+	myModule.moduleImports = _getModuleImportMap(
 		tsSourceFile, myModule.source
-	);
+	)
 
 	const typeMap = _getModuleTopLevelTypeMap(
 		tsSourceFile, myProgramInt.tsChecker, myModule.moduleImports
 	)
 
-	;(myModule.rootTopLevelTypeNode as any) = _getModuleTopLevelType(
+	myModule.rootTopLevelTypeNode = _getModuleTopLevelType(
 		typeMap
-	);
+	)
 
 	return myModule
 }
