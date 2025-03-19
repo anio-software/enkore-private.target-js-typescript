@@ -13,6 +13,11 @@ export type MyTSModule = {
 	readonly moduleImports: Map<string, MyTSImportDeclaration>
 	readonly moduleExports: Map<string, MyTSExport>
 
+	readonly getModuleExportByName: (
+		exportName: string,
+		considerTypesOnly?: boolean
+	) => MyTSExport|undefined
+
 	//
 	// a tree of all top level types defined in the module
 	//

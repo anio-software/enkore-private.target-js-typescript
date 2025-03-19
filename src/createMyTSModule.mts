@@ -25,7 +25,8 @@ export function createMyTSModule(
 		moduleExports: new Map(),
 		moduleImports: new Map(),
 		rootTopLevelTypeNode: {} as MyTSModule["rootTopLevelTypeNode"],
-		source: {} as MyTSSourceFile
+		source: {} as MyTSSourceFile,
+		getModuleExportByName: () => undefined
 	}
 
 	myModule.source = createMyTSSourceFile(tsSourceFile, myModule)
@@ -47,6 +48,20 @@ export function createMyTSModule(
 	myModule.rootTopLevelTypeNode = _getModuleTopLevelType(
 		typeMap
 	)
+
+	myModule.getModuleExportByName = (exportName, considerTypesOnly) => {
+		if (!myModule.moduleExports.has(exportName)) {
+			return undefined
+		}
+
+		const exportDescriptor = myModule.moduleExports.get(exportName)!
+
+		if (considerTypesOnly === true && exportDescriptor.kind !== "type") {
+			return undefined
+		}
+
+		return exportDescriptor
+	}
 
 	return myModule
 }
