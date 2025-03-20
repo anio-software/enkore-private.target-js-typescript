@@ -77,7 +77,7 @@ function walk(
 	if (!symbol.declarations.length) return
 
 	if (symbol.declarations.length > 1) {
-		throw new Error(`symbol.declarations is more than 1.`)
+		// todo: log warning/error?
 	}
 
 	const declaration = symbol.declarations[0]
