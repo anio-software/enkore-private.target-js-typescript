@@ -4,9 +4,6 @@ import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {astFilter, printNode} from "@aniojs/node-ts-utils"
 
-//
-// this is only really here because of enkore
-//
 type StringLiteralArgument = {
 	kind: "string"
 	value: string
@@ -112,6 +109,9 @@ function walk(
 	}
 }
 
+//
+// this is only really here because of enkore
+//
 export function _tracePrimitiveImportedFunctionCalls(
 	mod: MyTSModule
 ): PrimitiveImportedFunctionCall[] {
