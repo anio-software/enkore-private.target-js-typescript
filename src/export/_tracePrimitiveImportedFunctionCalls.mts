@@ -82,6 +82,13 @@ function walk(
 
 	const declaration = symbol.declarations[0]
 
+	//
+	// recursively resolve variable assignments like:
+	//
+	// import {originalFn} from "module"
+	// const fn = originalFn
+	// const aliasedFn = fn
+	//
 	if (ts.isVariableDeclaration(declaration) && declaration.initializer) {
 		walk(
 			tsChecker,
