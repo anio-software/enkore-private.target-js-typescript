@@ -31,6 +31,10 @@ export function _getModuleExports(
 		const resolvedSymbol = symbol.flags & ts.SymbolFlags.Alias ? tsChecker.getAliasedSymbol(symbol) : symbol
 		const symbolType = getSymbolType(resolvedSymbol)
 
+		// ignore unknown symbol types
+		// todo: log warning
+		if (symbolType === "unknown") continue
+
 		// todo: log error instead of throwing error
 		if (!resolvedSymbol.declarations) {
 			throw new Error(`declarations is undefined!`)
