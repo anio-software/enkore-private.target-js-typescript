@@ -8,7 +8,7 @@ import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationCont
 import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformationContextInternals.mts"
 
 import {
-	astTransform,
+	transformSourceFile,
 	remapModuleImportAndExportSpecifiers as remap
 } from "@aniojs/node-ts-utils"
 
@@ -28,7 +28,7 @@ export function remapModuleImportAndExportSpecifiers(
 	return (inputSourceFile) => {
 		const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
-		const transformed = astTransform(tsSourceFile, remap((moduleSpecifier, decl) => {
+		const transformed = transformSourceFile(tsSourceFile, remap((moduleSpecifier, decl) => {
 			return mapper(moduleSpecifier, convert(decl))
 		}), context)
 

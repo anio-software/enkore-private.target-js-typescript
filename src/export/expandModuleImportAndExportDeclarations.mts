@@ -5,7 +5,7 @@ import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationCont
 import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformationContextInternals.mts"
 
 import {
-	astTransform,
+	transformSourceFile,
 	expandModuleImportAndExportDeclarations as expand
 } from "@aniojs/node-ts-utils"
 
@@ -19,7 +19,7 @@ export function expandModuleImportAndExportDeclarations(
 	return (inputSourceFile) => {
 		const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
-		const transformed = astTransform(tsSourceFile, expand(), context)
+		const transformed = transformSourceFile(tsSourceFile, expand(), context)
 
 		return createMyTSSourceFile(transformed, undefined)
 	}

@@ -5,7 +5,7 @@ import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationCont
 import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformationContextInternals.mts"
 
 import {
-	astTransform,
+	transformSourceFile,
 	resolveImportAliases as resolveAliases
 } from "@aniojs/node-ts-utils"
 
@@ -20,7 +20,7 @@ export function resolveImportAliases(
 	return (inputSourceFile) => {
 		const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
-		const transformed = astTransform(tsSourceFile, resolveAliases(aliases), context)
+		const transformed = transformSourceFile(tsSourceFile, resolveAliases(aliases), context)
 
 		return createMyTSSourceFile(transformed, undefined)
 	}
