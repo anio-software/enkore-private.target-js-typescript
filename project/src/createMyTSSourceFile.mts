@@ -14,6 +14,11 @@ export function createMyTSSourceFile(
 		associatedModule
 	}
 
+	// todo: use enkore runtime to do the logging
+	if (typeof sourceFile === "undefined") {
+		console.warn(`createMyTSSourceFile: sourceFile is undefined`)
+	}
+
 	return {
 		_myTSSourceFileBrand: undefined,
 		__internal
