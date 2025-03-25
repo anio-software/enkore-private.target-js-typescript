@@ -18,8 +18,11 @@
   "devDependencies": {
     "@aniojs/node-fs": "^0.5.3",
     "@aniojs/node-ts-utils": "^0.200.0",
+    "@enkore/core": "^0.4.0",
+    "@enkore/realm-js": "^0.0.10",
     "@fourtune/realm-js": "^1.0.5",
     "@types/node": "^22.7.7",
+    "enkore": "^0.0.8",
     "fourtune": "^0.30000.0"
   },
   "dependencies": {
