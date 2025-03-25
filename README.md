@@ -1,3 +1,3 @@
-# @aniojs/node-my-ts
+# @enkore/typescript
 
 Wrapper around TypeScript.
