@@ -1,5 +1,5 @@
 import ts from "typescript"
-import type {MyTSImportDeclaration} from "#~src/export/MyTSImportDeclaration.mts"
+import type {MyTSImportDeclaration} from "#~export/MyTSImportDeclaration.mts"
 
 import {convertDefaultImport} from "./convertDefaultImport.mts"
 import {convertStarImport} from "./convertStarImport.mts"
