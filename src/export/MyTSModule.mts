@@ -1,3 +1,3 @@
 export type {
 	MyTSModule
-} from "#~src/types/MyTSModule.d.mts"
+} from "#~src/types/MyTSModule.mts"

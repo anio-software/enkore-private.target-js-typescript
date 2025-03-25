@@ -1,7 +1,7 @@
-import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.d.mts"
+import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
-import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.d.mts"
+import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.mts"
 import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformationContextInternals.mts"
 
 import {

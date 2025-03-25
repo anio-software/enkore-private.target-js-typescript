@@ -1,7 +1,7 @@
 import ts from "typescript"
 import fs from "node:fs"
 
-import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.d.mts"
+import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.mts"
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
 
 export function createSourceFile(

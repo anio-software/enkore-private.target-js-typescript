@@ -2,7 +2,7 @@ import {
 	readTSConfigFile as impl
 } from "@aniojs/node-ts-utils"
 
-import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.d.mts"
+import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
 import {createMyTSCompilerOptions} from "#~src/createMyTSCompilerOptions.mts"
 
 export function readTSConfigFile(

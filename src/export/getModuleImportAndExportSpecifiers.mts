@@ -1,5 +1,5 @@
-import type {MyTSModule} from "./MyTSModule.d.mts"
-import type {MyTSSourceFile} from "./MyTSSourceFile.d.mts"
+import type {MyTSModule} from "./MyTSModule.mts"
+import type {MyTSSourceFile} from "./MyTSSourceFile.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 
 import {

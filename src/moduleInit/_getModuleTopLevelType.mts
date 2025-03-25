@@ -1,4 +1,4 @@
-import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.d.mts"
+import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.mts"
 import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
 import {_getModuleTopLevelTypeMap} from "./_getModuleTopLevelTypeMap.mts"
 

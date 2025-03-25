@@ -4,7 +4,7 @@ import type {
 	MyTSFunctionDeclaration,
 	Parameter,
 	TypeParameter
-} from "#~src/types/node/MyTSFunctionDeclaration.d.mts"
+} from "#~src/types/node/MyTSFunctionDeclaration.mts"
 
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
 import {createMyTSNode} from "#~src/createMyTSNode.mts"

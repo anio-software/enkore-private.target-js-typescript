@@ -1,6 +1,6 @@
 import ts from "typescript"
-import type {MyTSProgram} from "./MyTSProgram.d.mts"
-import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
+import type {MyTSProgram} from "./MyTSProgram.mts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 

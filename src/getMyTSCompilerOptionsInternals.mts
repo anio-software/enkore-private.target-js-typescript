@@ -1,7 +1,7 @@
 import type {
 	MyTSCompilerOptions,
 	Internal as MyTSCompilerOptionsInternal
-} from "./types/MyTSCompilerOptions.d.mts"
+} from "./types/MyTSCompilerOptions.mts"
 
 export function getMyTSCompilerOptionsInternals(
 	myCompilerOptions: MyTSCompilerOptions

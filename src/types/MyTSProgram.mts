@@ -1,6 +1,6 @@
 import ts from "typescript"
-import type {MyTSModule} from "./MyTSModule.d.mts"
-import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.d.mts"
+import type {MyTSModule} from "./MyTSModule.mts"
+import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
 
 export type Internal = {
 	cachedModules: Map<string, MyTSModule>

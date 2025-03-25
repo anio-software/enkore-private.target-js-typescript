@@ -1,6 +1,6 @@
 import ts from "typescript"
 
-import type {Nodes} from "#~src/types/node/Map.d.mts"
+import type {Nodes} from "#~src/types/node/Map.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"

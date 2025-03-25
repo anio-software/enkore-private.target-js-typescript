@@ -2,8 +2,8 @@ import ts from "typescript"
 import type {
 	MyTSSourceFile,
 	Internal as MyTSSourceFileInternal
-} from "./types/MyTSSourceFile.d.mts"
-import type {MyTSModule} from "./types/MyTSModule.d.mts"
+} from "./types/MyTSSourceFile.mts"
+import type {MyTSModule} from "./types/MyTSModule.mts"
 
 export function createMyTSSourceFile(
 	sourceFile: ts.SourceFile,

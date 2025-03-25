@@ -1,5 +1,5 @@
-import type {NamedImportMember} from "../types/node/MyTSImportDeclaration.d.mts"
-import type {NamedExportMember} from "../types/node/MyTSExportDeclaration.d.mts"
+import type {NamedImportMember} from "../types/node/MyTSImportDeclaration.mts"
+import type {NamedExportMember} from "../types/node/MyTSExportDeclaration.mts"
 
 export function formatImportExportMembers(
 	declarationIsTypeOnly: boolean,

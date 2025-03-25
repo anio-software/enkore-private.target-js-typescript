@@ -1,6 +1,6 @@
-import type {MyTSVariableDeclaration} from "./node/MyTSVariableDeclaration.d.mts"
-import type {MyTSFunctionDeclaration} from "./node/MyTSFunctionDeclaration.d.mts"
-import type {MyTSTypeAliasDeclaration} from "./node/MyTSTypeAliasDeclaration.d.mts"
+import type {MyTSVariableDeclaration} from "./node/MyTSVariableDeclaration.mts"
+import type {MyTSFunctionDeclaration} from "./node/MyTSFunctionDeclaration.mts"
+import type {MyTSTypeAliasDeclaration} from "./node/MyTSTypeAliasDeclaration.mts"
 
 type Kind = "value" | "function" | "type"
 

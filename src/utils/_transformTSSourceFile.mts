@@ -1,7 +1,7 @@
 import ts from "typescript"
 import {createMyTSSourceFile} from "../createMyTSSourceFile.mts"
 import {getMyTSSourceFileInternals} from "../getMyTSSourceFileInternals.mts"
-import type {MyTSSourceFileTransformer} from "../types/MyTSSourceFileTransformer.d.mts"
+import type {MyTSSourceFileTransformer} from "../types/MyTSSourceFileTransformer.mts"
 
 function transformSingle(
 	tsSourceFile: ts.SourceFile,

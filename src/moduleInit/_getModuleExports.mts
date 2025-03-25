@@ -1,8 +1,8 @@
 import ts from "typescript"
 
-import type {MyTSExport} from "../types/MyTSExport.d.mts"
-import type {MyTSSourceFile} from "../types/MyTSSourceFile.d.mts"
-import type {Nodes} from "../types/node/Map.d.mts"
+import type {MyTSExport} from "../types/MyTSExport.mts"
+import type {MyTSSourceFile} from "../types/MyTSSourceFile.mts"
+import type {Nodes} from "../types/node/Map.mts"
 import {convert} from "../convert/convert.mts"
 
 function getSymbolType(symbol: ts.Symbol) {

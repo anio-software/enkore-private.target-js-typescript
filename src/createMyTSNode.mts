@@ -1,6 +1,6 @@
-import type {Kinds, TSNodeTypeMap} from "./types/node/Kinds.d.mts"
-import type {Map} from "./types/node/Map.d.mts"
-import type {MyTSSourceFile} from "./types/MyTSSourceFile.d.mts"
+import type {Kinds, TSNodeTypeMap} from "./types/node/Kinds.mts"
+import type {Map} from "./types/node/Map.mts"
+import type {MyTSSourceFile} from "./types/MyTSSourceFile.mts"
 import type {_MyTSNode} from "./types/node/DefineNodeType.mts"
 
 export function createMyTSNode<

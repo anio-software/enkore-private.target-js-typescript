@@ -1,4 +1,4 @@
-import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.d.mts"
+import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.mts"
 import {formatImportExportMembers} from "#~src/utils/formatImportExportMembers.mts"
 
 export function convertMyTSImportDeclarationToString(

@@ -1,10 +1,10 @@
-import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.d.mts"
+import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
-import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.d.mts"
-import type {MyTSExportDeclaration} from "./MyTSExportDeclaration.d.mts"
+import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.mts"
+import type {MyTSExportDeclaration} from "./MyTSExportDeclaration.mts"
 import {convert} from "#~src/convert/convert.mts"
-import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.d.mts"
+import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.mts"
 import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformationContextInternals.mts"
 
 import {

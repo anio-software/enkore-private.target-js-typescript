@@ -1,4 +1,4 @@
-import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.d.mts"
+import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.mts"
 import path from "node:path"
 import {normalizePath} from "#~src/utils/normalizePath.mts"
 import {getVirtualFileMarker} from "#~src/getVirtualFileMarker.mts"

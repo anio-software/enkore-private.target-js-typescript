@@ -1,5 +1,5 @@
 import ts from "typescript"
-import type {MyTSDiagnosticMessage} from "../types/MyTSDiagnosticMessage.d.mts"
+import type {MyTSDiagnosticMessage} from "../types/MyTSDiagnosticMessage.mts"
 import path from "node:path"
 
 export function convertTSDiagnostic(

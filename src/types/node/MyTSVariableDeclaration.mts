@@ -1,4 +1,4 @@
-import type {DefineNodeType} from "./DefineNodeType.d.mts"
+import type {DefineNodeType} from "./DefineNodeType.mts"
 
 export type MyTSVariableDeclaration = DefineNodeType<
 	"VariableDeclaration", {

@@ -1,3 +1,3 @@
 export type {
 	MyTSVirtualProgramFile
-} from "#~src/types/MyTSVirtualProgramFile.d.mts"
+} from "#~src/types/MyTSVirtualProgramFile.mts"

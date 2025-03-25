@@ -1,4 +1,4 @@
-import type {MyTSTopLevelTypeDescriptor} from "#~src/export/MyTSTopLevelTypeDescriptor.d.mts"
+import type {MyTSTopLevelTypeDescriptor} from "#~src/export/MyTSTopLevelTypeDescriptor.mts"
 
 type Callback = (
 	node: MyTSTopLevelTypeTreeClass,

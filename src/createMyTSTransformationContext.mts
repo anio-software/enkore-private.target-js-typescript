@@ -2,7 +2,7 @@ import ts from "typescript"
 import type {
 	MyTSTransformationContext,
 	Internal as MyTSTransformationContextInternal
-} from "./types/MyTSTransformationContext.d.mts"
+} from "./types/MyTSTransformationContext.mts"
 
 export function createMyTSTransformationContext(
 	tsTransformationContext: ts.TransformationContext

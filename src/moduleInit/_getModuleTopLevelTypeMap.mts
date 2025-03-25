@@ -1,6 +1,6 @@
 import ts from "typescript"
-import type {MyTSModule} from "../types/MyTSModule.d.mts"
-import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.d.mts"
+import type {MyTSModule} from "../types/MyTSModule.mts"
+import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.mts"
 import {convertMyTSImportDeclarationToString} from "#~src/export/convertMyTSImportDeclarationToString.mts"
 
 import {

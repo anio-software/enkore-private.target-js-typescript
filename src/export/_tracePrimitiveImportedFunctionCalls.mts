@@ -1,5 +1,5 @@
 import ts from "typescript"
-import type {MyTSModule} from "./MyTSModule.d.mts"
+import type {MyTSModule} from "./MyTSModule.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {astFilter, printNode} from "@aniojs/node-ts-utils"

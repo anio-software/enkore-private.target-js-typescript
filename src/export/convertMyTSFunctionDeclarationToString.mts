@@ -1,4 +1,4 @@
-import type {MyTSFunctionDeclaration} from "./MyTSFunctionDeclaration.d.mts"
+import type {MyTSFunctionDeclaration} from "./MyTSFunctionDeclaration.mts"
 
 type Options = {
 	overwriteFunctionName?: string

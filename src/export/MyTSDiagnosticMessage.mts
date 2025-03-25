@@ -1,3 +1,3 @@
 export type {
 	MyTSDiagnosticMessage
-} from "#~src/types/MyTSDiagnosticMessage.d.mts"
+} from "#~src/types/MyTSDiagnosticMessage.mts"

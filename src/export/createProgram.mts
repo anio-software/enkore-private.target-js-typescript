@@ -1,14 +1,14 @@
 import ts from "typescript"
 
-import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.d.mts"
-import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.d.mts"
-import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/types/MyTSProgram.d.mts"
+import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.mts"
+import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
+import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/types/MyTSProgram.mts"
 import {createMyTSModule} from "#~src/createMyTSModule.mts"
 import {resolvePathSync} from "@aniojs/node-fs"
 import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
 import path from "node:path"
 import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.mts"
-import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
 export function createProgram(

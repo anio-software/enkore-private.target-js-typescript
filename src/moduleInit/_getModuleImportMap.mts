@@ -1,10 +1,10 @@
 import ts from "typescript"
 
-import type {MyTSSourceFile} from "../types/MyTSSourceFile.d.mts"
-import type {MyTSImportDeclaration} from "../types/node/MyTSImportDeclaration.d.mts"
+import type {MyTSSourceFile} from "../types/MyTSSourceFile.mts"
+import type {MyTSImportDeclaration} from "../types/node/MyTSImportDeclaration.mts"
 import {convert} from "../convert/convert.mts"
 import {astFilter} from "@aniojs/node-ts-utils"
-import type {Nodes} from "../types/node/Map.d.mts"
+import type {Nodes} from "../types/node/Map.mts"
 
 export function _getModuleImportMap(
 	sourceFile: ts.SourceFile,

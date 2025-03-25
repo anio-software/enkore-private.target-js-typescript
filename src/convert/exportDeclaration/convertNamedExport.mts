@@ -4,7 +4,7 @@ import {printNode} from "@aniojs/node-ts-utils"
 import type {
 	NamedExportMember,
 	NamedExport
-} from "#~src/types/node/MyTSExportDeclaration.d.mts"
+} from "#~src/types/node/MyTSExportDeclaration.mts"
 
 export function convertNamedExport(
 	exportNode: ts.ExportDeclaration

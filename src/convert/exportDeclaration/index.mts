@@ -1,5 +1,5 @@
 import ts from "typescript"
-import type {MyTSExportDeclaration} from "#~src/export/MyTSExportDeclaration.d.mts"
+import type {MyTSExportDeclaration} from "#~src/export/MyTSExportDeclaration.mts"
 
 import {convertNamedExport} from "./convertNamedExport.mts"
 import {convertStarExport} from "./convertStarExport.mts"

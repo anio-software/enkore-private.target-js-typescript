@@ -1,5 +1,5 @@
-import type {Kinds} from "./Kinds.d.mts"
-import type {MyTSSourceFile} from "../MyTSSourceFile.d.mts"
+import type {Kinds} from "./Kinds.mts"
+import type {MyTSSourceFile} from "../MyTSSourceFile.mts"
 
 export type _MyTSNode<Kind extends Kinds> = {
 	readonly kind: Kind

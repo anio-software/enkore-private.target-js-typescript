@@ -1,5 +1,5 @@
-import type {MyTSModule} from "./MyTSModule.d.mts"
-import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.d.mts"
+import type {MyTSModule} from "./MyTSModule.mts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"

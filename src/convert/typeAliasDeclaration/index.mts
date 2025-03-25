@@ -1,6 +1,6 @@
 import ts from "typescript"
 
-import type {MyTSTypeAliasDeclaration} from "#~src/types/node/MyTSTypeAliasDeclaration.d.mts"
+import type {MyTSTypeAliasDeclaration} from "#~src/types/node/MyTSTypeAliasDeclaration.mts"
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
 import {createMyTSNode} from "#~src/createMyTSNode.mts"
 import {printNode} from "@aniojs/node-ts-utils"

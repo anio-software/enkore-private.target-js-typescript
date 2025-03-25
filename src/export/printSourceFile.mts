@@ -1,4 +1,4 @@
-import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.d.mts"
+import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {printNode} from "@aniojs/node-ts-utils"
 
