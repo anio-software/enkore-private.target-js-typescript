@@ -12,10 +12,13 @@ export type Nodes = MyTSExportDeclaration   |
                     MyTSVariableDeclaration |
                     MyTSTypeAliasDeclaration
 
+// credit to jcalz https://stackoverflow.com/a/67794430
+type DistributiveOmit<T, K extends PropertyKey> = T extends any ? Omit<T, K> : never;
+
 export type Map = {
-	[Kind in Kinds]: Extract<Nodes, {
+	[Kind in Kinds]: DistributiveOmit<Extract<Nodes, {
 		_myTSNode: {
 			kind: Kind
 		}
-	}>
+	}>, "_myTSNode">
 }
