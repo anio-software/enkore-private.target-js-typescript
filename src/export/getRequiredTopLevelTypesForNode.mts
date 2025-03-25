@@ -2,17 +2,17 @@ import ts from "typescript"
 
 import type {Nodes} from "#~src/types/node/Map.d.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import {MyTSTopLevelTypeTree} from "./MyTSTopLevelTypeTree.mts"
+import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {
 	getTypeNamesReferencedInNode
 } from "@aniojs/node-ts-utils"
 
 function findTopLevelTypeNodeByName(
-	rootNode: MyTSTopLevelTypeTree,
+	rootNode: MyTSTopLevelTypeTreeClass,
 	typeName: string
-): MyTSTopLevelTypeTree|undefined {
-	let result: MyTSTopLevelTypeTree|undefined = undefined
+): MyTSTopLevelTypeTreeClass|undefined {
+	let result: MyTSTopLevelTypeTreeClass|undefined = undefined
 
 	rootNode.depthFirstTraversal((node) => {
 		if (node.getType().name === typeName) {
@@ -28,7 +28,7 @@ function findTopLevelTypeNodeByName(
 
 export function getRequiredTopLevelTypesForNode(
 	node: Nodes
-): MyTSTopLevelTypeTree {
+): MyTSTopLevelTypeTreeClass {
 	const {associatedModule} = getMyTSSourceFileInternals(node._myTSNode.associatedSourceFile)
 
 	if (!associatedModule) {
@@ -43,7 +43,7 @@ export function getRequiredTopLevelTypesForNode(
 		tsChecker, node._myTSNode.tsNode as ts.Node
 	)
 
-	const topNode = new MyTSTopLevelTypeTree({
+	const topNode = new MyTSTopLevelTypeTreeClass({
 		declaration: "",
 		dependsOnTypes: typeNamesReferenced,
 		name: "node()",

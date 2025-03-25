@@ -1,5 +1,5 @@
 import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.d.mts"
-import {MyTSTopLevelTypeTree} from "#~src/export/MyTSTopLevelTypeTree.mts"
+import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
 import {_getModuleTopLevelTypeMap} from "./_getModuleTopLevelTypeMap.mts"
 
 type TypeMap = ReturnType<typeof _getModuleTopLevelTypeMap>
@@ -7,7 +7,7 @@ type TypeMap = ReturnType<typeof _getModuleTopLevelTypeMap>
 function buildTree(
 	topLevelTypes: Map<string, MyTSTopLevelTypeDescriptor>,
 	startType: string,
-	rootNode: MyTSTopLevelTypeTree
+	rootNode: MyTSTopLevelTypeTreeClass
 ) {
 	// todo: log warning
 	if (!topLevelTypes.has(startType)) {
@@ -15,10 +15,10 @@ function buildTree(
 	}
 
 	const typeToAdd = topLevelTypes.get(startType)!
-	const currentNode = rootNode ?? new MyTSTopLevelTypeTree(typeToAdd)
+	const currentNode = rootNode ?? new MyTSTopLevelTypeTreeClass(typeToAdd)
 
 	for (const type of typeToAdd.dependsOnTypes) {
-		const node = new MyTSTopLevelTypeTree(
+		const node = new MyTSTopLevelTypeTreeClass(
 			topLevelTypes.has(type) ? topLevelTypes.get(type)! : {
 				declaration: `/* unable to find type '${type}' at the top level */`,
 				dependsOnTypes: [],
@@ -37,7 +37,7 @@ function buildTree(
 
 export function _getModuleTopLevelType(
 	map: TypeMap
-): MyTSTopLevelTypeTree {
+): MyTSTopLevelTypeTreeClass {
 	// safe to use here because a type name cannot have parentheses 
 	const syntheticMainTypeName = "main()"
 
@@ -56,6 +56,6 @@ export function _getModuleTopLevelType(
 	return buildTree(
 		map,
 		syntheticMainTypeName,
-		new MyTSTopLevelTypeTree(syntheticMainType)
+		new MyTSTopLevelTypeTreeClass(syntheticMainType)
 	)
 }
