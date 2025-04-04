@@ -1,20 +1,16 @@
 import {defineConfig} from "enkore"
-import {defineRealmConfig} from "@enkore/realm-js"
+import {defineTargetConfig} from "@enkore-target/js-node"
 
 export default defineConfig({
-	realm: {
-		name: "js",
-		config: defineRealmConfig({
-			runtime: "node",
-			publishWithExactDependencyVersions: true,
-			createTypesPackage: {
-				orgName: "@enkore-types"
-			},
-			externalPackages: [
-				"@babel/core",
-				"@babel/preset-typescript",
-				"typescript"
-			]
-		})
-	}
+	target: defineTargetConfig({
+		publishWithExactDependencyVersions: true,
+		createTypesPackage: {
+			orgName: "@enkore-types"
+		},
+		externalPackages: [
+			"@babel/core",
+			"@babel/preset-typescript",
+			"typescript"
+		]
+	})
 })
