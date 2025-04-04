@@ -1,3 +1,5 @@
+import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.mts"
+
 type TypeDescriptorSource = "module" | "import"
 
 type TypeDescriptor<
@@ -17,4 +19,6 @@ type TypeDescriptor<
 } & AdditionalData
 
 export type MyTSTopLevelTypeDescriptor = TypeDescriptor<"module"> |
-                                         TypeDescriptor<"import">
+                                         TypeDescriptor<"import", {
+                                             importDeclaration: MyTSImportDeclaration
+                                         }>

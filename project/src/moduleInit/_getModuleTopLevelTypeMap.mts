@@ -27,7 +27,8 @@ export function _getModuleTopLevelTypeMap(
 			name: typeName,
 			declaration,
 			source: "import",
-			dependsOnTypes: []
+			dependsOnTypes: [],
+			importDeclaration: value
 		})
 	}
 
