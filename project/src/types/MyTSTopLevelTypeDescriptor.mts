@@ -1,7 +1,12 @@
-export type MyTSTopLevelTypeDescriptor = {
+type TypeDescriptorSource = "module" | "import"
+
+type TypeDescriptor<
+	Source extends TypeDescriptorSource,
+	AdditionalData extends object = {}
+> = {
 	name: string
 	declaration: string
-	source: "module" | "import"
+	source: Source
 
 	//
 	// an array representing what other types this type
@@ -9,4 +14,7 @@ export type MyTSTopLevelTypeDescriptor = {
 	// is independent.
 	//
 	dependsOnTypes: string[]
-}
+} & AdditionalData
+
+export type MyTSTopLevelTypeDescriptor = TypeDescriptor<"module"> |
+                                         TypeDescriptor<"import">
