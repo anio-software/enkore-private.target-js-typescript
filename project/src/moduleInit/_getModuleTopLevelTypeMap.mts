@@ -8,6 +8,45 @@ import {
 	getTypeAliasDeclarationAsFormattedString
 } from "@aniojs/node-ts-utils"
 import {getTypeNamesReferencedInNode} from "@aniojs/node-ts-utils"
+import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.mts"
+
+function importReferencesAValue(
+	tsChecker: ts.TypeChecker,
+	importDecl: MyTSImportDeclaration
+): boolean|"unknown" {
+	const tsNode = importDecl._myTSNode.tsNode as ts.ImportDeclaration
+
+	if (!tsNode.importClause) return false
+	if (!tsNode.importClause.namedBindings) return false
+	if (!ts.isNamedImports(tsNode.importClause.namedBindings)) return false
+
+	const {namedBindings} = tsNode.importClause
+
+	// we know this map is flattened so it
+	// is safe to assume every named import in this list
+	// only contains one member
+	const [element] = namedBindings.elements
+
+	const symbol = tsChecker.getSymbolAtLocation(element.name)
+
+	if (!symbol) return "unknown"
+
+	const resolvedSymbol = (() => {
+		if (symbol.flags & ts.SymbolFlags.Alias) {
+			return tsChecker.getAliasedSymbol(symbol)
+		}
+
+		return symbol
+	})()
+
+	if (resolvedSymbol.flags & ts.SymbolFlags.Value) {
+		return true
+	} else if (resolvedSymbol.flags & ts.SymbolFlags.Type) {
+		return false
+	}
+
+	return "unknown"
+}
 
 export function _getModuleTopLevelTypeMap(
 	sourceFile: ts.SourceFile,
@@ -19,6 +58,15 @@ export function _getModuleTopLevelTypeMap(
 	for (const [key, value] of importMap.entries()) {
 		const declaration = convertMyTSImportDeclarationToString(value)
 		const typeName = value.isTypeOnly ? key : `typeof:${key}`
+
+		// special case:
+		// a type only import can still reference a value, so we also
+		// must provide "typeof:key" for this import
+		const referencesAValue = importReferencesAValue(tsChecker, value)
+
+		if (referencesAValue === true) {
+			// todo: add typeof:key
+		}
 
 		// we know this map is flattened so it
 		// is safe to assume every named import in this list
