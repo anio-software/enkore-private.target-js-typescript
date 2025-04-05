@@ -57,27 +57,30 @@ export function _getModuleTopLevelTypeMap(
 
 	for (const [key, value] of importMap.entries()) {
 		const declaration = convertMyTSImportDeclarationToString(value)
-		const typeName = value.isTypeOnly ? key : `typeof:${key}`
 
 		// special case:
 		// a type only import can still reference a value, so we also
 		// must provide "typeof:key" for this import
 		const referencesAValue = importReferencesAValue(tsChecker, value)
 
-		if (referencesAValue === true) {
-			// todo: add typeof:key
+		if (referencesAValue === true || !value.isTypeOnly) {
+			add(`typeof:${key}`)
+		} else if (value.isTypeOnly) {
+			add(key)
 		}
 
-		// we know this map is flattened so it
-		// is safe to assume every named import in this list
-		// only contains one member
-		topTypes.set(typeName, {
-			name: typeName,
-			declaration,
-			source: "import",
-			dependsOnTypes: [],
-			importDeclaration: value
-		})
+		function add(typeName: string) {
+			// we know this map is flattened so it
+			// is safe to assume every named import in this list
+			// only contains one member
+			topTypes.set(typeName, {
+				name: typeName,
+				declaration,
+				source: "import",
+				dependsOnTypes: [],
+				importDeclaration: value
+			})
+		}
 	}
 
 	//
