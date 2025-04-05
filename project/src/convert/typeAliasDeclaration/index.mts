@@ -11,7 +11,7 @@ export function convertTypeAliasDeclaration(
 	const sourceFile = createMyTSSourceFile(node.getSourceFile())
 
 	return createMyTSNode("TypeAliasDeclaration", {
-		name: printNode(node.type),
+		name: printNode(node.name),
 		jsDoc: ""
 	}, {tsNode: node, sourceFile})
 }
