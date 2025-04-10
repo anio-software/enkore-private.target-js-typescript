@@ -13,8 +13,6 @@ export function createSourceFileFromCode(
 ): MyTSSourceFile {
 	const filePath = options?.filePath ?? `/synthetic_${randomIdentifierSync(16)}.mts`
 
-	console.log(filePath)
-
 	const tsSourceFile = ts.createSourceFile(
 		filePath,
 		code,
