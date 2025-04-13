@@ -15,9 +15,14 @@ type Writeable<T> = {
 export function createMyTSModule(
 	myProgram: MyTSProgram,
 	filePath: string
-): MyTSModule {
+): MyTSModule|undefined {
 	const myProgramInt = getMyTSProgramInternals(myProgram)
 	const tsSourceFile = myProgramInt.getTSSourceFile(filePath)
+
+	// no such source file
+	if (!tsSourceFile) {
+		return undefined
+	}
 
 	const myModule: Writeable<MyTSModule> = {
 		filePath,

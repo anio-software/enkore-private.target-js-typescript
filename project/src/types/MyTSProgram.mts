@@ -10,7 +10,7 @@ export type Internal = {
 	tsProgram: ts.Program
 	tsChecker: ts.TypeChecker
 
-	getTSSourceFile: (filePath: string) => ts.SourceFile
+	getTSSourceFile: (filePath: string) => ts.SourceFile|undefined
 
 	__self: MyTSProgram
 }
@@ -21,8 +21,8 @@ export type MyTSProgram = {
 	readonly projectRoot: string
 	readonly compilerOptions: MyTSCompilerOptions
 
-	getModule: (filePath: string) => MyTSModule
-	getVirtualModule: (virtualFilePath: string) => MyTSModule
+	getModule: (filePath: string) => MyTSModule|undefined
+	getVirtualModule: (virtualFilePath: string) => MyTSModule|undefined
 
 	readonly __internal: unknown
 }

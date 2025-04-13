@@ -102,13 +102,7 @@ export function createProgram(
 			tsProgram,
 			tsChecker,
 			getTSSourceFile(filePath) {
-				const sourceFile = tsProgram.getSourceFile(filePath)
-
-				if (!sourceFile) {
-					throw new Error(`No such source file '${filePath}'.`)
-				}
-
-				return sourceFile
+				return tsProgram.getSourceFile(filePath)
 			},
 			__self: {} as MyTSProgram
 		}
@@ -130,6 +124,11 @@ export function createProgram(
 				}
 
 				const mod = createMyTSModule(internal.__self, filePath)
+
+				// no such module / source file
+				if (!mod) {
+					return undefined
+				}
 
 				internal.cachedModules.set(filePath, mod)
 
