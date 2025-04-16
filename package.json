@@ -24,10 +24,10 @@
     "@types/node": "^22.7.7",
     "enkore": "^0.0.16"
   },
-  "peerDependencies": {
-    "typescript": "^5.7.2"
-  },
   "files": [
     "./dist/"
-  ]
+  ],
+  "dependencies": {
+    "typescript": "^5.8.3"
+  }
 }
