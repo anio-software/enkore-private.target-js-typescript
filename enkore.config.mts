@@ -8,8 +8,6 @@ export default defineConfig({
 			orgName: "@enkore-types"
 		},
 		externalPackages: [
-			"@babel/core",
-			"@babel/preset-typescript",
 			"typescript"
 		]
 	})
