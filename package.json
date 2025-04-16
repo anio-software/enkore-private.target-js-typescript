@@ -24,10 +24,6 @@
     "@types/node": "^22.7.7",
     "enkore": "^0.0.16"
   },
-  "dependencies": {
-    "@babel/core": "^7.26.10",
-    "@babel/preset-typescript": "^7.26.0"
-  },
   "peerDependencies": {
     "typescript": "^5.7.2"
   },
