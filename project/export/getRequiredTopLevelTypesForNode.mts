@@ -15,7 +15,7 @@ function findTopLevelTypeNodeByName(
 	let result: MyTSTopLevelTypeTreeClass|undefined = undefined
 
 	rootNode.depthFirstTraversal((node) => {
-		if (node.getType().name === typeName) {
+		if (node.getData().name === typeName) {
 			result = node
 
 			// stop the traversal here
