@@ -23,5 +23,5 @@ export type MyTSModule = {
 	//
 	// a tree of all top level types defined in the module
 	//
-	readonly rootTopLevelTypeNode: MyTSTopLevelTypeTree
+	readonly topLevelTypesTree: MyTSTopLevelTypeTree
 }

@@ -52,7 +52,7 @@ export function getRequiredTopLevelTypesForNode(
 
 	for (const typeName of typeNamesReferenced) {
 		const node = findTopLevelTypeNodeByName(
-			associatedModule.rootTopLevelTypeNode,
+			associatedModule.topLevelTypesTree,
 			typeName
 		)
 

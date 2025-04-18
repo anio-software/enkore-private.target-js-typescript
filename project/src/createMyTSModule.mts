@@ -29,7 +29,7 @@ export function createMyTSModule(
 		program: myProgram,
 		moduleExports: new Map(),
 		moduleImports: new Map(),
-		rootTopLevelTypeNode: {} as MyTSModule["rootTopLevelTypeNode"],
+		topLevelTypesTree: {} as MyTSModule["topLevelTypesTree"],
 		source: {} as MyTSSourceFile,
 		getModuleExportNames: () => { return [] },
 		getModuleExportByName: () => undefined
@@ -51,7 +51,7 @@ export function createMyTSModule(
 		tsSourceFile, myProgramInt.tsChecker, myModule.moduleImports
 	)
 
-	myModule.rootTopLevelTypeNode = _getModuleTopLevelType(
+	myModule.topLevelTypesTree = _getModuleTopLevelType(
 		typeMap
 	)
 
