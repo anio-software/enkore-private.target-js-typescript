@@ -1,6 +1,7 @@
 import ts from "typescript"
 import type {MyTSModule} from "./MyTSModule.mts"
 import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
+import {MyTSSourceFileDependencyTreeClass} from "#~src/MyTSSourceFileDependencyTreeClass.mts"
 
 export type Internal = {
 	cachedModules: Map<string, MyTSModule>
@@ -11,6 +12,8 @@ export type Internal = {
 	tsChecker: ts.TypeChecker
 
 	getTSSourceFile: (filePath: string) => ts.SourceFile|undefined
+
+	sourceFileTree: MyTSSourceFileDependencyTreeClass
 
 	__self: MyTSProgram
 }

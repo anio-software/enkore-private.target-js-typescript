@@ -10,6 +10,7 @@ import path from "node:path"
 import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.mts"
 import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
+import {createProgramSourceFileTree} from "#~src/createProgramSourceFileTree.mts"
 
 export function createProgram(
 	userProjectRoot: string,
@@ -104,6 +105,9 @@ export function createProgram(
 			getTSSourceFile(filePath) {
 				return tsProgram.getSourceFile(filePath)
 			},
+			sourceFileTree: createProgramSourceFileTree(
+				projectRoot, inputFilePaths, tsProgram
+			),
 			__self: {} as MyTSProgram
 		}
 
