@@ -22,6 +22,16 @@ export class MyTreeClass<T> {
 		return result
 	}
 
+	convertToArray(): T[] {
+		const result: T[] = []
+
+		this.depthFirstTraversal(node => {
+			result.push(node.getData())
+		})
+
+		return result
+	}
+
 	constructor(data: T) {
 		this.#data = data
 		this.#children = []
