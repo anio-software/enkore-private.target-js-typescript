@@ -21,6 +21,7 @@ export function createMyTSSourceFile(
 
 	return {
 		_myTSSourceFileBrand: undefined,
+		code: sourceFile.getFullText(),
 		__internal
 	}
 }

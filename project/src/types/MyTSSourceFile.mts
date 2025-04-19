@@ -11,5 +11,6 @@ export type Internal = {
 export type MyTSSourceFile = {
 	_myTSSourceFileBrand: any
 
+	readonly code: string
 	readonly __internal: unknown
 }
