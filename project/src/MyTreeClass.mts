@@ -7,6 +7,21 @@ export class MyTreeClass<T> {
 	#data: T
 	#children: MyTreeClass<T>[]
 
+	findChild(test: (data: T) => boolean): MyTreeClass<T>|undefined {
+		let result: MyTreeClass<T>|undefined = undefined
+
+		this.depthFirstTraversal((node) => {
+			if (test(node.getData()) === true) {
+				result = node
+
+				// stop the traversal here
+				return false
+			}
+		})
+
+		return result
+	}
+
 	constructor(data: T) {
 		this.#data = data
 		this.#children = []
