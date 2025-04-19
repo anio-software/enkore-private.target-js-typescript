@@ -24,8 +24,11 @@ export function createMyTSModule(
 		return undefined
 	}
 
+	// we know filePath starts with the project root here
+	const relativeFilePath = filePath.slice(myProgram.projectRoot.length)
+
 	const myModule: Writeable<MyTSModule> = {
-		filePath,
+		filePath: relativeFilePath,
 		program: myProgram,
 		moduleExports: new Map(),
 		moduleImports: new Map(),
