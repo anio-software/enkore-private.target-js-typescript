@@ -8,24 +8,6 @@ import {
 	getTypeNamesReferencedInNode
 } from "@aniojs/node-ts-utils"
 
-function findTopLevelTypeNodeByName(
-	rootNode: MyTSTopLevelTypeTreeClass,
-	typeName: string
-): MyTSTopLevelTypeTreeClass|undefined {
-	let result: MyTSTopLevelTypeTreeClass|undefined = undefined
-
-	rootNode.depthFirstTraversal((node) => {
-		if (node.getData().name === typeName) {
-			result = node
-
-			// stop the traversal here
-			return false
-		}
-	})
-
-	return result
-}
-
 export function getRequiredTopLevelTypesForNode(
 	node: Nodes
 ): MyTSTopLevelTypeTreeClass {
@@ -51,10 +33,9 @@ export function getRequiredTopLevelTypesForNode(
 	})
 
 	for (const typeName of typeNamesReferenced) {
-		const node = findTopLevelTypeNodeByName(
-			associatedModule.topLevelTypesTree,
-			typeName
-		)
+		const node = associatedModule.topLevelTypesTree.findChild((node) => {
+			return node.name === typeName
+		})
 
 		if (!node) continue
 
