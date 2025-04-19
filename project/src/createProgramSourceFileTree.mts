@@ -42,7 +42,7 @@ function processSourceFile(
 
 		const resolvedSpecifier = path.join(
 			path.dirname(filePath),
-			specifier.slice(2)
+			specifier
 		)
 
 		processSourceFile(context, newRootNode, resolvedSpecifier)
