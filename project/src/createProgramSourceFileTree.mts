@@ -35,7 +35,7 @@ function processSourceFile(
 	const specifiers = getModuleImportAndExportSpecifiers(tsSourceFile)
 
 	for (const specifier of specifiers) {
-		if (!specifier.startsWith("./")) {
+		if (!specifier.startsWith("./") && !specifier.startsWith("../")) {
 			console.log("skipping specifier", specifier)
 			continue
 		}
