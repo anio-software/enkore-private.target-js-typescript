@@ -103,6 +103,12 @@ export function createProgram(
 			tsProgram,
 			tsChecker,
 			getTSSourceFile(filePath) {
+				if (!filePath.startsWith(projectRoot)) {
+					throw new Error(
+						`Internal Error: filePath must be absolute and start with the project root.`
+					)
+				}
+
 				return tsProgram.getSourceFile(filePath)
 			},
 			sourceFileTree: createProgramSourceFileTree(
