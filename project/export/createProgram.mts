@@ -128,7 +128,13 @@ export function createProgram(
 			projectRoot,
 			compilerOptions: myCompilerOptions,
 			getModule(filePath) {
-				// todo: normalize path
+				// filePath must start with the project root
+				if (!filePath.startsWith("/")) {
+					filePath = path.join(projectRoot, filePath)
+				}
+
+				filePath = path.normalize(filePath)
+
 				if (internal.cachedModules.has(filePath)) {
 					return internal.cachedModules.get(filePath)!
 				}
