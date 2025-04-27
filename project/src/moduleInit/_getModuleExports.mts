@@ -5,6 +5,7 @@ import type {MyTSSourceFile} from "../types/MyTSSourceFile.mts"
 import type {Nodes} from "../types/node/Map.mts"
 import {convert} from "../convert/convert.mts"
 import {getSymbolType} from "#~src/getSymbolType.mts"
+import {resolveSymbol} from "#~src/resolveSymbol.mts"
 
 export function _getModuleExports(
 	sourceFile: ts.SourceFile,
@@ -21,7 +22,7 @@ export function _getModuleExports(
 
 	for (const symbol of exportSymbols) {
 		const identifier = symbol.name
-		const resolvedSymbol = symbol.flags & ts.SymbolFlags.Alias ? tsChecker.getAliasedSymbol(symbol) : symbol
+		const resolvedSymbol = resolveSymbol(tsChecker, symbol)
 		const symbolType = getSymbolType(resolvedSymbol)
 
 		// ignore unknown symbol types
