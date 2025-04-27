@@ -11,7 +11,7 @@
   "type": "module",
   "devDependencies": {
     "@aniojs/node-fs": "^0.5.3",
-    "@aniojs/node-ts-utils": "^0.200.1",
+    "@aniojs/node-ts-utils": "^0.200.2",
     "@aniojs/random-ident": "^0.1.2",
     "@enkore-target/js-node": "^0.0.1",
     "@enkore/core": "^0.6.4",
