@@ -4,15 +4,7 @@ import type {MyTSExport} from "../types/MyTSExport.mts"
 import type {MyTSSourceFile} from "../types/MyTSSourceFile.mts"
 import type {Nodes} from "../types/node/Map.mts"
 import {convert} from "../convert/convert.mts"
-
-function getSymbolType(symbol: ts.Symbol) {
-	if (symbol.flags & ts.SymbolFlags.Function) return "function"
-	if (symbol.flags & ts.SymbolFlags.Type) return "type"
-	if (symbol.flags & ts.SymbolFlags.Variable) return "value"
-	if (symbol.flags & ts.SymbolFlags.ValueModule) return "module"
-
-	return "unknown"
-}
+import {getSymbolType} from "#~src/getSymbolType.mts"
 
 export function _getModuleExports(
 	sourceFile: ts.SourceFile,
