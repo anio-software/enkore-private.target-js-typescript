@@ -2,7 +2,7 @@ import type {MyTSVariableDeclaration} from "./node/MyTSVariableDeclaration.mts"
 import type {MyTSFunctionDeclaration} from "./node/MyTSFunctionDeclaration.mts"
 import type {MyTSTypeAliasDeclaration} from "./node/MyTSTypeAliasDeclaration.mts"
 
-type Kind = "value" | "function" | "type"
+type Kind = "value" | "function" | "type" | "module"
 
 type Export = {
 	kind: Kind
@@ -23,4 +23,8 @@ type TypeExport = Export & {
 	declaration: MyTSTypeAliasDeclaration
 }
 
-export type MyTSExport = ValueExport | FunctionExport | TypeExport
+type ModuleExport = Export & {
+	kind: "module"
+}
+
+export type MyTSExport = ValueExport | FunctionExport | TypeExport | ModuleExport

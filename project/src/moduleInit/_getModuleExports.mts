@@ -9,6 +9,7 @@ function getSymbolType(symbol: ts.Symbol) {
 	if (symbol.flags & ts.SymbolFlags.Function) return "function"
 	if (symbol.flags & ts.SymbolFlags.Type) return "type"
 	if (symbol.flags & ts.SymbolFlags.Variable) return "value"
+	if (symbol.flags & ts.SymbolFlags.ValueModule) return "module"
 
 	return "unknown"
 }
@@ -59,6 +60,10 @@ export function _getModuleExports(
 			moduleExports.set(identifier, {
 				kind: "type",
 				declaration: patch(convert(declaration))
+			})
+		} else if (symbolType === "module" && ts.isSourceFile(declaration)) {
+			moduleExports.set(identifier, {
+				kind: "module"
 			})
 		}
 	}
