@@ -1,12 +1,12 @@
 {
-  "name": "@enkore/typescript",
-  "version": "0.0.16",
+  "name": "@enkore-private/target-js-typescript",
+  "version": "0.0.0",
   "author": "Anio Software <info@anio.software>",
   "description": "A wrapper around the TypeScript compiler.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/enkore-org/typescript.git"
+    "url": "git+https://github.com/enkore-private-org/target-js-typescript.git"
   },
   "type": "module",
   "devDependencies": {
