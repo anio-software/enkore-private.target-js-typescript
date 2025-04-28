@@ -9,7 +9,7 @@ import {
 	expandModuleImportAndExportDeclarations as expand
 } from "@aniojs/node-ts-utils"
 
-export function expandModuleImportAndExportDeclarations(
+export function tsExpandModuleImportAndExportDeclarations(
 	transformContext: MyTSTransformationContext|undefined
 ): MyTSSourceFileTransformer {
 	const context = transformContext ? getMyTSTransformationContextInternals(
