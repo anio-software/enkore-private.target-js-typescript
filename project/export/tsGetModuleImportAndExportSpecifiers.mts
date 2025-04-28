@@ -6,7 +6,7 @@ import {
 	getModuleImportAndExportSpecifiers as impl
 } from "@aniojs/node-ts-utils"
 
-export function getModuleImportAndExportSpecifiers(
+export function tsGetModuleImportAndExportSpecifiers(
 	src: MyTSModule|MyTSSourceFile
 ): string[] {
 	const inputSourceFile = "source" in src ? src.source : src
