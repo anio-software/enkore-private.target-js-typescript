@@ -9,7 +9,7 @@ import {
 	resolveImportAliases as resolveAliases
 } from "@aniojs/node-ts-utils"
 
-export function resolveImportAliases(
+export function tsResolveImportAliases(
 	transformContext: MyTSTransformationContext|undefined,
 	aliases: Record<string, string>
 ): MyTSSourceFileTransformer {
