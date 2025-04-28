@@ -4,7 +4,7 @@ import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
-export function typeCheckProgram(program: MyTSProgram): {
+export function tsTypeCheckProgram(program: MyTSProgram): {
 	hasErrors: boolean
 	diagnosticMessages: MyTSDiagnosticMessage[]
 } {
