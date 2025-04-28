@@ -12,7 +12,7 @@ import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 import {createProgramSourceFileTree} from "#~src/createProgramSourceFileTree.mts"
 
-export function createProgram(
+export function tsCreateProgram(
 	userProjectRoot: string,
 	input: (string|MyTSVirtualProgramFile)[],
 	myCompilerOptions: MyTSCompilerOptions
