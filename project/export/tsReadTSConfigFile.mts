@@ -5,7 +5,7 @@ import {
 import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
 import {createMyTSCompilerOptions} from "#~src/createMyTSCompilerOptions.mts"
 
-export function readTSConfigFile(
+export function tsReadTSConfigFile(
 	projectRoot: string,
 	configPath: string
 ): {
