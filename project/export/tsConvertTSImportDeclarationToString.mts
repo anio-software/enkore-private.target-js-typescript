@@ -1,7 +1,7 @@
 import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.mts"
 import {formatImportExportMembers} from "#~src/utils/formatImportExportMembers.mts"
 
-export function convertMyTSImportDeclarationToString(
+export function tsConvertTSImportDeclarationToString(
 	declaration: MyTSImportDeclaration
 ): string {
 	const {kind, isTypeOnly, moduleSpecifier} = declaration

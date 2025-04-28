@@ -1,7 +1,7 @@
 import ts from "typescript"
 import type {MyTSModule} from "../types/MyTSModule.mts"
 import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.mts"
-import {convertMyTSImportDeclarationToString} from "#~export/convertMyTSImportDeclarationToString.mts"
+import {tsConvertTSImportDeclarationToString} from "#~export/tsConvertTSImportDeclarationToString.mts"
 
 import {
 	astFilter,
@@ -56,7 +56,7 @@ export function _getModuleTopLevelTypeMap(
 	const topTypes: Map<string, MyTSTopLevelTypeDescriptor> = new Map()
 
 	for (const [key, value] of importMap.entries()) {
-		const declaration = convertMyTSImportDeclarationToString(value)
+		const declaration = tsConvertTSImportDeclarationToString(value)
 
 		// special case:
 		// a type only import can still reference a value, so we also
