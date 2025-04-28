@@ -17,7 +17,7 @@ type Mapper = (
 	declaration: MyTSImportDeclaration|MyTSExportDeclaration
 ) => string|undefined
 
-export function remapModuleImportAndExportSpecifiers(
+export function tsRemapModuleImportAndExportSpecifiers(
 	transformContext: MyTSTransformationContext|undefined,
 	mapper: Mapper
 ): MyTSSourceFileTransformer {
