@@ -6,7 +6,7 @@ type Options = {
 	useJSDoc?: boolean
 }
 
-export function convertMyTSFunctionDeclarationToString(
+export function tsConvertTSFunctionDeclarationToString(
 	declaration: MyTSFunctionDeclaration, options?: Options
 ): string {
 	let signature = ``
