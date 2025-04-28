@@ -21,7 +21,7 @@ function convertTransform(
 	return []
 }
 
-export function generateDeclarationsForModule(
+export function tsGenerateDeclarationsForModule(
 	mod: MyTSModule,
 	transformFactory?: (
 		context: MyTSTransformationContext
