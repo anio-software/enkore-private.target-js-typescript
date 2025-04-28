@@ -3,7 +3,7 @@ import path from "node:path"
 import {normalizePath} from "#~src/utils/normalizePath.mts"
 import {getVirtualFileMarker} from "#~src/getVirtualFileMarker.mts"
 
-export function defineVirtualProgramFile(
+export function tsDefineVirtualProgramFile(
 	filePath: string, content: string
 ): MyTSVirtualProgramFile {
 	filePath = normalizePath(filePath)

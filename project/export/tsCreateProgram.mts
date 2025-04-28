@@ -5,7 +5,7 @@ import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/types/MyTSProgram.mts"
 import {createMyTSModule} from "#~src/createMyTSModule.mts"
 import {resolvePathSync} from "@aniojs/node-fs"
-import {defineVirtualProgramFile} from "./defineVirtualProgramFile.mts"
+import {tsDefineVirtualProgramFile} from "./tsDefineVirtualProgramFile.mts"
 import path from "node:path"
 import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.mts"
 import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
@@ -152,7 +152,7 @@ export function tsCreateProgram(
 			},
 			getVirtualModule(virtualFilePath) {
 				return internal.__self.getModule(
-					defineVirtualProgramFile(virtualFilePath, "").path
+					tsDefineVirtualProgramFile(virtualFilePath, "").path
 				)
 			},
 			__internal: internal
