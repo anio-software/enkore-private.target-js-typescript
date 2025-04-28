@@ -13,7 +13,7 @@ import {
 	printNode
 } from "@aniojs/node-ts-utils"
 
-export function expandStarExports(
+export function tsExpandStarExports(
 	transformContext: MyTSTransformationContext|undefined,
 	compilerOptions: MyTSCompilerOptions
 ): MyTSSourceFileTransformer {
