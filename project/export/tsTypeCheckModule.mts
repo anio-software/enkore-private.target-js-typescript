@@ -4,7 +4,7 @@ import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
-export function typeCheckModule(
+export function tsTypeCheckModule(
 	mod: MyTSModule,
 	includeAllDiagnostics?: boolean
 ): MyTSDiagnosticMessage[] {
