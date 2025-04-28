@@ -8,7 +8,7 @@ import {
 	getTypeNamesReferencedInNode
 } from "@aniojs/node-ts-utils"
 
-export function getRequiredTopLevelTypesForNode(
+export function tsGetRequiredTopLevelTypesForNode(
 	node: Nodes
 ): MyTSTopLevelTypeTreeClass {
 	const {associatedModule} = getMyTSSourceFileInternals(node._myTSNode.associatedSourceFile)
