@@ -10,7 +10,7 @@ type Member = {
 //
 // this is only really here because of enkore
 //
-export function _getTypeAliasTypeQueryMembers(
+export function _tsGetTypeAliasTypeQueryMembers(
 	declaration: MyTSTypeAliasDeclaration
 ): Member[] {
 	const tsNode = declaration._myTSNode.tsNode as ts.TypeAliasDeclaration
