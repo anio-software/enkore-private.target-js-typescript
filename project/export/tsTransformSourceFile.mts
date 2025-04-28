@@ -1,7 +1,7 @@
 import type {MyTSSourceFile} from "./MyTSSourceFile.mts"
 import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.mts"
 
-export function transformSourceFile(
+export function tsTransformSourceFile(
 	src: MyTSSourceFile,
 	transform: MyTSSourceFileTransformer|MyTSSourceFileTransformer[]
 ): MyTSSourceFile {
