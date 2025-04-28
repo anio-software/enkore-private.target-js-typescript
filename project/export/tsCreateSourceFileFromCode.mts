@@ -8,7 +8,7 @@ type Options = {
 	filePath?: string|undefined
 }
 
-export function createSourceFileFromCode(
+export function tsCreateSourceFileFromCode(
 	code: string, options?: Options
 ): MyTSSourceFile {
 	const filePath = options?.filePath ?? `/synthetic_${randomIdentifierSync(16)}.mts`
