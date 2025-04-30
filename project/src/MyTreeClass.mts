@@ -7,6 +7,11 @@ export class MyTreeClass<T> {
 	#data: T
 	#children: MyTreeClass<T>[]
 
+	constructor(data: T) {
+		this.#data = data
+		this.#children = []
+	}
+
 	findChild(test: (data: T) => boolean): MyTreeClass<T>|undefined {
 		let result: MyTreeClass<T>|undefined = undefined
 
@@ -30,11 +35,6 @@ export class MyTreeClass<T> {
 		})
 
 		return result
-	}
-
-	constructor(data: T) {
-		this.#data = data
-		this.#children = []
 	}
 
 	getData() {
