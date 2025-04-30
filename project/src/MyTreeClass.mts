@@ -4,12 +4,12 @@ type Callback<T> = (
 ) => boolean|void // <-- return type "boolean|undefined" does not work here
 
 export class MyTreeClass<T> {
-	#data: T
-	#children: MyTreeClass<T>[]
+	_data: T
+	_children: MyTreeClass<T>[]
 
 	constructor(data: T) {
-		this.#data = data
-		this.#children = []
+		this._data = data
+		this._children = []
 	}
 
 	findChild(test: (data: T) => boolean): MyTreeClass<T>|undefined {
@@ -38,11 +38,11 @@ export class MyTreeClass<T> {
 	}
 
 	getData() {
-		return this.#data
+		return this._data
 	}
 
 	addChild(node: MyTreeClass<T>) {
-		this.#children.push(node)
+		this._children.push(node)
 	}
 
 	depthFirstTraversal(callback: Callback<T>, __depth: number = -1) {
@@ -54,7 +54,7 @@ export class MyTreeClass<T> {
 			return
 		}
 
-		for (const child of this.#children) {
+		for (const child of this._children) {
 			child.depthFirstTraversal(callback, currentDepth)
 		}
 	}
