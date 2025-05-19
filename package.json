@@ -10,13 +10,13 @@
   },
   "type": "module",
   "devDependencies": {
+    "@anio-software/enkore": "^0.0.52",
+    "@anio-software/enkore.core": "^0.9.2",
+    "@anio-software/enkore.target-js-node": "^0.0.29",
     "@aniojs/node-fs": "^0.5.3",
     "@aniojs/node-ts-utils": "^0.200.2",
     "@aniojs/random-ident": "^0.1.2",
-    "@enkore-target/js-node": "^0.0.1",
-    "@enkore/core": "^0.6.4",
-    "@types/node": "^22.7.7",
-    "enkore": "^0.0.16"
+    "@types/node": "^22.7.7"
   },
   "dependencies": {
     "typescript": "^5.8.3"
