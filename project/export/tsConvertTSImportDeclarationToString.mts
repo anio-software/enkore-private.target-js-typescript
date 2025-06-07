@@ -12,6 +12,8 @@ export function tsConvertTSImportDeclarationToString(
 		return `${importStatement}* as ${declaration.identifier}${from}`
 	} else if (kind === "default") {
 		return `${importStatement}${declaration.identifier}${from}`
+	} else if (kind === "anonymous") {
+		return `${importStatement}"${moduleSpecifier}"`
 	}
 
 	return `${importStatement}${formatImportExportMembers(
