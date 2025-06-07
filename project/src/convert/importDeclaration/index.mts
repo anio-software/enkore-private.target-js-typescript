@@ -1,6 +1,7 @@
 import ts from "typescript"
 import type {MyTSImportDeclaration} from "#~export/MyTSImportDeclaration.mts"
 
+import {convertAnonymousImport} from "./convertAnonymousImport.mts"
 import {convertDefaultImport} from "./convertDefaultImport.mts"
 import {convertStarImport} from "./convertStarImport.mts"
 import {convertNamedImport} from "./convertNamedImport.mts"
@@ -12,6 +13,9 @@ export function convertImportDeclaration(
 ): MyTSImportDeclaration {
 	const sourceFile = createMyTSSourceFile(importNode.getSourceFile())
 	const meta = {tsNode: importNode, sourceFile}
+
+	const anonymousImport = convertAnonymousImport(importNode)
+	if (anonymousImport) return createMyTSNode("ImportDeclaration", anonymousImport, meta)
 
 	const defaultImport = convertDefaultImport(importNode)
 	if (defaultImport) return createMyTSNode("ImportDeclaration", defaultImport, meta)
