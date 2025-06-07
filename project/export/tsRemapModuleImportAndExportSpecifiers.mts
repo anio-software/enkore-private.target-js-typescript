@@ -14,8 +14,9 @@ import {
 
 type Mapper = (
 	moduleSpecifier: string,
-	declaration: MyTSImportDeclaration|MyTSExportDeclaration
-) => string|undefined
+	declaration: MyTSImportDeclaration|MyTSExportDeclaration,
+	remove: () => symbol
+) => string|undefined|symbol
 
 export function tsRemapModuleImportAndExportSpecifiers(
 	transformContext: MyTSTransformationContext|undefined,
@@ -28,8 +29,8 @@ export function tsRemapModuleImportAndExportSpecifiers(
 	return (inputSourceFile) => {
 		const {tsSourceFile} = getMyTSSourceFileInternals(inputSourceFile)
 
-		const transformed = transformSourceFile(tsSourceFile, remap((moduleSpecifier, decl) => {
-			return mapper(moduleSpecifier, convert(decl))
+		const transformed = transformSourceFile(tsSourceFile, remap((moduleSpecifier, decl, remove) => {
+			return mapper(moduleSpecifier, convert(decl), remove)
 		}), context)
 
 		return createMyTSSourceFile(transformed, undefined)
