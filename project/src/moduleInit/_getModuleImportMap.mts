@@ -32,7 +32,7 @@ export function _getModuleImportMap(
 					}
 				)
 			}
-		} else {
+		} else if ("identifier" in importDeclaration) {
 			map.set(importDeclaration.identifier, importDeclaration)
 		}
 	}
