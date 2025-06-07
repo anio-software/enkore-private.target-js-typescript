@@ -1,11 +1,15 @@
 import type {DefineNodeType} from "./DefineNodeType.mts"
 
-type Kind = "default" | "named" | "star"
+type Kind = "anonymous" | "default" | "named" | "star"
 
 type Import = {
 	kind: Kind
 	moduleSpecifier: string
 	isTypeOnly: boolean
+}
+
+export type AnonymousImport = Import & {
+	kind: "anonymous"
 }
 
 export type DefaultImport = Import & {
@@ -30,5 +34,5 @@ export type StarImport = Import & {
 }
 
 export type MyTSImportDeclaration = DefineNodeType<
-	"ImportDeclaration", DefaultImport | NamedImport | StarImport
+	"ImportDeclaration", AnonymousImport | DefaultImport | NamedImport | StarImport
 >
