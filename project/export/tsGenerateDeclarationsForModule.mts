@@ -35,9 +35,28 @@ export function tsGenerateDeclarationsForModule(
 
 	let declarations = ""
 
+	const expectedDtsFilePath: string = (() => {
+		const path = tsSourceFile.fileName
+
+		if (path.endsWith(".mts")) {
+			return `${path.slice(0, -4)}.d.mts`
+		} else if (path.endsWith(".tsx")) {
+			return `${path.slice(0, -4)}.d.ts`
+		} else if (path.endsWith(".ts")) {
+			return `${path.slice(0, -3)}.d.ts`
+		}
+
+		// yeah, currently no support for .cts
+		return ""
+	})()
+
 	const emitResult = tsProgram.emit(
 		tsSourceFile,
-		writeCallback,
+		(fileName, text) => {
+			if (fileName === expectedDtsFilePath) {
+				declarations = text
+			}
+		},
 		undefined,
 		true,
 		{
@@ -72,13 +91,5 @@ export function tsGenerateDeclarationsForModule(
 		diagnosticMessages: emitResult.diagnostics.map(diagnostic => {
 			return convertTSDiagnostic(diagnostic, true)
 		})
-	}
-
-	function writeCallback(fileName: string, text: string) {
-		const tsDeclarationFileName = tsSourceFile.fileName.slice(0, -4) + ".d.mts"
-
-		if (fileName === tsDeclarationFileName) {
-			declarations = text
-		}
 	}
 }
