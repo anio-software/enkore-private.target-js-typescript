@@ -24,7 +24,7 @@ export function tsCreateSourceFileFromCode(
 		return false
 	})()
 
-	const expectedFileExtension = isTSX ? ".tsx" : ".mts"
+	const expectedFileExtension = isTSX ? ".tsx" : ".ts"
 	const filePath = options?.filePath ?? `/synthetic_${randomIdentifierSync(16)}${expectedFileExtension}`
 
 	if (!filePath.endsWith(expectedFileExtension)) {
