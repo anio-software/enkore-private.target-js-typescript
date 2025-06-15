@@ -36,7 +36,10 @@ function processSourceFile(
 
 	for (const specifier of specifiers) {
 		if (!specifier.startsWith("./") && !specifier.startsWith("../")) {
-			console.log("skipping specifier", specifier)
+			newRootNode.addChild(
+				new MyTSSourceFileDependencyTreeClass(`external:${specifier}`)
+			)
+
 			continue
 		}
 
