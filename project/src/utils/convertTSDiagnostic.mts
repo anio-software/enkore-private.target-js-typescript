@@ -1,6 +1,5 @@
 import ts from "typescript"
 import type {MyTSDiagnosticMessage} from "../types/MyTSDiagnosticMessage.mts"
-import path from "node:path"
 
 export function convertTSDiagnostic(
 	diagnostic: ts.Diagnostic,
@@ -14,13 +13,14 @@ export function convertTSDiagnostic(
 			diagnostic.start
 		)
 
-		const fileName = shortFileName === true ? path.basename(diagnostic.file.fileName) : diagnostic.file.fileName
-
-		return {
-			code,
-			message: `${fileName} (${line + 1},${character + 1}): ${message}`
+		const origin = {
+			filePath: diagnostic.file.fileName,
+			line: line + 1,
+			character: character + 1
 		}
+
+		return {origin, code, message}
 	}
 
-	return {code, message}
+	return {origin: {}, code, message}
 }
