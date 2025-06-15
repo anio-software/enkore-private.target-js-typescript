@@ -19,7 +19,7 @@ export function tsTypeCheckModule(
 			...getSourceFileDiagnostics()
 		]
 	).map(diagnostic => {
-		return convertTSDiagnostic(diagnostic, true)
+		return convertTSDiagnostic(diagnostic)
 	})
 
 	function getGlobalDiagnostics() {

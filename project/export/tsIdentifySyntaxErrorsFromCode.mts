@@ -35,6 +35,6 @@ export function tsIdentifySyntaxErrorsFromCode(
 	)
 
 	return prog.getSyntacticDiagnostics().map(dia => {
-		return convertTSDiagnostic(dia, false)
+		return convertTSDiagnostic(dia)
 	})
 }

@@ -89,7 +89,7 @@ export function tsGenerateDeclarationsForModule(
 	return {
 		declarations,
 		diagnosticMessages: emitResult.diagnostics.map(diagnostic => {
-			return convertTSDiagnostic(diagnostic, true)
+			return convertTSDiagnostic(diagnostic)
 		})
 	}
 }

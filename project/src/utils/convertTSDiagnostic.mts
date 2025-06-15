@@ -2,8 +2,7 @@ import ts from "typescript"
 import type {MyTSDiagnosticMessage} from "../types/MyTSDiagnosticMessage.mts"
 
 export function convertTSDiagnostic(
-	diagnostic: ts.Diagnostic,
-	shortFileName?: boolean
+	diagnostic: ts.Diagnostic
 ): MyTSDiagnosticMessage {
 	const {code, messageText} = diagnostic
 	const message = ts.flattenDiagnosticMessageText(messageText, "\n")
