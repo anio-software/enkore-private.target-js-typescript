@@ -34,7 +34,7 @@ export function tsIdentifySyntaxErrorsFromCode(
 		[syntheticFileName], compilerOptions, compilerHost
 	)
 
-	return prog.getSyntacticDiagnostics().map(dia => {
-		return convertTSDiagnostic(dia)
+	return prog.getSyntacticDiagnostics().map(diagnostic => {
+		return convertTSDiagnostic(diagnostic)
 	})
 }
