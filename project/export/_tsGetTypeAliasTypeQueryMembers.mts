@@ -5,6 +5,7 @@ import {printNode} from "@aniojs/node-ts-utils"
 type Member = {
 	property: string
 	expression: string
+	origin: string|undefined
 }
 
 //
@@ -27,9 +28,18 @@ export function _tsGetTypeAliasTypeQueryMembers(
 		if (!member.type || !member.name) continue
 		if (!ts.isTypeQueryNode(member.type)) continue
 
+		const origin: string|undefined = (() => {
+			if (ts.isSourceFile(type.parent)) {
+				return type.parent.fileName
+			}
+
+			return undefined
+		})()
+
 		ret.push({
 			property: printNode(member.name),
-			expression: printNode(member.type.exprName)
+			expression: printNode(member.type.exprName),
+			origin
 		})
 	}
 
