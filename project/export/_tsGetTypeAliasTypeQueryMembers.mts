@@ -23,8 +23,10 @@ export function _tsGetTypeAliasTypeQueryMembers(
 
 	const ret: Member[] = []
 	const origin: string|undefined = (() => {
-		if (ts.isSourceFile(type.parent)) {
-			return type.parent.fileName
+		const srcFile = type.getSourceFile()
+
+		if (ts.isSourceFile(srcFile)) {
+			return srcFile.fileName
 		}
 
 		return undefined
