@@ -22,19 +22,18 @@ export function _tsGetTypeAliasTypeQueryMembers(
 	}
 
 	const ret: Member[] = []
+	const origin: string|undefined = (() => {
+		if (ts.isSourceFile(type.parent)) {
+			return type.parent.fileName
+		}
+
+		return undefined
+	})()
 
 	for (const member of type.members) {
 		if (!ts.isPropertySignature(member)) continue
 		if (!member.type || !member.name) continue
 		if (!ts.isTypeQueryNode(member.type)) continue
-
-		const origin: string|undefined = (() => {
-			if (ts.isSourceFile(type.parent)) {
-				return type.parent.fileName
-			}
-
-			return undefined
-		})()
 
 		ret.push({
 			property: printNode(member.name),
