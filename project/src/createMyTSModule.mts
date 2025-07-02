@@ -1,7 +1,4 @@
-import type {
-	MyTSProgram,
-	Internal as MyTSProgramInternal
-} from "./types/MyTSProgram.mts"
+import type {MyTSProgram} from "./types/MyTSProgram.mts"
 import type {MyTSModule} from "./types/MyTSModule.mts"
 import type {MyTSSourceFile} from "./types/MyTSSourceFile.mts"
 import {createMyTSSourceFile} from "./createMyTSSourceFile.mts"
@@ -10,26 +7,10 @@ import {_getModuleExports} from "./moduleInit/_getModuleExports.mts"
 import {_getModuleImportMap} from "./moduleInit/_getModuleImportMap.mts"
 import {_getModuleTopLevelTypeMap} from "./moduleInit/_getModuleTopLevelTypeMap.mts"
 import {_getModuleTopLevelType} from "./moduleInit/_getModuleTopLevelType.mts"
+import {walkSourceFileDependencyGraph} from "#~src/walkSourceFileDependencyGraph.mts"
 
 type Writeable<T> = {
 	-readonly [P in keyof T]: T[P]
-}
-
-function getModuleFileDependencyTree(
-	myProgramInt: MyTSProgramInternal,
-	filePath: string
-) {
-	const node = myProgramInt.sourceFileTree.findChild((nodeFilePath) => {
-		return nodeFilePath === filePath
-	})
-
-	if (!node) {
-		throw new Error(
-			`Internal error: Unable to find ${filePath} in the source file tree.`
-		)
-	}
-
-	return node
 }
 
 export function createMyTSModule(
@@ -53,9 +34,7 @@ export function createMyTSModule(
 		moduleExports: new Map(),
 		moduleImports: new Map(),
 		topLevelTypesTree: {} as MyTSModule["topLevelTypesTree"],
-		moduleFileDependencyTree: getModuleFileDependencyTree(
-			myProgramInt, relativeFilePath
-		),
+		referencedModuleSpecifiers: new Set(),
 		source: {} as MyTSSourceFile,
 		getModuleExportNames: () => { return [] },
 		getModuleExportByName: () => undefined
@@ -102,6 +81,14 @@ export function createMyTSModule(
 
 		return exportDescriptor
 	}
+
+	walkSourceFileDependencyGraph(
+		myProgramInt.sourceDependencyGraph,
+		filePath,
+		(moduleSpecifier) => {
+			(myModule.referencedModuleSpecifiers as Set<string>).add(moduleSpecifier)
+		}
+	)
 
 	return myModule
 }

@@ -3,7 +3,6 @@ import type {MyTSExport} from "./MyTSExport.mts"
 import type {MyTSImportDeclaration} from "./node/MyTSImportDeclaration.mts"
 import type {MyTSSourceFile} from "./MyTSSourceFile.mts"
 import type {MyTSTopLevelTypeTree} from "#~export/MyTSTopLevelTypeTree.mts"
-import type {MyTSSourceFileDependencyTree} from "#~export/MyTSSourceFileDependencyTree.mts"
 
 export type MyTSModule = {
 	readonly filePath: string
@@ -26,5 +25,5 @@ export type MyTSModule = {
 	//
 	readonly topLevelTypesTree: MyTSTopLevelTypeTree
 
-	readonly moduleFileDependencyTree: MyTSSourceFileDependencyTree
+	readonly referencedModuleSpecifiers: ReadonlySet<string>
 }
