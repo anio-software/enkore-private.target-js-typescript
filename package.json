@@ -16,8 +16,7 @@
     "@anio-software/pkg.is": "^0.0.2",
     "@anio-software/pkg.node-fs": "^0.0.2",
     "@anio-software/pkg.node-ts-utils": "^0.0.1",
-    "@anio-software/pkg.random-identifier": "^0.0.2",
-    "@types/node": "^22.7.7"
+    "@anio-software/pkg.random-identifier": "^0.0.2"
   },
   "dependencies": {
     "typescript": "^5.8.3"
