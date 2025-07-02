@@ -1,10 +1,10 @@
 import {defineConfig} from "@anio-software/enkore"
-import {defineTargetConfig} from "@anio-software/enkore.target-js-node"
+import {defineTargetOptions} from "@anio-software/enkore.target-js-node"
 
 export const config: unknown = defineConfig({
 	target: {
 		name: "js-node",
-		options: defineTargetConfig({
+		options: defineTargetOptions({
 			publishWithExactDependencyVersions: true,
 			externalPackages: ["typescript"],
 			externalTypePackages: ["typescript"],
