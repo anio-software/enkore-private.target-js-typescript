@@ -2,7 +2,7 @@ import ts from "typescript"
 import {isBoolean, isString} from "@anio-software/pkg.is"
 
 import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.mts"
-import {randomIdentifierSync} from "@aniojs/random-ident"
+import {randomIdentifierSync} from "@anio-software/pkg.random-identifier"
 import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
 
 type Options = {

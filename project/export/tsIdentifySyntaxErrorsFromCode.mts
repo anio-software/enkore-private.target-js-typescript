@@ -1,5 +1,5 @@
 import type {MyTSDiagnosticMessage} from "#~src/types/MyTSDiagnosticMessage.mts"
-import {randomIdentifierSync} from "@aniojs/random-ident"
+import {randomIdentifierSync} from "@anio-software/pkg.random-identifier"
 import ts from "typescript"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 
