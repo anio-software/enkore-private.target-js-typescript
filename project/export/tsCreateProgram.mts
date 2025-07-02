@@ -4,7 +4,7 @@ import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.mts"
 import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
 import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/types/MyTSProgram.mts"
 import {createMyTSModule} from "#~src/createMyTSModule.mts"
-import {resolvePathSync} from "@aniojs/node-fs"
+import {resolvePathSync} from "@anio-software/pkg.node-fs"
 import {tsDefineVirtualProgramFile} from "./tsDefineVirtualProgramFile.mts"
 import path from "node:path"
 import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.mts"
@@ -21,7 +21,7 @@ export function tsCreateProgram(
 	program: MyTSProgram
 } {
 	const {tsCompilerOptions} = getMyTSCompilerOptionsInternals(myCompilerOptions)
-	const projectRoot = resolvePathSync(userProjectRoot, ["regularDir"])
+	const projectRoot = resolvePathSync(userProjectRoot, ["dir:regular"])
 
 	tsCompilerOptions.skipLibCheck = false;
 	tsCompilerOptions.declaration = true;
