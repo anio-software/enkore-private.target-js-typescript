@@ -4,7 +4,7 @@ import {printNode} from "@anio-software/pkg.node-ts-utils"
 import type {
 	NamedExportMember,
 	NamedExport
-} from "#~src/types/node/MyTSExportDeclaration.mts"
+} from "#~src/types/node/MyTSExportDeclaration.ts"
 
 export function convertNamedExport(
 	exportNode: ts.ExportDeclaration

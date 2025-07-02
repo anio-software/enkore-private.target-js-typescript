@@ -3,7 +3,7 @@ import {printNode} from "@anio-software/pkg.node-ts-utils"
 
 import type {
 	StarExport
-} from "#~src/types/node/MyTSExportDeclaration.mts"
+} from "#~src/types/node/MyTSExportDeclaration.ts"
 
 export function convertStarExport(
 	exportNode: ts.ExportDeclaration

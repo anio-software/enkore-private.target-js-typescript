@@ -1,7 +1,7 @@
 import type {
 	MyTSSourceFile,
 	Internal as MyTSSourceFileInternal
-} from "#~src/types/MyTSSourceFile.mts"
+} from "#~src/types/MyTSSourceFile.ts"
 
 export function getMyTSSourceFileInternals(
 	source: MyTSSourceFile

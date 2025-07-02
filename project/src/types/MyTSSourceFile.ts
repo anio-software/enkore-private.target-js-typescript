@@ -1,6 +1,6 @@
 import ts from "typescript"
 
-import type {MyTSModule} from "./MyTSModule.mts"
+import type {MyTSModule} from "./MyTSModule.ts"
 
 export type Internal = {
 	tsSourceFile: ts.SourceFile

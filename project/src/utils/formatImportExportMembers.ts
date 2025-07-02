@@ -1,5 +1,5 @@
-import type {NamedImportMember} from "../types/node/MyTSImportDeclaration.mts"
-import type {NamedExportMember} from "../types/node/MyTSExportDeclaration.mts"
+import type {NamedImportMember} from "../types/node/MyTSImportDeclaration.ts"
+import type {NamedExportMember} from "../types/node/MyTSExportDeclaration.ts"
 
 export function formatImportExportMembers(
 	declarationIsTypeOnly: boolean,

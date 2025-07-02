@@ -1,14 +1,14 @@
 import ts from "typescript"
-import type {MyTSModule} from "../types/MyTSModule.mts"
-import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.mts"
-import {tsConvertTSImportDeclarationToString} from "#~export/tsConvertTSImportDeclarationToString.mts"
+import type {MyTSModule} from "../types/MyTSModule.ts"
+import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.ts"
+import {tsConvertTSImportDeclarationToString} from "#~export/tsConvertTSImportDeclarationToString.ts"
 
 import {
 	astFilter,
 	getTypeAliasDeclarationAsFormattedString
 } from "@anio-software/pkg.node-ts-utils"
 import {getTypeNamesReferencedInNode} from "@anio-software/pkg.node-ts-utils"
-import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.mts"
+import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.ts"
 
 function importReferencesAValue(
 	tsChecker: ts.TypeChecker,

@@ -1,5 +1,5 @@
-import type {MyTSSourceFile} from "./MyTSSourceFile.mts"
-import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.mts"
+import type {MyTSSourceFile} from "./MyTSSourceFile.ts"
+import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.ts"
 
 export function tsTransformSourceFile(
 	src: MyTSSourceFile,

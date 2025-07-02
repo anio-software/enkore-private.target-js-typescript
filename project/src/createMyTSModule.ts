@@ -1,13 +1,13 @@
-import type {MyTSProgram} from "./types/MyTSProgram.mts"
-import type {MyTSModule} from "./types/MyTSModule.mts"
-import type {MyTSSourceFile} from "./types/MyTSSourceFile.mts"
-import {createMyTSSourceFile} from "./createMyTSSourceFile.mts"
-import {getMyTSProgramInternals} from "./getMyTSProgramInternals.mts"
-import {_getModuleExports} from "./moduleInit/_getModuleExports.mts"
-import {_getModuleImportMap} from "./moduleInit/_getModuleImportMap.mts"
-import {_getModuleTopLevelTypeMap} from "./moduleInit/_getModuleTopLevelTypeMap.mts"
-import {_getModuleTopLevelType} from "./moduleInit/_getModuleTopLevelType.mts"
-import {walkSourceFileDependencyGraph} from "#~src/walkSourceFileDependencyGraph.mts"
+import type {MyTSProgram} from "./types/MyTSProgram.ts"
+import type {MyTSModule} from "./types/MyTSModule.ts"
+import type {MyTSSourceFile} from "./types/MyTSSourceFile.ts"
+import {createMyTSSourceFile} from "./createMyTSSourceFile.ts"
+import {getMyTSProgramInternals} from "./getMyTSProgramInternals.ts"
+import {_getModuleExports} from "./moduleInit/_getModuleExports.ts"
+import {_getModuleImportMap} from "./moduleInit/_getModuleImportMap.ts"
+import {_getModuleTopLevelTypeMap} from "./moduleInit/_getModuleTopLevelTypeMap.ts"
+import {_getModuleTopLevelType} from "./moduleInit/_getModuleTopLevelType.ts"
+import {walkSourceFileDependencyGraph} from "#~src/walkSourceFileDependencyGraph.ts"
 
 type Writeable<T> = {
 	-readonly [P in keyof T]: T[P]

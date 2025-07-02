@@ -1,9 +1,9 @@
 import ts from "typescript"
 import {isBoolean, isString} from "@anio-software/pkg.is"
 
-import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.mts"
+import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.ts"
 import {randomIdentifierSync} from "@anio-software/pkg.random-identifier"
-import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
+import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.ts"
 
 type Options = {
 	filePath?: string|undefined

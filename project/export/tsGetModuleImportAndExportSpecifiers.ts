@@ -1,6 +1,6 @@
-import type {MyTSModule} from "./MyTSModule.mts"
-import type {MyTSSourceFile} from "./MyTSSourceFile.mts"
-import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
+import type {MyTSModule} from "./MyTSModule.ts"
+import type {MyTSSourceFile} from "./MyTSSourceFile.ts"
+import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.ts"
 
 import {
 	getModuleImportAndExportSpecifiers as impl

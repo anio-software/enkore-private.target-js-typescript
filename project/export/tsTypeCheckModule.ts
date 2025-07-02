@@ -1,8 +1,8 @@
-import type {MyTSModule} from "./MyTSModule.mts"
-import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
-import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
-import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
+import type {MyTSModule} from "./MyTSModule.ts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.ts"
+import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.ts"
+import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.ts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.ts"
 
 export function tsTypeCheckModule(
 	mod: MyTSModule,

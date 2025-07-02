@@ -1,3 +1,3 @@
 export type {
 	MyTSCompilerOptions
-} from "#~src/types/MyTSCompilerOptions.mts"
+} from "#~src/types/MyTSCompilerOptions.ts"

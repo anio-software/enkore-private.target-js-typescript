@@ -1,6 +1,6 @@
 import type {
 	Internal as MyTSProgramInternal
-} from "#~src/types/MyTSProgram.mts"
+} from "#~src/types/MyTSProgram.ts"
 
 type DependencyGraph = MyTSProgramInternal["sourceDependencyGraph"]
 type Visitor = (moduleSpecifier: string) => undefined

@@ -1,7 +1,7 @@
 import type {
 	MyTSTransformationContext,
 	Internal as MyTSTransformationContextInternal
-} from "./types/MyTSTransformationContext.mts"
+} from "./types/MyTSTransformationContext.ts"
 
 export function getMyTSTransformationContextInternals(
 	myContext: MyTSTransformationContext

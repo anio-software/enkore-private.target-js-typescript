@@ -1,7 +1,7 @@
 import type {
 	MyTSProgram,
 	Internal as MyTSProgramInternal
-} from "./types/MyTSProgram.mts"
+} from "./types/MyTSProgram.ts"
 
 export function getMyTSProgramInternals(
 	myProgram: MyTSProgram

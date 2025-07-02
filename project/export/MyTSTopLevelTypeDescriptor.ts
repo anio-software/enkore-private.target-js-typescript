@@ -1,3 +1,3 @@
 export type {
 	MyTSTopLevelTypeDescriptor
-} from "#~src/types/MyTSTopLevelTypeDescriptor.mts"
+} from "#~src/types/MyTSTopLevelTypeDescriptor.ts"

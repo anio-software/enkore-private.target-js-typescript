@@ -1,9 +1,9 @@
 import ts from "typescript"
 
-import type {Nodes} from "#~src/types/node/Map.mts"
-import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
-import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
+import type {Nodes} from "#~src/types/node/Map.ts"
+import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.ts"
+import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.ts"
+import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.ts"
 import {getTypeNamesReferencedInNode} from "@anio-software/pkg.node-ts-utils"
 
 export function tsGetRequiredTopLevelTypesForNode(

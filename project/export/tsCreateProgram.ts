@@ -1,16 +1,16 @@
 import ts from "typescript"
 
-import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.mts"
-import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
-import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/types/MyTSProgram.mts"
-import {createMyTSModule} from "#~src/createMyTSModule.mts"
+import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.ts"
+import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.ts"
+import type {MyTSProgram, Internal as MyTSProgramInternal} from "#~src/types/MyTSProgram.ts"
+import {createMyTSModule} from "#~src/createMyTSModule.ts"
 import {resolvePathSync} from "@anio-software/pkg.node-fs"
-import {tsDefineVirtualProgramFile} from "./tsDefineVirtualProgramFile.mts"
+import {tsDefineVirtualProgramFile} from "./tsDefineVirtualProgramFile.ts"
 import path from "node:path"
-import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.mts"
-import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
-import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
-import {createProgramSourceDependencyGraph} from "#~src/createProgramSourceDependencyGraph.mts"
+import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInternals.ts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.ts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.ts"
+import {createProgramSourceDependencyGraph} from "#~src/createProgramSourceDependencyGraph.ts"
 
 export function tsCreateProgram(
 	userProjectRoot: string,

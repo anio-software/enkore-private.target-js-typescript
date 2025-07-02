@@ -1,7 +1,7 @@
-import type {MyTSDiagnosticMessage} from "#~src/types/MyTSDiagnosticMessage.mts"
+import type {MyTSDiagnosticMessage} from "#~src/types/MyTSDiagnosticMessage.ts"
 import {randomIdentifierSync} from "@anio-software/pkg.random-identifier"
 import ts from "typescript"
-import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.ts"
 
 export function tsIdentifySyntaxErrorsFromCode(
 	code: string,

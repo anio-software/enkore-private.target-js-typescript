@@ -1,7 +1,7 @@
-import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.mts"
+import type {MyTSVirtualProgramFile} from "./MyTSVirtualProgramFile.ts"
 import path from "node:path"
-import {normalizePath} from "#~src/utils/normalizePath.mts"
-import {getVirtualFileMarker} from "#~src/getVirtualFileMarker.mts"
+import {normalizePath} from "#~src/utils/normalizePath.ts"
+import {getVirtualFileMarker} from "#~src/getVirtualFileMarker.ts"
 
 export function tsDefineVirtualProgramFile(
 	filePath: string, content: string

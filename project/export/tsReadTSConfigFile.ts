@@ -1,6 +1,6 @@
 import {readTSConfigFile as impl} from "@anio-software/pkg.node-ts-utils"
-import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
-import {createMyTSCompilerOptions} from "#~src/createMyTSCompilerOptions.mts"
+import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.ts"
+import {createMyTSCompilerOptions} from "#~src/createMyTSCompilerOptions.ts"
 
 export function tsReadTSConfigFile(
 	projectRoot: string,

@@ -1,12 +1,12 @@
 import ts from "typescript"
-import type {MyTSImportDeclaration} from "#~export/MyTSImportDeclaration.mts"
+import type {MyTSImportDeclaration} from "#~export/MyTSImportDeclaration.ts"
 
-import {convertAnonymousImport} from "./convertAnonymousImport.mts"
-import {convertDefaultImport} from "./convertDefaultImport.mts"
-import {convertStarImport} from "./convertStarImport.mts"
-import {convertNamedImport} from "./convertNamedImport.mts"
-import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
-import {createMyTSNode} from "#~src/createMyTSNode.mts"
+import {convertAnonymousImport} from "./convertAnonymousImport.ts"
+import {convertDefaultImport} from "./convertDefaultImport.ts"
+import {convertStarImport} from "./convertStarImport.ts"
+import {convertNamedImport} from "./convertNamedImport.ts"
+import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.ts"
+import {createMyTSNode} from "#~src/createMyTSNode.ts"
 
 export function convertImportDeclaration(
 	importNode: ts.ImportDeclaration

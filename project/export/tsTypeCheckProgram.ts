@@ -1,8 +1,8 @@
 import ts from "typescript"
-import type {MyTSProgram} from "./MyTSProgram.mts"
-import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
-import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
-import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
+import type {MyTSProgram} from "./MyTSProgram.ts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.ts"
+import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.ts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.ts"
 
 export function tsTypeCheckProgram(program: MyTSProgram): {
 	hasErrors: boolean

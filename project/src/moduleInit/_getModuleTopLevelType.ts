@@ -1,6 +1,6 @@
-import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.mts"
-import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
-import {_getModuleTopLevelTypeMap} from "./_getModuleTopLevelTypeMap.mts"
+import type {MyTSTopLevelTypeDescriptor} from "../types/MyTSTopLevelTypeDescriptor.ts"
+import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.ts"
+import {_getModuleTopLevelTypeMap} from "./_getModuleTopLevelTypeMap.ts"
 
 type TypeMap = ReturnType<typeof _getModuleTopLevelTypeMap>
 

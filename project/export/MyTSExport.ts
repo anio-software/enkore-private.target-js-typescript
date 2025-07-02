@@ -1,3 +1,3 @@
 export type {
 	MyTSExport
-} from "#~src/types/MyTSExport.mts"
+} from "#~src/types/MyTSExport.ts"

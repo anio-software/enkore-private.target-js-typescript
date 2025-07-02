@@ -1,8 +1,8 @@
-import type {MyTSProgram} from "./MyTSProgram.mts"
-import type {MyTSExport} from "./MyTSExport.mts"
-import type {MyTSImportDeclaration} from "./node/MyTSImportDeclaration.mts"
-import type {MyTSSourceFile} from "./MyTSSourceFile.mts"
-import type {MyTSTopLevelTypeTree} from "#~export/MyTSTopLevelTypeTree.mts"
+import type {MyTSProgram} from "./MyTSProgram.ts"
+import type {MyTSExport} from "./MyTSExport.ts"
+import type {MyTSImportDeclaration} from "./node/MyTSImportDeclaration.ts"
+import type {MyTSSourceFile} from "./MyTSSourceFile.ts"
+import type {MyTSTopLevelTypeTree} from "#~export/MyTSTopLevelTypeTree.ts"
 
 export type MyTSModule = {
 	readonly filePath: string

@@ -1,10 +1,10 @@
-import type {MyTSExportDeclaration} from "./MyTSExportDeclaration.mts"
-import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.mts"
-import type {MyTSFunctionDeclaration} from "./MyTSFunctionDeclaration.mts"
-import type {MyTSVariableDeclaration} from "./MyTSVariableDeclaration.mts"
-import type {MyTSTypeAliasDeclaration} from "./MyTSTypeAliasDeclaration.mts"
+import type {MyTSExportDeclaration} from "./MyTSExportDeclaration.ts"
+import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.ts"
+import type {MyTSFunctionDeclaration} from "./MyTSFunctionDeclaration.ts"
+import type {MyTSVariableDeclaration} from "./MyTSVariableDeclaration.ts"
+import type {MyTSTypeAliasDeclaration} from "./MyTSTypeAliasDeclaration.ts"
 
-import type {Kinds} from "./Kinds.mts"
+import type {Kinds} from "./Kinds.ts"
 
 export type Nodes = MyTSExportDeclaration   |
                     MyTSImportDeclaration   |

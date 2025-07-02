@@ -1,5 +1,5 @@
-import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.mts"
-import {formatImportExportMembers} from "#~src/utils/formatImportExportMembers.mts"
+import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.ts"
+import {formatImportExportMembers} from "#~src/utils/formatImportExportMembers.ts"
 
 export function tsConvertTSImportDeclarationToString(
 	declaration: MyTSImportDeclaration

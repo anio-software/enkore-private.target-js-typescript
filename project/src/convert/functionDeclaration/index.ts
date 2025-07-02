@@ -4,10 +4,10 @@ import type {
 	MyTSFunctionDeclaration,
 	Parameter,
 	TypeParameter
-} from "#~src/types/node/MyTSFunctionDeclaration.mts"
+} from "#~src/types/node/MyTSFunctionDeclaration.ts"
 
-import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
-import {createMyTSNode} from "#~src/createMyTSNode.mts"
+import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.ts"
+import {createMyTSNode} from "#~src/createMyTSNode.ts"
 
 import {
 	printNode,

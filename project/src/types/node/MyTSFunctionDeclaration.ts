@@ -1,4 +1,4 @@
-import type {DefineNodeType} from "./DefineNodeType.mts"
+import type {DefineNodeType} from "./DefineNodeType.ts"
 
 export type TypeParameter = {
 	name: string

@@ -1,6 +1,6 @@
 import ts from "typescript"
-import {resolveSymbol} from "#~src/resolveSymbol.mts"
-import {getSymbolType} from "#~src/getSymbolType.mts"
+import {resolveSymbol} from "#~src/resolveSymbol.ts"
+import {getSymbolType} from "#~src/getSymbolType.ts"
 
 type Export = [string, boolean]
 

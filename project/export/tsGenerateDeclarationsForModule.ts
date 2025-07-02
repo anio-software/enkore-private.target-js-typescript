@@ -1,13 +1,13 @@
 import ts from "typescript"
-import type {MyTSModule} from "./MyTSModule.mts"
-import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
-import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
-import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.mts"
-import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.mts"
-import {_transformTSSourceFile} from "#~src/utils/_transformTSSourceFile.mts"
-import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
-import {createMyTSTransformationContext} from "#~src/createMyTSTransformationContext.mts"
+import type {MyTSModule} from "./MyTSModule.ts"
+import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.ts"
+import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.ts"
+import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.ts"
+import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.ts"
+import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.ts"
+import {_transformTSSourceFile} from "#~src/utils/_transformTSSourceFile.ts"
+import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.ts"
+import {createMyTSTransformationContext} from "#~src/createMyTSTransformationContext.ts"
 
 function convertTransform(
 	transform: MyTSSourceFileTransformer|MyTSSourceFileTransformer[]|undefined

@@ -1,7 +1,7 @@
-import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.mts"
-import type {MyTSDiagnosticMessage} from "#~src/types/MyTSDiagnosticMessage.mts"
-import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import {tsIdentifySyntaxErrorsFromCode} from "./tsIdentifySyntaxErrorsFromCode.mts"
+import type {MyTSSourceFile} from "#~src/types/MyTSSourceFile.ts"
+import type {MyTSDiagnosticMessage} from "#~src/types/MyTSDiagnosticMessage.ts"
+import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.ts"
+import {tsIdentifySyntaxErrorsFromCode} from "./tsIdentifySyntaxErrorsFromCode.ts"
 
 export function tsIdentifySyntaxErrors(
 	source: MyTSSourceFile

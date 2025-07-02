@@ -1,3 +1,3 @@
 export type {
 	MyTSSourceFile
-} from "#~src/types/MyTSSourceFile.mts"
+} from "#~src/types/MyTSSourceFile.ts"

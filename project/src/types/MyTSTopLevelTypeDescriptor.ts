@@ -1,4 +1,4 @@
-import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.mts"
+import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.ts"
 
 type TypeDescriptorSource = "module" | "import"
 

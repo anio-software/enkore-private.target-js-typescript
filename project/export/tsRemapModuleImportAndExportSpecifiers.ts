@@ -1,11 +1,11 @@
-import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.mts"
-import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
-import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
-import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.mts"
-import type {MyTSExportDeclaration} from "./MyTSExportDeclaration.mts"
-import {convert} from "#~src/convert/convert.mts"
-import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.mts"
-import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformationContextInternals.mts"
+import type {MyTSSourceFileTransformer} from "./MyTSSourceFileTransformer.ts"
+import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.ts"
+import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.ts"
+import type {MyTSImportDeclaration} from "./MyTSImportDeclaration.ts"
+import type {MyTSExportDeclaration} from "./MyTSExportDeclaration.ts"
+import {convert} from "#~src/convert/convert.ts"
+import type {MyTSTransformationContext} from "#~src/types/MyTSTransformationContext.ts"
+import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformationContextInternals.ts"
 
 import {
 	transformSourceFile,

@@ -1,3 +1,3 @@
-import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
+import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.ts"
 
 export type MyTSTopLevelTypeTree = MyTSTopLevelTypeTreeClass

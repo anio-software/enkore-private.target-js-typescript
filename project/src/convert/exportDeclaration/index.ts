@@ -1,10 +1,10 @@
 import ts from "typescript"
-import type {MyTSExportDeclaration} from "#~export/MyTSExportDeclaration.mts"
+import type {MyTSExportDeclaration} from "#~export/MyTSExportDeclaration.ts"
 
-import {convertNamedExport} from "./convertNamedExport.mts"
-import {convertStarExport} from "./convertStarExport.mts"
-import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
-import {createMyTSNode} from "#~src/createMyTSNode.mts"
+import {convertNamedExport} from "./convertNamedExport.ts"
+import {convertStarExport} from "./convertStarExport.ts"
+import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.ts"
+import {createMyTSNode} from "#~src/createMyTSNode.ts"
 
 export function convertExportDeclaration(
 	exportNode: ts.ExportDeclaration

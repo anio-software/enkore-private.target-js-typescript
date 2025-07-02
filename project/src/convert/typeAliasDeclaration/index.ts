@@ -1,8 +1,8 @@
 import ts from "typescript"
 
-import type {MyTSTypeAliasDeclaration} from "#~src/types/node/MyTSTypeAliasDeclaration.mts"
-import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.mts"
-import {createMyTSNode} from "#~src/createMyTSNode.mts"
+import type {MyTSTypeAliasDeclaration} from "#~src/types/node/MyTSTypeAliasDeclaration.ts"
+import {createMyTSSourceFile} from "#~src/createMyTSSourceFile.ts"
+import {createMyTSNode} from "#~src/createMyTSNode.ts"
 import {printNode} from "@anio-software/pkg.node-ts-utils"
 
 export function convertTypeAliasDeclaration(

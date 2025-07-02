@@ -2,7 +2,7 @@ import ts from "typescript"
 import type {
 	MyTSCompilerOptions,
 	Internal as MyTSCompilerOptionsInternal
-} from "./types/MyTSCompilerOptions.mts"
+} from "./types/MyTSCompilerOptions.ts"
 
 export function createMyTSCompilerOptions(
 	compilerOptions: ts.CompilerOptions

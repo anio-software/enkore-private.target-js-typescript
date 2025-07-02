@@ -1,11 +1,11 @@
 import ts from "typescript"
 
-import type {MyTSExport} from "../types/MyTSExport.mts"
-import type {MyTSSourceFile} from "../types/MyTSSourceFile.mts"
-import type {Nodes} from "../types/node/Map.mts"
-import {convert} from "../convert/convert.mts"
-import {getSymbolType} from "#~src/getSymbolType.mts"
-import {resolveSymbol} from "#~src/resolveSymbol.mts"
+import type {MyTSExport} from "../types/MyTSExport.ts"
+import type {MyTSSourceFile} from "../types/MyTSSourceFile.ts"
+import type {Nodes} from "../types/node/Map.ts"
+import {convert} from "../convert/convert.ts"
+import {getSymbolType} from "#~src/getSymbolType.ts"
+import {resolveSymbol} from "#~src/resolveSymbol.ts"
 
 export function _getModuleExports(
 	sourceFile: ts.SourceFile,

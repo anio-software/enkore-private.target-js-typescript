@@ -1,7 +1,7 @@
-import type {Kinds, TSNodeTypeMap} from "./types/node/Kinds.mts"
-import type {Map} from "./types/node/Map.mts"
-import type {MyTSSourceFile} from "./types/MyTSSourceFile.mts"
-import type {_MyTSNode} from "./types/node/DefineNodeType.mts"
+import type {Kinds, TSNodeTypeMap} from "./types/node/Kinds.ts"
+import type {Map} from "./types/node/Map.ts"
+import type {MyTSSourceFile} from "./types/MyTSSourceFile.ts"
+import type {_MyTSNode} from "./types/node/DefineNodeType.ts"
 
 export function createMyTSNode<
 	Kind extends Kinds
