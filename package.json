@@ -1,14 +1,17 @@
 {
+  "type": "module",
   "name": "@enkore-private/target-js-typescript",
   "version": "0.0.20",
-  "author": "Anio Software <info@anio.software>",
   "description": "A wrapper around the TypeScript compiler.",
-  "license": "MIT",
+  "author": "Anio Software <info@anio.software>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/enkore-private-org/target-js-typescript.git"
   },
-  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "typescript": "^5.8.3"
+  },
   "devDependencies": {
     "@anio-software/enkore": "^0.0.151",
     "@anio-software/enkore.core": "^0.11.20",
@@ -17,8 +20,5 @@
     "@anio-software/pkg.node-fs": "^0.0.2",
     "@anio-software/pkg.node-ts-utils": "^0.0.1",
     "@anio-software/pkg.random-identifier": "^0.0.2"
-  },
-  "dependencies": {
-    "typescript": "^5.8.3"
   }
 }
