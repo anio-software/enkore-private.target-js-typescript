@@ -11,7 +11,7 @@ import {getModuleExportsSimplified} from "#~src/utils/getModuleExportsSimplified
 import {
 	transformSourceFile,
 	printNode
-} from "@aniojs/node-ts-utils"
+} from "@anio-software/pkg.node-ts-utils"
 
 export function tsExpandStarExports(
 	transformContext: MyTSTransformationContext|undefined,

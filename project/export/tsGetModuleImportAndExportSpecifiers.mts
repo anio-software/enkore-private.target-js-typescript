@@ -4,7 +4,7 @@ import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 
 import {
 	getModuleImportAndExportSpecifiers as impl
-} from "@aniojs/node-ts-utils"
+} from "@anio-software/pkg.node-ts-utils"
 
 export function tsGetModuleImportAndExportSpecifiers(
 	src: MyTSModule|MyTSSourceFile

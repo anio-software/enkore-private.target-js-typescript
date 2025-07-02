@@ -12,7 +12,7 @@ import {createMyTSNode} from "#~src/createMyTSNode.mts"
 import {
 	printNode,
 	getJSDocAsFormattedStringFromNode
-} from "@aniojs/node-ts-utils"
+} from "@anio-software/pkg.node-ts-utils"
 
 export function convertFunctionDeclaration(
 	node: ts.FunctionDeclaration

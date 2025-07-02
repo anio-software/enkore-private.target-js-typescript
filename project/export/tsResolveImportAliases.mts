@@ -7,7 +7,7 @@ import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformation
 import {
 	transformSourceFile,
 	resolveImportAliases as resolveAliases
-} from "@aniojs/node-ts-utils"
+} from "@anio-software/pkg.node-ts-utils"
 
 export function tsResolveImportAliases(
 	transformContext: MyTSTransformationContext|undefined,

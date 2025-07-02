@@ -4,9 +4,7 @@ import type {Nodes} from "#~src/types/node/Map.mts"
 import {getMyTSSourceFileInternals} from "#~src/getMyTSSourceFileInternals.mts"
 import {MyTSTopLevelTypeTreeClass} from "#~src/MyTSTopLevelTypeTreeClass.mts"
 import {getMyTSProgramInternals} from "#~src/getMyTSProgramInternals.mts"
-import {
-	getTypeNamesReferencedInNode
-} from "@aniojs/node-ts-utils"
+import {getTypeNamesReferencedInNode} from "@anio-software/pkg.node-ts-utils"
 
 export function tsGetRequiredTopLevelTypesForNode(
 	node: Nodes

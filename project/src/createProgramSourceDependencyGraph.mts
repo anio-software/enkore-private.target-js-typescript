@@ -1,6 +1,6 @@
 import ts from "typescript"
 import path from "node:path"
-import {getModuleImportAndExportSpecifiers} from "@aniojs/node-ts-utils"
+import {getModuleImportAndExportSpecifiers} from "@anio-software/pkg.node-ts-utils"
 
 type Context = {
 	tsProgram: ts.Program

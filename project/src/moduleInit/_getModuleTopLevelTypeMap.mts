@@ -6,8 +6,8 @@ import {tsConvertTSImportDeclarationToString} from "#~export/tsConvertTSImportDe
 import {
 	astFilter,
 	getTypeAliasDeclarationAsFormattedString
-} from "@aniojs/node-ts-utils"
-import {getTypeNamesReferencedInNode} from "@aniojs/node-ts-utils"
+} from "@anio-software/pkg.node-ts-utils"
+import {getTypeNamesReferencedInNode} from "@anio-software/pkg.node-ts-utils"
 import type {MyTSImportDeclaration} from "#~src/types/node/MyTSImportDeclaration.mts"
 
 function importReferencesAValue(

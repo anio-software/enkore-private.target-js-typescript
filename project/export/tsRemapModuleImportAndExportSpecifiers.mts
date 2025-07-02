@@ -10,7 +10,7 @@ import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformation
 import {
 	transformSourceFile,
 	remapModuleImportAndExportSpecifiers as remap
-} from "@aniojs/node-ts-utils"
+} from "@anio-software/pkg.node-ts-utils"
 
 type Mapper = (
 	moduleSpecifier: string,

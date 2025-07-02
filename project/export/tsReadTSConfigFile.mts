@@ -1,7 +1,4 @@
-import {
-	readTSConfigFile as impl
-} from "@aniojs/node-ts-utils"
-
+import {readTSConfigFile as impl} from "@anio-software/pkg.node-ts-utils"
 import type {MyTSCompilerOptions} from "./MyTSCompilerOptions.mts"
 import {createMyTSCompilerOptions} from "#~src/createMyTSCompilerOptions.mts"
 

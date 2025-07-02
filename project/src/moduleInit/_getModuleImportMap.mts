@@ -3,7 +3,7 @@ import ts from "typescript"
 import type {MyTSSourceFile} from "../types/MyTSSourceFile.mts"
 import type {MyTSImportDeclaration} from "../types/node/MyTSImportDeclaration.mts"
 import {convert} from "../convert/convert.mts"
-import {astFilter} from "@aniojs/node-ts-utils"
+import {astFilter} from "@anio-software/pkg.node-ts-utils"
 import type {Nodes} from "../types/node/Map.mts"
 
 export function _getModuleImportMap(

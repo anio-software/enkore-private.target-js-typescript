@@ -7,7 +7,7 @@ import {getMyTSTransformationContextInternals} from "#~src/getMyTSTransformation
 import {
 	transformSourceFile,
 	expandModuleImportAndExportDeclarations as expand
-} from "@aniojs/node-ts-utils"
+} from "@anio-software/pkg.node-ts-utils"
 
 export function tsExpandModuleImportAndExportDeclarations(
 	transformContext: MyTSTransformationContext|undefined

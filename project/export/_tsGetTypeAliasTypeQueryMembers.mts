@@ -1,6 +1,6 @@
 import ts from "typescript"
 import type {MyTSTypeAliasDeclaration} from "#~src/types/node/MyTSTypeAliasDeclaration.mts"
-import {printNode} from "@aniojs/node-ts-utils"
+import {printNode} from "@anio-software/pkg.node-ts-utils"
 
 type Member = {
 	property: string

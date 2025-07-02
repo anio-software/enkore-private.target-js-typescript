@@ -1,5 +1,5 @@
 import ts from "typescript"
-import {printNode} from "@aniojs/node-ts-utils"
+import {printNode} from "@anio-software/pkg.node-ts-utils"
 
 import type {
 	AnonymousImport
