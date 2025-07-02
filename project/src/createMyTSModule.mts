@@ -16,23 +16,6 @@ type Writeable<T> = {
 	-readonly [P in keyof T]: T[P]
 }
 
-function getModuleFileDependencyTree(
-	myProgramInt: MyTSProgramInternal,
-	filePath: string
-) {
-	const node = myProgramInt.sourceFileTree.findChild((nodeFilePath) => {
-		return nodeFilePath === filePath
-	})
-
-	if (!node) {
-		throw new Error(
-			`Internal error: Unable to find ${filePath} in the source file tree.`
-		)
-	}
-
-	return node
-}
-
 export function createMyTSModule(
 	myProgram: MyTSProgram,
 	filePath: string
@@ -54,9 +37,6 @@ export function createMyTSModule(
 		moduleExports: new Map(),
 		moduleImports: new Map(),
 		topLevelTypesTree: {} as MyTSModule["topLevelTypesTree"],
-		moduleFileDependencyTree: getModuleFileDependencyTree(
-			myProgramInt, relativeFilePath
-		),
 		referencedModuleSpecifiers: new Set(),
 		source: {} as MyTSSourceFile,
 		getModuleExportNames: () => { return [] },
