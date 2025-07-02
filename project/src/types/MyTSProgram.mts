@@ -13,7 +13,10 @@ export type Internal = {
 
 	getTSSourceFile: (filePath: string) => ts.SourceFile|undefined
 
+	// to be removed ...
 	sourceFileTree: MyTSSourceFileDependencyTreeClass
+
+	sourceDependencyGraph: Map<string, Set<string>>
 
 	__self: MyTSProgram
 }
