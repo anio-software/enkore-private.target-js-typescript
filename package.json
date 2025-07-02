@@ -15,7 +15,6 @@
     "@anio-software/enkore.target-js-node": "^0.0.29",
     "@anio-software/pkg.is": "^0.0.2",
     "@aniojs/node-fs": "^0.5.3",
-    "@aniojs/node-ts-utils": "^0.203.0",
     "@aniojs/random-ident": "^0.1.2",
     "@types/node": "^22.7.7"
   },
