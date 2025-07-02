@@ -10,14 +10,16 @@ type Context = {
 }
 
 function processSourceFile(context: Context, filePath: string) {
-	if (context.visited.has(filePath)) return
-	context.visited.add(filePath)
+	const {tsProgram, visited, graph} = context
 
-	if (!context.graph.has(filePath)) {
-		context.graph.set(filePath, new Set())
+	if (visited.has(filePath)) return
+	visited.add(filePath)
+
+	if (!graph.has(filePath)) {
+		graph.set(filePath, new Set())
 	}
 
-	const tsSourceFile = context.tsProgram.getSourceFile(filePath)
+	const tsSourceFile = tsProgram.getSourceFile(filePath)
 
 	if (!tsSourceFile) {
 		throw new Error(`Internal error, failed to get source file for path "${filePath}".`)
@@ -32,11 +34,11 @@ function processSourceFile(context: Context, filePath: string) {
 				specifier
 			)
 
-			context.graph.get(filePath)!.add(resolvedSpecifier)
+			graph.get(filePath)!.add(resolvedSpecifier)
 
 			processSourceFile(context, resolvedSpecifier)
 		} else {
-			context.graph.get(filePath)!.add(specifier)
+			graph.get(filePath)!.add(specifier)
 		}
 	}
 }
