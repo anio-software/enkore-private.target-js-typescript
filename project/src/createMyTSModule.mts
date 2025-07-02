@@ -10,6 +10,7 @@ import {_getModuleExports} from "./moduleInit/_getModuleExports.mts"
 import {_getModuleImportMap} from "./moduleInit/_getModuleImportMap.mts"
 import {_getModuleTopLevelTypeMap} from "./moduleInit/_getModuleTopLevelTypeMap.mts"
 import {_getModuleTopLevelType} from "./moduleInit/_getModuleTopLevelType.mts"
+import {walkSourceFileDependencyGraph} from "#~src/walkSourceFileDependencyGraph.mts"
 
 type Writeable<T> = {
 	-readonly [P in keyof T]: T[P]
@@ -56,6 +57,7 @@ export function createMyTSModule(
 		moduleFileDependencyTree: getModuleFileDependencyTree(
 			myProgramInt, relativeFilePath
 		),
+		referencedModuleSpecifiers: new Set(),
 		source: {} as MyTSSourceFile,
 		getModuleExportNames: () => { return [] },
 		getModuleExportByName: () => undefined
@@ -102,6 +104,14 @@ export function createMyTSModule(
 
 		return exportDescriptor
 	}
+
+	walkSourceFileDependencyGraph(
+		myProgramInt.sourceDependencyGraph,
+		filePath,
+		(moduleSpecifier) => {
+			(myModule.referencedModuleSpecifiers as Set<string>).add(moduleSpecifier)
+		}
+	)
 
 	return myModule
 }

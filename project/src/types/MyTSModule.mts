@@ -27,4 +27,6 @@ export type MyTSModule = {
 	readonly topLevelTypesTree: MyTSTopLevelTypeTree
 
 	readonly moduleFileDependencyTree: MyTSSourceFileDependencyTree
+
+	readonly referencedModuleSpecifiers: ReadonlySet<string>
 }
