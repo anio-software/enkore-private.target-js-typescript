@@ -41,7 +41,7 @@ function processSourceFile(context: Context, filePath: string) {
 
 			processSourceFile(context, resolvedSpecifier)
 		} else {
-			graph.get(filePath)!.add(specifier)
+			graph.get(filePath)!.add(`external:${specifier}`)
 		}
 	}
 }
