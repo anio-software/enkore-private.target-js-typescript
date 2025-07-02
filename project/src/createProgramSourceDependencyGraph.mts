@@ -41,7 +41,7 @@ function processSourceFile(context: Context, filePath: string) {
 	}
 }
 
-export function createSourceDependencyGraph(
+export function createProgramSourceDependencyGraph(
 	projectRoot: string,
 	inputFilePaths: string[],
 	tsProgram: ts.Program

@@ -11,7 +11,7 @@ import {getMyTSCompilerOptionsInternals} from "#~src/getMyTSCompilerOptionsInter
 import type {MyTSDiagnosticMessage} from "./MyTSDiagnosticMessage.mts"
 import {convertTSDiagnostic} from "#~src/utils/convertTSDiagnostic.mts"
 import {createProgramSourceFileTree} from "#~src/createProgramSourceFileTree.mts"
-import {createSourceDependencyGraph} from "#~src/createSourceDependencyGraph.mts"
+import {createProgramSourceDependencyGraph} from "#~src/createProgramSourceDependencyGraph.mts"
 
 export function tsCreateProgram(
 	userProjectRoot: string,
@@ -115,7 +115,7 @@ export function tsCreateProgram(
 			sourceFileTree: createProgramSourceFileTree(
 				projectRoot, inputFilePaths, tsProgram
 			),
-			sourceDependencyGraph: createSourceDependencyGraph(
+			sourceDependencyGraph: createProgramSourceDependencyGraph(
 				projectRoot, inputFilePaths, tsProgram
 			),
 			__self: {} as MyTSProgram
