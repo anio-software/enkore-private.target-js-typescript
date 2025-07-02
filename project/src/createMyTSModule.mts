@@ -86,6 +86,10 @@ export function createMyTSModule(
 		myProgramInt.sourceDependencyGraph,
 		filePath,
 		(moduleSpecifier) => {
+			if (moduleSpecifier.startsWith(myProgram.projectRoot)) {
+				moduleSpecifier = moduleSpecifier.slice(myProgram.projectRoot.length)
+			}
+
 			(myModule.referencedModuleSpecifiers as Set<string>).add(moduleSpecifier)
 		}
 	)
