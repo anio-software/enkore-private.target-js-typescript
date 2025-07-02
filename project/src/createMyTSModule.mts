@@ -1,7 +1,4 @@
-import type {
-	MyTSProgram,
-	Internal as MyTSProgramInternal
-} from "./types/MyTSProgram.mts"
+import type {MyTSProgram} from "./types/MyTSProgram.mts"
 import type {MyTSModule} from "./types/MyTSModule.mts"
 import type {MyTSSourceFile} from "./types/MyTSSourceFile.mts"
 import {createMyTSSourceFile} from "./createMyTSSourceFile.mts"
