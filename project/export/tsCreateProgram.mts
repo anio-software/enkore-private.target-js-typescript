@@ -49,7 +49,7 @@ export function tsCreateProgram(
 
 				if (!entryPath.startsWith("/")) {
 					entryPath = resolvePathSync(
-						path.join(projectRoot, entryPath), ["regularFile"]
+						path.join(projectRoot, entryPath), ["file:regular"]
 					)
 				} else if (!entryPath.startsWith(projectRoot)) {
 					throw new Error(
