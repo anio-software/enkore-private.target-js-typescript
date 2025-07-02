@@ -12,7 +12,10 @@ type Context = {
 function processSourceFile(context: Context, filePath: string) {
 	const {tsProgram, visited, graph} = context
 
-	if (visited.has(filePath)) return
+	if (visited.has(filePath)) {
+		return
+	}
+
 	visited.add(filePath)
 
 	if (!graph.has(filePath)) {
