@@ -58,6 +58,10 @@ export function _getModuleExports(
 			moduleExports.set(identifier, {
 				kind: "module"
 			})
+		} else if (symbolType === "class" && ts.isClassDeclaration(declaration)) {
+			moduleExports.set(identifier, {
+				kind: "class"
+			})
 		}
 	}
 
