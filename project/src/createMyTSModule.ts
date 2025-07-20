@@ -69,15 +69,13 @@ export function createMyTSModule(
 	}
 
 	myModule.getModuleExportByName = (exportName, considerTypesOnly) => {
-		const typeKinds = ["type", "interface"]
-
 		if (!myModule.moduleExports.has(exportName)) {
 			return undefined
 		}
 
 		const exportDescriptor = myModule.moduleExports.get(exportName)!
 
-		if (considerTypesOnly === true && !typeKinds.includes(exportDescriptor.kind)) {
+		if (considerTypesOnly === true && !exportDescriptor.isTypeOrTypeLike) {
 			return undefined
 		}
 
