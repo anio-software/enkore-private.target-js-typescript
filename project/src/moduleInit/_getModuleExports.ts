@@ -42,29 +42,35 @@ export function _getModuleExports(
 				declarations: resolvedSymbol.declarations.map(decl => {
 					// todo: assert declaration type
 					return patch(convert(decl as ts.FunctionDeclaration))
-				})
+				}),
+				isTypeOrTypeLike: false
 			})
 		} else if (symbolType === "value" && ts.isVariableDeclaration(declaration)) {
 			moduleExports.set(identifier, {
 				kind: "value",
-				declaration: patch(convert(declaration))
+				declaration: patch(convert(declaration)),
+				isTypeOrTypeLike: false
 			})
 		} else if (symbolType === "type" && ts.isTypeAliasDeclaration(declaration)) {
 			moduleExports.set(identifier, {
 				kind: "type",
-				declaration: patch(convert(declaration))
+				declaration: patch(convert(declaration)),
+				isTypeOrTypeLike: true
 			})
 		} else if (symbolType === "module" && ts.isSourceFile(declaration)) {
 			moduleExports.set(identifier, {
-				kind: "module"
+				kind: "module",
+				isTypeOrTypeLike: false
 			})
 		} else if (symbolType === "class" && ts.isClassDeclaration(declaration)) {
 			moduleExports.set(identifier, {
-				kind: "class"
+				kind: "class",
+				isTypeOrTypeLike: false
 			})
 		} else if (symbolType === "interface" && ts.isInterfaceDeclaration(declaration)) {
 			moduleExports.set(identifier, {
-				kind: "interface"
+				kind: "interface",
+				isTypeOrTypeLike: true
 			})
 		}
 	}

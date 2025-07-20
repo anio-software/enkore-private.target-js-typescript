@@ -6,6 +6,7 @@ type Kind = "value" | "function" | "type" | "module" | "class" | "interface"
 
 type Export = {
 	kind: Kind
+	isTypeOrTypeLike: boolean
 }
 
 type ValueExport = Export & {
