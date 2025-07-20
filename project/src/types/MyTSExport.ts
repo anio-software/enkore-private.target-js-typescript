@@ -2,7 +2,7 @@ import type {MyTSVariableDeclaration} from "./node/MyTSVariableDeclaration.ts"
 import type {MyTSFunctionDeclaration} from "./node/MyTSFunctionDeclaration.ts"
 import type {MyTSTypeAliasDeclaration} from "./node/MyTSTypeAliasDeclaration.ts"
 
-type Kind = "value" | "function" | "type" | "module" | "class"
+type Kind = "value" | "function" | "type" | "module" | "class" | "interface"
 
 type Export = {
 	kind: Kind
@@ -31,4 +31,8 @@ type ClassExport = Export & {
 	kind: "class"
 }
 
-export type MyTSExport = ValueExport | FunctionExport | TypeExport | ModuleExport | ClassExport
+type InterfaceExport = Export & {
+	kind: "interface"
+}
+
+export type MyTSExport = ValueExport | FunctionExport | TypeExport | ModuleExport | ClassExport | InterfaceExport

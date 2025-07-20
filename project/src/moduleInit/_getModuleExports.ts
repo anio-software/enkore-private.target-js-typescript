@@ -62,6 +62,10 @@ export function _getModuleExports(
 			moduleExports.set(identifier, {
 				kind: "class"
 			})
+		} else if (symbolType === "interface" && ts.isInterfaceDeclaration(declaration)) {
+			moduleExports.set(identifier, {
+				kind: "interface"
+			})
 		}
 	}
 
